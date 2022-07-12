@@ -1,4 +1,4 @@
-<title>NobleUI - HTML Bootstrap 5 Admin Dashboard Template</title>
+<title>KUB IKAN</title>
 
 <!-- Fonts -->
 <link rel="preconnect" href="https://fonts.googleapis.com">

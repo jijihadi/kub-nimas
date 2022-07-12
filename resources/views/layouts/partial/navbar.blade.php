@@ -11,9 +11,8 @@
     </div>
     <div class="sidebar-body">
         <ul class="nav">
-            <li class="nav-item nav-category">Main</li>
-            <li class="nav-item">
-                <a href="dashboard.html" class="nav-link">
+            <li class="nav-item {{cek_active('home')}}">
+                <a href="#" class="nav-link">
                     <i class="link-icon" data-feather="box"></i>
                     <span class="link-title">Dashboard</span>
                 </a>
@@ -35,7 +34,7 @@
                 <div class="collapse" id="emails">
                     <ul class="nav sub-menu">
                         <li class="nav-item">
-                            <a href="# class="nav-link">Surat Masuk</a>
+                            <a href="#"" class="nav-link">Surat Masuk</a>
                         </li>
                         <li class="nav-item">
                             <a href="#" class="nav-link">Surat Keluar</a>

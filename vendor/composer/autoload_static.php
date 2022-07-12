@@ -36,6 +36,7 @@ class ComposerStaticInit21b282246ae3612b464891f693234491
         '6124b4c8570aa390c21fafd04a26c69f' => __DIR__ . '/..' . '/myclabs/deep-copy/src/DeepCopy/deep_copy.php',
         'b6b991a57620e2fb6b2f66f03fe9ddc2' => __DIR__ . '/..' . '/symfony/string/Resources/functions.php',
         'ed962a97bd972bc82007176b647d4e36' => __DIR__ . '/..' . '/facade/ignition/src/helpers.php',
+        '9eb92a60b23a168bdc5f3366f76ebf52' => __DIR__ . '/../..' . '/app/helpers/helpers.php',
     );
 
     public static $prefixLengthsPsr4 = array (
@@ -546,6 +547,7 @@ class ComposerStaticInit21b282246ae3612b464891f693234491
         'App\\Http\\Controllers\\ProduksiController' => __DIR__ . '/../..' . '/app/Http/Controllers/ProduksiController.php',
         'App\\Http\\Controllers\\RencanaController' => __DIR__ . '/../..' . '/app/Http/Controllers/RencanaController.php',
         'App\\Http\\Controllers\\SuratController' => __DIR__ . '/../..' . '/app/Http/Controllers/SuratController.php',
+        'App\\Http\\Controllers\\TamuController' => __DIR__ . '/../..' . '/app/Http/Controllers/TamuController.php',
         'App\\Http\\Controllers\\UsahaController' => __DIR__ . '/../..' . '/app/Http/Controllers/UsahaController.php',
         'App\\Http\\Kernel' => __DIR__ . '/../..' . '/app/Http/Kernel.php',
         'App\\Http\\Middleware\\Authenticate' => __DIR__ . '/../..' . '/app/Http/Middleware/Authenticate.php',
@@ -566,6 +568,7 @@ class ComposerStaticInit21b282246ae3612b464891f693234491
         'App\\Http\\Requests\\StoreProduksiRequest' => __DIR__ . '/../..' . '/app/Http/Requests/StoreProduksiRequest.php',
         'App\\Http\\Requests\\StoreRencanaRequest' => __DIR__ . '/../..' . '/app/Http/Requests/StoreRencanaRequest.php',
         'App\\Http\\Requests\\StoreSuratRequest' => __DIR__ . '/../..' . '/app/Http/Requests/StoreSuratRequest.php',
+        'App\\Http\\Requests\\StoreTamuRequest' => __DIR__ . '/../..' . '/app/Http/Requests/StoreTamuRequest.php',
         'App\\Http\\Requests\\StoreUsahaRequest' => __DIR__ . '/../..' . '/app/Http/Requests/StoreUsahaRequest.php',
         'App\\Http\\Requests\\UpdateAbsensiRequest' => __DIR__ . '/../..' . '/app/Http/Requests/UpdateAbsensiRequest.php',
         'App\\Http\\Requests\\UpdateAnggotaRequest' => __DIR__ . '/../..' . '/app/Http/Requests/UpdateAnggotaRequest.php',
@@ -576,6 +579,7 @@ class ComposerStaticInit21b282246ae3612b464891f693234491
         'App\\Http\\Requests\\UpdateProduksiRequest' => __DIR__ . '/../..' . '/app/Http/Requests/UpdateProduksiRequest.php',
         'App\\Http\\Requests\\UpdateRencanaRequest' => __DIR__ . '/../..' . '/app/Http/Requests/UpdateRencanaRequest.php',
         'App\\Http\\Requests\\UpdateSuratRequest' => __DIR__ . '/../..' . '/app/Http/Requests/UpdateSuratRequest.php',
+        'App\\Http\\Requests\\UpdateTamuRequest' => __DIR__ . '/../..' . '/app/Http/Requests/UpdateTamuRequest.php',
         'App\\Http\\Requests\\UpdateUsahaRequest' => __DIR__ . '/../..' . '/app/Http/Requests/UpdateUsahaRequest.php',
         'App\\Models\\Absensi' => __DIR__ . '/../..' . '/app/Models/Absensi.php',
         'App\\Models\\Anggota' => __DIR__ . '/../..' . '/app/Models/Anggota.php',
@@ -598,6 +602,7 @@ class ComposerStaticInit21b282246ae3612b464891f693234491
         'App\\Policies\\ProduksiPolicy' => __DIR__ . '/../..' . '/app/Policies/ProduksiPolicy.php',
         'App\\Policies\\RencanaPolicy' => __DIR__ . '/../..' . '/app/Policies/RencanaPolicy.php',
         'App\\Policies\\SuratPolicy' => __DIR__ . '/../..' . '/app/Policies/SuratPolicy.php',
+        'App\\Policies\\TamuPolicy' => __DIR__ . '/../..' . '/app/Policies/TamuPolicy.php',
         'App\\Policies\\UsahaPolicy' => __DIR__ . '/../..' . '/app/Policies/UsahaPolicy.php',
         'App\\Providers\\AppServiceProvider' => __DIR__ . '/../..' . '/app/Providers/AppServiceProvider.php',
         'App\\Providers\\AuthServiceProvider' => __DIR__ . '/../..' . '/app/Providers/AuthServiceProvider.php',
@@ -734,6 +739,7 @@ class ComposerStaticInit21b282246ae3612b464891f693234491
         'Database\\Seeders\\ProduksiSeeder' => __DIR__ . '/../..' . '/database/seeders/ProduksiSeeder.php',
         'Database\\Seeders\\RencanaSeeder' => __DIR__ . '/../..' . '/database/seeders/RencanaSeeder.php',
         'Database\\Seeders\\SuratSeeder' => __DIR__ . '/../..' . '/database/seeders/SuratSeeder.php',
+        'Database\\Seeders\\TamuSeeder' => __DIR__ . '/../..' . '/database/seeders/TamuSeeder.php',
         'Database\\Seeders\\UsahaSeeder' => __DIR__ . '/../..' . '/database/seeders/UsahaSeeder.php',
         'DeepCopy\\DeepCopy' => __DIR__ . '/..' . '/myclabs/deep-copy/src/DeepCopy/DeepCopy.php',
         'DeepCopy\\Exception\\CloneException' => __DIR__ . '/..' . '/myclabs/deep-copy/src/DeepCopy/Exception/CloneException.php',
