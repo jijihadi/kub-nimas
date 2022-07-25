@@ -12,14 +12,14 @@
     <div class="sidebar-body">
         <ul class="nav">
             <li class="nav-item {{cek_active('home')}}">
-                <a href="#" class="nav-link">
+                <a href="{{url('/')}}" class="nav-link">
                     <i class="link-icon" data-feather="box"></i>
                     <span class="link-title">Dashboard</span>
                 </a>
             </li>
             <li class="nav-item nav-category">data kub</li>
             <li class="nav-item">
-                <a href="#" target="_blank" class="nav-link">
+                <a href="{{url('buku-tamu')}}" class="nav-link">
                     <i class="link-icon" data-feather="book-open"></i>
                     <span class="link-title">Buku Tamu</span>
                 </a>
@@ -43,51 +43,51 @@
                 </div>
             </li>
             <li class="nav-item">
-                <a href="#" target="_blank" class="nav-link">
+                <a href="{{url('inventaris-barang')}}" class="nav-link">
                     <i class="link-icon" data-feather="layers"></i>
                     <span class="link-title">Inventaris Barang</span>
                 </a>
             </li>   
             <li class="nav-item">
-                <a href="#" target="_blank" class="nav-link">
+                <a href="{{url('kas')}}" class="nav-link">
                     <i class="link-icon" data-feather="book"></i>
                     <span class="link-title">Kas</span>
                 </a>
             </li>
             <li class="nav-item">
-                <a href="#" target="_blank" class="nav-link">
+                <a href="{{url('hasil-produksi')}}" class="nav-link">
                     <i class="link-icon" data-feather="package"></i>
                     <span class="link-title">Hasil Produksi</span>
                 </a>
             </li>
             <li class="nav-item nav-category">keanggotaan</li>
             <li class="nav-item">
-                <a href="#" target="_blank" class="nav-link">
+                <a href="{{url('list-anggota')}}" class="nav-link">
                     <i class="link-icon" data-feather="users"></i>
                     <span class="link-title">Daftar Anggota</span>
                 </a>
             </li>
             <li class="nav-item nav-category">kegiatan</li>
             <li class="nav-item">
-                <a href="#" target="_blank" class="nav-link">
+                <a href="{{url('rencana-kegiatan')}}" class="nav-link">
                     <i class="link-icon" data-feather="trello"></i>
                     <span class="link-title">Rencana Kegiatan</span>
                 </a>
             </li>
             <li class="nav-item">
-                <a href="#" target="_blank" class="nav-link">
+                <a href="{{url('daftar-hadir')}}" class="nav-link">
                     <i class="link-icon" data-feather="clipboard"></i>
                     <span class="link-title">Daftar Kehadiran</span>
                 </a>
             </li>
             <li class="nav-item">
-                <a href="#" target="_blank" class="nav-link">
+                <a href="{{url('kegiatan')}}" class="nav-link">
                     <i class="link-icon" data-feather="truck"></i>
                     <span class="link-title">Kegiatan Usaha</span>
                 </a>
             </li>
             <li class="nav-item">
-                <a href="#" target="_blank" class="nav-link">
+                <a href="{{url('notulen')}}" class="nav-link">
                     <i class="link-icon" data-feather="paperclip"></i>
                     <span class="link-title">Notulen</span>
                 </a>

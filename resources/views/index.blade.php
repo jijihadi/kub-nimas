@@ -1,5 +1,9 @@
 @extends('layouts.main')
-
+@section('style')
+    <!-- Plugin css for this page -->
+    <link rel="stylesheet" href="{{ asset('assets/vendors/bootstrap-datepicker/bootstrap-datepicker.min.css') }}">
+    <!-- End plugin css for this page -->
+@endsection
 @section('content')
     <div class="page-content">
 
@@ -516,4 +520,18 @@
         </div> <!-- row -->
 
     </div>
+@endsection
+@section('scripts')
+    <!-- Plugin js for this page -->
+    <script src="{{ asset('assets/vendors/chartjs/Chart.min.js') }}"></script>
+    <script src="{{ asset('assets/vendors/jquery.flot/jquery.flot.js') }}"></script>
+    <script src="{{ asset('assets/vendors/jquery.flot/jquery.flot.resize.js') }}"></script>
+    <script src="{{ asset('assets/vendors/bootstrap-datepicker/bootstrap-datepicker.min.js') }}"></script>
+    <script src="{{ asset('assets/vendors/apexcharts/apexcharts.min.js') }}"></script>
+    <!-- End plugin js for this page -->
+
+    <!-- Custom js for this page -->
+    <script src="{{ asset('/assets/js/dashboard-light.js') }}"></script>
+    <script src="{{ asset('/assets/js/datepicker.js') }}"></script>
+    <!-- End custom js for this page -->
 @endsection

@@ -8,4 +8,19 @@ use Illuminate\Database\Eloquent\Model;
 class Surat extends Model
 {
     use HasFactory;
+    /**
+     * The attributes that are mass assignable.
+     *
+     * @var array<int, string>
+     */
+    protected $fillable = [
+        'nomor',
+        'tanggal',
+        'tanggal_masuk',
+        'tanggal_keluar',
+        'perihal_masuk',
+        'perihal_keluar',
+        'tindak_lanjut',
+        'keterangan'
+    ];
 }

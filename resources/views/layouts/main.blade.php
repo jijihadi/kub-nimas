@@ -20,7 +20,7 @@ License: For each use you must have a valid license purchased only from above li
         content="nobleui, bootstrap, bootstrap 5, bootstrap5, admin, dashboard, template, responsive, css, sass, html, theme, front-end, ui kit, web">
 
     @include('layouts/partial/head')
-    @yield('style')
+    
 </head>
 
 <body>
@@ -28,7 +28,7 @@ License: For each use you must have a valid license purchased only from above li
 
         <!-- partial:partials/_sidebar.html -->
         @include('layouts/partial/navbar')
-        <nav class="settings-sidebar">
+        {{-- <nav class="settings-sidebar">
             <div class="sidebar-body">
                 <a href="#" class="settings-sidebar-toggler">
                     <i data-feather="settings"></i>
@@ -61,7 +61,7 @@ License: For each use you must have a valid license purchased only from above li
                     </a>
                 </div>
             </div>
-        </nav>
+        </nav> --}}
         <!-- partial -->
 
         <div class="page-wrapper">
@@ -77,7 +77,7 @@ License: For each use you must have a valid license purchased only from above li
         </div>
     </div>
 @include('layouts/partial/script')
-@yield('scripts')
+
 </body>
 
 </html>

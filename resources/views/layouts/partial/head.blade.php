@@ -10,9 +10,7 @@
 <link rel="stylesheet" href="{{asset('assets/vendors/core/core.css')}}">
 <!-- endinject -->
 
-<!-- Plugin css for this page -->
-<link rel="stylesheet" href="{{asset('assets/vendors/bootstrap-datepicker/bootstrap-datepicker.min.css')}}">
-<!-- End plugin css for this page -->
+@yield('style')
 
 <!-- inject:css -->
 <link rel="stylesheet" href="{{asset('assets/fonts/feather-font/css/iconfont.css')}}">

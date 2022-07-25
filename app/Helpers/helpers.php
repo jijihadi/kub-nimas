@@ -54,6 +54,23 @@ if (!function_exists('get_uri')) {
     }
 }
 
+if (!function_exists('get_headname')) {
+    /**
+     * @return string
+     */
+
+    function get_headname($par = null)
+    {
+        $route = url()->current();
+        $route = str_replace('https://', '', $route);
+        $route = str_replace('http://', '', $route);
+        $route = str_replace('-', ' ', $route);
+        $arrayed = explode('/', $route);
+        $uri = $arrayed[$par];
+        return $uri;
+    }
+}
+
 
 if (!function_exists('cek_active')) {
     /**

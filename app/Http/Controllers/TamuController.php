@@ -5,6 +5,10 @@ namespace App\Http\Controllers;
 use App\Models\Tamu;
 use App\Http\Requests\StoreTamuRequest;
 use App\Http\Requests\UpdateTamuRequest;
+use Illuminate\Support\Facades\Auth;
+use DB;
+use Illuminate\Http\Request;
+use Session;
 
 class TamuController extends Controller
 {
@@ -15,7 +19,8 @@ class TamuController extends Controller
      */
     public function index()
     {
-        //
+        $data['main'] = Tamu::all();
+        return view('tamu/index', $data);
     }
 
     /**
@@ -25,7 +30,7 @@ class TamuController extends Controller
      */
     public function create()
     {
-        //
+        return view('tamu/form-add');
     }
 
     /**
@@ -36,7 +41,37 @@ class TamuController extends Controller
      */
     public function store(StoreTamuRequest $request)
     {
-        //
+        //validate post data
+        $this->validate($request, [
+            'nama' => 'required',
+            'jabatan' => 'required',
+            'telp' => 'required',
+            'tanggal_datang' => 'required',
+            'tanggal_pulang' => 'required',
+            'keperluan' => 'required',
+            'kesan' => 'required',
+            'pesan' => 'required',
+        ]);
+        //get post data
+        $postData = $request->all();
+        try {
+            DB::beginTransaction();
+            DB::enableQueryLog();
+
+            //insert post data
+            Tamu::create($postData);
+            DB::commit();
+
+            //store status message
+            Session::flash('success', 'Data berhasil ditambahkan!');
+        } catch (\Exception $e) {
+            DB::rollback();
+            // something went wrong
+            Session::flash('error', $e->getMessage());
+
+            dd( $e->getMessage() );
+        }
+        return redirect('buku-tamu');
     }
 
     /**
@@ -56,9 +91,10 @@ class TamuController extends Controller
      * @param  \App\Models\Tamu  $tamu
      * @return \Illuminate\Http\Response
      */
-    public function edit(Tamu $tamu)
+    public function edit(Tamu $tamu, $id)
     {
-        //
+        $data['main'] = Tamu::find($id)->toArray();
+        return view('tamu/form-edit', $data);
     }
 
     /**
@@ -68,9 +104,39 @@ class TamuController extends Controller
      * @param  \App\Models\Tamu  $tamu
      * @return \Illuminate\Http\Response
      */
-    public function update(UpdateTamuRequest $request, Tamu $tamu)
+    public function update(UpdateTamuRequest $request, Tamu $tamu, $id)
     {
-        //
+        //validate post data
+        $this->validate($request, [
+            'nama' => 'required',
+            'jabatan' => 'required',
+            'telp' => 'required',
+            'tanggal_datang' => 'required',
+            'tanggal_pulang' => 'required',
+            'keperluan' => 'required',
+            'kesan' => 'required',
+            'pesan' => 'required',
+        ]);
+        //get post data
+        $postData = $request->all();
+        try {
+            DB::beginTransaction();
+            DB::enableQueryLog();
+
+            //insert post data
+            Tamu::find($id)->update($postData);
+            DB::commit();
+
+            //store status message
+            Session::flash('success', 'Data berhasil diubah!');
+        } catch (\Exception $e) {
+            DB::rollback();
+            // something went wrong
+            Session::flash('error', $e->getMessage());
+
+            dd( $e->getMessage() );
+        }
+        return redirect('buku-tamu-edit/'.$id);
     }
 
     /**
@@ -79,8 +145,25 @@ class TamuController extends Controller
      * @param  \App\Models\Tamu  $tamu
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Tamu $tamu)
+    public function destroy(Tamu $tamu, $id)
     {
-        //
+        try {
+            DB::beginTransaction();
+            DB::enableQueryLog();
+
+            //insert post data
+            Tamu::find($id)->delete();
+            DB::commit();
+
+            //store status message
+            Session::flash('success', 'Data berhasil dihapus!');
+        } catch (\Exception $e) {
+            DB::rollback();
+            // something went wrong
+            Session::flash('error', $e->getMessage());
+
+            dd( $e->getMessage() );
+        }
+        return redirect('buku-tamu');
     }
 }
