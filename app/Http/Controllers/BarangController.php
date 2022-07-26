@@ -5,6 +5,10 @@ namespace App\Http\Controllers;
 use App\Models\Barang;
 use App\Http\Requests\StoreBarangRequest;
 use App\Http\Requests\UpdateBarangRequest;
+use Illuminate\Support\Facades\Auth;
+use Illuminate\Http\Request;
+use Session;
+use DB;
 
 class BarangController extends Controller
 {
@@ -15,7 +19,8 @@ class BarangController extends Controller
      */
     public function index()
     {
-        //
+        $data['main'] = Barang::all();
+        return view('inventaris/index', $data);
     }
 
     /**
@@ -25,7 +30,7 @@ class BarangController extends Controller
      */
     public function create()
     {
-        //
+        return view('inventaris/form-add');
     }
 
     /**
@@ -36,7 +41,35 @@ class BarangController extends Controller
      */
     public function store(StoreBarangRequest $request)
     {
-        //
+        //validate post data
+        $this->validate($request, [
+            'kode' => 'required',
+            'name' => 'required',
+            'tanggal' => 'required',
+            'jumlah' => 'required',
+            'kondisi' => 'required',
+            'perolehan' => 'required',
+        ]);
+        //get post data
+        $postData = $request->all();
+        try {
+            DB::beginTransaction();
+            DB::enableQueryLog();
+
+            //insert post data
+            Barang::create($postData);
+            DB::commit();
+
+            //store status message
+            Session::flash('success', 'Data berhasil ditambahkan!');
+        } catch (\Exception $e) {
+            DB::rollback();
+            // something went wrong
+            Session::flash('error', $e->getMessage());
+
+            dd( $e->getMessage() );
+        }
+        return redirect('inventaris-barang');
     }
 
     /**
@@ -56,9 +89,10 @@ class BarangController extends Controller
      * @param  \App\Models\Barang  $barang
      * @return \Illuminate\Http\Response
      */
-    public function edit(Barang $barang)
+    public function edit(Barang $barang, $id)
     {
-        //
+        $data['main'] = Barang::find($id)->toArray();
+        return view('inventaris/form-edit', $data);
     }
 
     /**
@@ -68,9 +102,37 @@ class BarangController extends Controller
      * @param  \App\Models\Barang  $barang
      * @return \Illuminate\Http\Response
      */
-    public function update(UpdateBarangRequest $request, Barang $barang)
+    public function update(UpdateBarangRequest $request, Barang $barang, $id)
     {
-        //
+        //validate post data
+        $this->validate($request, [
+            'kode' => 'required',
+            'name' => 'required',
+            'tanggal' => 'required',
+            'jumlah' => 'required',
+            'kondisi' => 'required',
+            'perolehan' => 'required',
+        ]);
+        //get post data
+        $postData = $request->all();
+        try {
+            DB::beginTransaction();
+            DB::enableQueryLog();
+
+            //insert post data
+            Barang::find($id)->update($postData);
+            DB::commit();
+
+            //store status message
+            Session::flash('success', 'Data berhasil diubah!');
+        } catch (\Exception $e) {
+            DB::rollback();
+            // something went wrong
+            Session::flash('error', $e->getMessage());
+
+            dd( $e->getMessage() );
+        }
+        return redirect('inventaris-barang-edit/'.$id);
     }
 
     /**
@@ -79,8 +141,25 @@ class BarangController extends Controller
      * @param  \App\Models\Barang  $barang
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Barang $barang)
+    public function destroy(Barang $barang, $id)
     {
-        //
+        try {
+            DB::beginTransaction();
+            DB::enableQueryLog();
+
+            //insert post data
+            Barang::find($id)->delete();
+            DB::commit();
+
+            //store status message
+            Session::flash('success', 'Data berhasil dihapus!');
+        } catch (\Exception $e) {
+            DB::rollback();
+            // something went wrong
+            Session::flash('error', $e->getMessage());
+
+            dd( $e->getMessage() );
+        }
+        return redirect('inventaris-barang');
     }
 }
