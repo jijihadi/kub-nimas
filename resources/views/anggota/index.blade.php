@@ -24,7 +24,7 @@
                                 <h6 class="card-title">Data {{ get_headname('1') }}</h6>
                             </div>
                             <div class="col-6 ">
-                                <a href="{{ url('buku-tamu-add') }}">
+                                <a href="{{ url('list-anggota-add') }}">
                                     <button type="button" class="btn btn-sm btn-primary btn-icon-text float-end">
                                         <i class="btn-icon-prepend" data-feather="plus"></i>
                                         Add Data
@@ -37,14 +37,20 @@
                             <table id="dataTableExample" class="table table-bordered table-responsive table-hover">
                                 <thead>
                                     <tr class="text-center">
-                                        <th>#</th>
-                                        <th>Nama/Jabatan</th>
-                                        <th>Kontak</th>
-                                        <th>Tanggal Datang</th>
-                                        <th>Tanggal Pulang</th>
-                                        <th>Keperluan</th>
-                                        <th>Kesan Pesan</th>
-                                        <th>#</th>
+                                        <th rowspan="2">#</th>
+                                        <th rowspan="2">Nama/Jabatan</th>
+                                        <th rowspan="2">Alamat</th>
+                                        <th rowspan="2">Pendidikan</th>
+                                        <th rowspan="2">Usia</th>
+                                        <th colspan="2">Usaha</th>
+                                        <th rowspan="2">Perahu</th>
+                                        <th rowspan="2">Alat</th>
+                                        <th rowspan="2">Keterangan</th>
+                                        <th rowspan="2">#</th>
+                                    </tr>
+                                    <tr class="text-center">
+                                        <th>Utama</th>
+                                        <th>Sampingan</th>
                                     </tr>
                                 </thead>
                                 <tbody>
@@ -52,23 +58,26 @@
                                         @foreach ($main as $row)
                                             <tr>
                                                 <td>{{ $loop->iteration }}</td>
-                                                <td>{{ $row->nama }}&nbsp;<b>({{ $row->jabatan }})</b></td>
-                                                <td>{{ $row->telp }}</td>
-                                                <td>{{ tglindo($row->tanggal_datang) }}</td>
-                                                <td>{{ tglindo($row->tanggal_pulang) }}</td>
-                                                <td>{{ $row->keperluan }}</td>
-                                                <td>{{ $row->kesan }}/{{ $row->pesan }}</td>
+                                                <td>{{ $row->name }} <b>({{$row->jabatan}})</b></td>
+                                                <td>{{ $row->alamat }}</td>
+                                                <td>{{ $row->pendidikan }}</td>
+                                                <td>{{ $row->usia }}&nbsp;Tahun</td>
+                                                <td>{{ $row->usaha_utama }}</td>
+                                                <td>{{ $row->usaha_sampingan }}</td>
+                                                <td>{{ $row->jumlah_perahu }}&nbsp;Buah</td>
+                                                <td>{{ $row->jenis_alat }}</td>
+                                                <td>{{ $row->keterangan }}</td>
                                                 <td>
                                                     <!--Edit-->
-                                                    <a href="{{ url('buku-tamu-edit') . '/' . $row->id }}">
+                                                    <a href="{{ url('list-anggota-edit') . '/' . $row->id }}">
                                                         <button type="button" class="btn btn-sm btn-success btn-icon-text">
                                                             <i class="btn-icon-prepend" data-feather="edit-3"></i>
                                                             Ubah
                                                         </button>
                                                     </a>
                                                     <!--Delete-->
-                                                    <a href="{{ url('buku-tamu-delete') . '/' . $row->id }}">
-                                                        <button type="button" class="btn btn-sm btn-danger btn-icon-text" onclick="return confirm('Hapus data {{$row->nama}}?');">
+                                                    <a href="{{ url('list-anggota-delete') . '/' . $row->id }}">
+                                                        <button type="button" class="btn btn-sm btn-danger btn-icon-text" onclick="return confirm('Hapus data {{$row->name}}?');">
                                                             <i class="btn-icon-prepend" data-feather="trash-2"></i>
                                                             Hapus
                                                         </button>
@@ -78,7 +87,7 @@
                                         @endforeach
                                     @endif
                                     @if (!isset($main))
-                                        <td colspan="8" class="text-center text-secondary">
+                                        <td colspan="12" class="text-center text-secondary">
                                             <i>Data masih kosong</i>
                                         </td>
                                     @endif

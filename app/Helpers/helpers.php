@@ -71,7 +71,6 @@ if (!function_exists('get_headname')) {
     }
 }
 
-
 if (!function_exists('cek_active')) {
     /**
      * @return string
@@ -79,7 +78,31 @@ if (!function_exists('cek_active')) {
 
     function cek_active($route)
     {
-        $status = get_uri(1)==$route ? 'active':'';
+        $status = get_uri(1) == $route ? 'active' : '';
         return $status;
+    }
+}
+
+if (!function_exists('rupiah')) {
+    /**
+     * @return string
+     */
+
+    function rupiah($angka)
+    {
+        $rupiah = number_format($angka, 0, ',', '.');
+        return "Rp " . $rupiah;
+    }
+}
+
+if (!function_exists('bilanganbulat')) {
+    /**
+     * @return string
+     */
+
+    function bilanganbulat($teks)
+    {
+        $teks = preg_replace("/[^0-9]/", "", $teks);
+        return $teks;
     }
 }

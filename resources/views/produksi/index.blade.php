@@ -24,7 +24,7 @@
                                 <h6 class="card-title">Data {{ get_headname('1') }}</h6>
                             </div>
                             <div class="col-6 ">
-                                <a href="{{ url('buku-tamu-add') }}">
+                                <a href="{{ url('hasil-produksi-add') }}">
                                     <button type="button" class="btn btn-sm btn-primary btn-icon-text float-end">
                                         <i class="btn-icon-prepend" data-feather="plus"></i>
                                         Add Data
@@ -38,12 +38,11 @@
                                 <thead>
                                     <tr class="text-center">
                                         <th>#</th>
-                                        <th>Nama/Jabatan</th>
-                                        <th>Kontak</th>
-                                        <th>Tanggal Datang</th>
-                                        <th>Tanggal Pulang</th>
-                                        <th>Keperluan</th>
-                                        <th>Kesan Pesan</th>
+                                        <th>Tanggal Produksi</th>
+                                        <th>Nama Anggota</th>
+                                        <th>Jumlah</th>
+                                        <th>Nilai</th>
+                                        <th>Ket</th>
                                         <th>#</th>
                                     </tr>
                                 </thead>
@@ -52,23 +51,22 @@
                                         @foreach ($main as $row)
                                             <tr>
                                                 <td>{{ $loop->iteration }}</td>
-                                                <td>{{ $row->nama }}&nbsp;<b>({{ $row->jabatan }})</b></td>
-                                                <td>{{ $row->telp }}</td>
-                                                <td>{{ tglindo($row->tanggal_datang) }}</td>
-                                                <td>{{ tglindo($row->tanggal_pulang) }}</td>
-                                                <td>{{ $row->keperluan }}</td>
-                                                <td>{{ $row->kesan }}/{{ $row->pesan }}</td>
+                                                <td><b>{{ tglindo($row->tanggal) }}</b></td>
+                                                <td>{{ $row->nama_anggota }}</td>
+                                                <td>{{ $row->jumlah}}</td>
+                                                <td>{{ rupiah($row->nilai) }}</td>
+                                                <td>{{ $row->keterangan }}</td>
                                                 <td>
                                                     <!--Edit-->
-                                                    <a href="{{ url('buku-tamu-edit') . '/' . $row->id }}">
+                                                    <a href="{{ url('hasil-produksi-edit') . '/' . $row->id }}">
                                                         <button type="button" class="btn btn-sm btn-success btn-icon-text">
                                                             <i class="btn-icon-prepend" data-feather="edit-3"></i>
                                                             Ubah
                                                         </button>
                                                     </a>
                                                     <!--Delete-->
-                                                    <a href="{{ url('buku-tamu-delete') . '/' . $row->id }}">
-                                                        <button type="button" class="btn btn-sm btn-danger btn-icon-text" onclick="return confirm('Hapus data {{$row->nama}}?');">
+                                                    <a href="{{ url('hasil-produksi-delete') . '/' . $row->id }}">
+                                                        <button type="button" class="btn btn-sm btn-danger btn-icon-text" onclick="return confirm('Hapus data {{$row->nama_anggota}} pada tanggal {{$row->tanggal}}?');">
                                                             <i class="btn-icon-prepend" data-feather="trash-2"></i>
                                                             Hapus
                                                         </button>

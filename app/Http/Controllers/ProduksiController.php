@@ -3,8 +3,13 @@
 namespace App\Http\Controllers;
 
 use App\Models\Produksi;
+use App\Models\Anggota;
 use App\Http\Requests\StoreProduksiRequest;
 use App\Http\Requests\UpdateProduksiRequest;
+use Illuminate\Support\Facades\Auth;
+use Illuminate\Http\Request;
+use Session;
+use DB;
 
 class ProduksiController extends Controller
 {
@@ -15,7 +20,8 @@ class ProduksiController extends Controller
      */
     public function index()
     {
-        //
+        $data['main'] = Produksi::all();
+        return view('produksi/index', $data);
     }
 
     /**
@@ -25,7 +31,8 @@ class ProduksiController extends Controller
      */
     public function create()
     {
-        //
+        $data['anggota'] = Anggota::all()->toArray();
+        return view('produksi/form-add', $data);
     }
 
     /**
@@ -36,7 +43,35 @@ class ProduksiController extends Controller
      */
     public function store(StoreProduksiRequest $request)
     {
-        //
+        //validate post data
+        $this->validate($request, [
+            'tanggal' => 'required',
+            'nama_anggota' => 'required',
+            'jumlah' => 'required',
+            'nilai' => 'required',
+            'keterangan' => 'required',
+        ]);
+        //get post data
+        $postData = $request->all();
+        $postData['nilai'] = bilanganbulat($postData['nilai']);
+        try {
+            DB::beginTransaction();
+            DB::enableQueryLog();
+
+            //insert post data
+            Produksi::create($postData);
+            DB::commit();
+
+            //store status message
+            Session::flash('success', 'Data berhasil ditambahkan!');
+        } catch (\Exception $e) {
+            DB::rollback();
+            // something went wrong
+            Session::flash('error', $e->getMessage());
+
+            dd( $e->getMessage() );
+        }
+        return redirect('hasil-produksi');
     }
 
     /**
@@ -56,9 +91,11 @@ class ProduksiController extends Controller
      * @param  \App\Models\Produksi  $produksi
      * @return \Illuminate\Http\Response
      */
-    public function edit(Produksi $produksi)
+    public function edit(Produksi $produksi, $id)
     {
-        //
+        $data['main'] = Produksi::find($id)->toArray();
+        $data['anggota'] = Anggota::all()->toArray();
+        return view('produksi/form-edit', $data);
     }
 
     /**
@@ -68,9 +105,37 @@ class ProduksiController extends Controller
      * @param  \App\Models\Produksi  $produksi
      * @return \Illuminate\Http\Response
      */
-    public function update(UpdateProduksiRequest $request, Produksi $produksi)
+    public function update(UpdateProduksiRequest $request, Produksi $produksi, $id)
     {
-        //
+        //validate post data
+        $this->validate($request, [
+            'tanggal' => 'required',
+            'nama_anggota' => 'required',
+            'jumlah' => 'required',
+            'nilai' => 'required',
+            'keterangan' => 'required',
+        ]);
+        //get post data
+        $postData = $request->all();
+        $postData['nilai'] = bilanganbulat($postData['nilai']);
+        try {
+            DB::beginTransaction();
+            DB::enableQueryLog();
+
+            //insert post data
+            Produksi::find($id)->update($postData);
+            DB::commit();
+
+            //store status message
+            Session::flash('success', 'Data berhasil diubah!');
+        } catch (\Exception $e) {
+            DB::rollback();
+            // something went wrong
+            Session::flash('error', $e->getMessage());
+
+            dd( $e->getMessage() );
+        }
+        return redirect('hasil-produksi-edit/'.$id);
     }
 
     /**
@@ -79,8 +144,25 @@ class ProduksiController extends Controller
      * @param  \App\Models\Produksi  $produksi
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Produksi $produksi)
+    public function destroy(Produksi $produksi, $id)
     {
-        //
+        try {
+            DB::beginTransaction();
+            DB::enableQueryLog();
+
+            //insert post data
+            Produksi::find($id)->delete();
+            DB::commit();
+
+            //store status message
+            Session::flash('success', 'Data berhasil dihapus!');
+        } catch (\Exception $e) {
+            DB::rollback();
+            // something went wrong
+            Session::flash('error', $e->getMessage());
+
+            dd( $e->getMessage() );
+        }
+        return redirect('hasil-produksi');
     }
 }

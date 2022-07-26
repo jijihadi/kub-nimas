@@ -36,7 +36,7 @@
                             @include('layouts.partial.alert')
                             <table id="dataTableExample" class="table table-bordered table-responsive table-hover">
                                 <thead>
-                                    <tr>
+                                    <tr class="text-center">
                                         <th>#</th>
                                         <th>Kode</th>
                                         <th>Nama Barang</th>
@@ -48,13 +48,13 @@
                                     </tr>
                                 </thead>
                                 <tbody>
-                                    @if (!empty($main))
+                                    @if (isset($main))
                                         @foreach ($main as $row)
                                             <tr>
                                                 <td>{{ $loop->iteration }}</td>
                                                 <td><b>{{ $row->kode }}</b></td>
                                                 <td>{{ $row->name }}</td>
-                                                <td>{{ $row->tanggal}}</td>
+                                                <td>{{ tglindo($row->tanggal)}}</td>
                                                 <td>{{ $row->perolehan }}</td>
                                                 <td>{{ $row->jumlah }}&nbsp;Buah</td>
                                                 <td>{{ $row->kondisi }}</td>
@@ -77,7 +77,7 @@
                                             </tr>
                                         @endforeach
                                     @endif
-                                    @if (empty($main))
+                                    @if (!isset($main))
                                         <td colspan="8" class="text-center text-secondary">
                                             <i>Data masih kosong</i>
                                         </td>
