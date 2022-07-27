@@ -47,13 +47,13 @@
                                     </tr>
                                 </thead>
                                 <tbody>
-                                    @if (isset($main))
+                                    @if (!empty($main->toarray()))
                                         @foreach ($main as $row)
                                             <tr>
                                                 <td>{{ $loop->iteration }}</td>
                                                 <td><b>{{ tglindo($row->tanggal) }}</b></td>
-                                                <td>{{ $row->nama_anggota }}</td>
-                                                <td>{{ $row->jumlah}}</td>
+                                                <td>{{ ucwords($row->nama_anggota) }}</td>
+                                                <td>{{ $row->jumlah}}&nbsp;Buah</td>
                                                 <td>{{ rupiah($row->nilai) }}</td>
                                                 <td>{{ $row->keterangan }}</td>
                                                 <td>
@@ -75,7 +75,7 @@
                                             </tr>
                                         @endforeach
                                     @endif
-                                    @if (!isset($main))
+                                    @if (empty($main->toarray()))
                                         <td colspan="8" class="text-center text-secondary">
                                             <i>Data masih kosong</i>
                                         </td>

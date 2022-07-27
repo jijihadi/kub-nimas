@@ -3,6 +3,10 @@ $(function() {
   'use strict';
 
   $('#datetimepickerExample').datetimepicker({
-    format: 'LT'
+    format: 'LT',
   });
+  var s=$('#datetimepickerExample1').datetimepicker({
+    format:'YYYY-MM-DD HH:mm',
+  });
+  
 });

@@ -72,12 +72,12 @@ Route::get('/daftar-hadir-edit/{id}', [App\Http\Controllers\AbsensiController::c
 Route::post('/daftar-hadir-update/{id}', [App\Http\Controllers\AbsensiController::class, 'update']);
 Route::get('/daftar-hadir-delete/{id}', [App\Http\Controllers\AbsensiController::class, 'destroy']);
 #Kegiatan Usaha
-Route::get('/kegiatan', [App\Http\Controllers\UsahaController::class, 'index']);
-Route::get('/kegiatan-add', [App\Http\Controllers\UsahaController::class, 'create']);
-Route::post('/kegiatan-save', [App\Http\Controllers\UsahaController::class, 'store']);
-Route::get('/kegiatan-edit/{id}', [App\Http\Controllers\UsahaController::class, 'edit']);
-Route::post('/kegiatan-update/{id}', [App\Http\Controllers\UsahaController::class, 'update']);
-Route::get('/kegiatan-delete/{id}', [App\Http\Controllers\UsahaController::class, 'destroy']);
+Route::get('/usaha', [App\Http\Controllers\UsahaController::class, 'index']);
+Route::get('/usaha-add', [App\Http\Controllers\UsahaController::class, 'create']);
+Route::post('/usaha-save', [App\Http\Controllers\UsahaController::class, 'store']);
+Route::get('/usaha-edit/{id}', [App\Http\Controllers\UsahaController::class, 'edit']);
+Route::post('/usaha-update/{id}', [App\Http\Controllers\UsahaController::class, 'update']);
+Route::get('/usaha-delete/{id}', [App\Http\Controllers\UsahaController::class, 'destroy']);
 #Notulen
 Route::get('/notulen', [App\Http\Controllers\NotulenController::class, 'index']);
 Route::get('/notulen-add', [App\Http\Controllers\NotulenController::class, 'create']);

@@ -5,6 +5,10 @@ namespace App\Http\Controllers;
 use App\Models\Usaha;
 use App\Http\Requests\StoreUsahaRequest;
 use App\Http\Requests\UpdateUsahaRequest;
+use Illuminate\Support\Facades\Auth;
+use Illuminate\Http\Request;
+use Session;
+use DB;
 
 class UsahaController extends Controller
 {
@@ -15,7 +19,8 @@ class UsahaController extends Controller
      */
     public function index()
     {
-        //
+        $data['main'] = Usaha::all();
+        return view('kegiatan/index', $data);
     }
 
     /**
@@ -25,7 +30,7 @@ class UsahaController extends Controller
      */
     public function create()
     {
-        //
+        return view('kegiatan/form-add');
     }
 
     /**
@@ -36,7 +41,36 @@ class UsahaController extends Controller
      */
     public function store(StoreUsahaRequest $request)
     {
-        //
+        //validate post data
+        $this->validate($request, [
+            'tanggal' => 'required',
+            'uraian' => 'required',
+            'volume' => 'required',
+            'pelaksana' => 'required',
+            'tempat' => 'required',
+            'hasil' => 'required',
+            'keterangan' => 'required',
+        ]);
+        //get post data
+        $postData = $request->all();
+        try {
+            DB::beginTransaction();
+            DB::enableQueryLog();
+
+            //insert post data
+            Usaha::create($postData);
+            DB::commit();
+
+            //store status message
+            Session::flash('success', 'Data berhasil ditambahkan!');
+        } catch (\Exception $e) {
+            DB::rollback();
+            // something went wrong
+            Session::flash('error', $e->getMessage());
+
+            dd($e->getMessage());
+        }
+        return redirect('usaha');
     }
 
     /**
@@ -56,9 +90,10 @@ class UsahaController extends Controller
      * @param  \App\Models\Usaha  $usaha
      * @return \Illuminate\Http\Response
      */
-    public function edit(Usaha $usaha)
+    public function edit(Usaha $usaha, $id)
     {
-        //
+        $data['main'] = Usaha::find($id)->toArray();
+        return view('kegiatan/form-edit', $data);
     }
 
     /**
@@ -68,9 +103,38 @@ class UsahaController extends Controller
      * @param  \App\Models\Usaha  $usaha
      * @return \Illuminate\Http\Response
      */
-    public function update(UpdateUsahaRequest $request, Usaha $usaha)
+    public function update(UpdateUsahaRequest $request, Usaha $usaha, $id)
     {
-        //
+        //validate post data
+        $this->validate($request, [
+            'tanggal' => 'required',
+            'uraian' => 'required',
+            'volume' => 'required',
+            'pelaksana' => 'required',
+            'tempat' => 'required',
+            'hasil' => 'required',
+            'keterangan' => 'required',
+        ]);
+        //get post data
+        $postData = $request->all();
+        try {
+            DB::beginTransaction();
+            DB::enableQueryLog();
+
+            //insert post data
+            Usaha::find($id)->update($postData);
+            DB::commit();
+
+            //store status message
+            Session::flash('success', 'Data berhasil diubah!');
+        } catch (\Exception $e) {
+            DB::rollback();
+            // something went wrong
+            Session::flash('error', $e->getMessage());
+
+            dd($e->getMessage());
+        }
+        return redirect('usaha-edit/' . $id);
     }
 
     /**
@@ -79,8 +143,25 @@ class UsahaController extends Controller
      * @param  \App\Models\Usaha  $usaha
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Usaha $usaha)
+    public function destroy(Usaha $usaha, $id)
     {
-        //
+        try {
+            DB::beginTransaction();
+            DB::enableQueryLog();
+
+            //insert post data
+            Usaha::find($id)->delete();
+            DB::commit();
+
+            //store status message
+            Session::flash('success', 'Data berhasil dihapus!');
+        } catch (\Exception $e) {
+            DB::rollback();
+            // something went wrong
+            Session::flash('error', $e->getMessage());
+
+            dd($e->getMessage());
+        }
+        return redirect('usaha');
     }
 }

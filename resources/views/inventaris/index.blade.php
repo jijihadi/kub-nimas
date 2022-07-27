@@ -48,7 +48,7 @@
                                     </tr>
                                 </thead>
                                 <tbody>
-                                    @if (isset($main))
+                                    @if (!empty($main->toarray()))
                                         @foreach ($main as $row)
                                             <tr>
                                                 <td>{{ $loop->iteration }}</td>
@@ -77,7 +77,7 @@
                                             </tr>
                                         @endforeach
                                     @endif
-                                    @if (!isset($main))
+                                    @if (empty($main->toarray()))
                                         <td colspan="8" class="text-center text-secondary">
                                             <i>Data masih kosong</i>
                                         </td>

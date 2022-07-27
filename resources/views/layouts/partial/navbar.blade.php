@@ -81,7 +81,7 @@
                 </a>
             </li>
             <li class="nav-item">
-                <a href="{{url('kegiatan')}}" class="nav-link">
+                <a href="{{url('usaha')}}" class="nav-link">
                     <i class="link-icon" data-feather="truck"></i>
                     <span class="link-title">Kegiatan Usaha</span>
                 </a>
