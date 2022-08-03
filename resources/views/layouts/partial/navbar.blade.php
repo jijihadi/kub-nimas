@@ -34,10 +34,10 @@
                 <div class="collapse" id="emails">
                     <ul class="nav sub-menu">
                         <li class="nav-item">
-                            <a href="#"" class="nav-link">Surat Masuk</a>
+                            <a href="{{url('surat-masuk')}}" class="nav-link">Surat Masuk</a>
                         </li>
                         <li class="nav-item">
-                            <a href="#" class="nav-link">Surat Keluar</a>
+                            <a href="{{url('surat-keluar')}}" class="nav-link">Surat Keluar</a>
                         </li>
                     </ul>
                 </div>

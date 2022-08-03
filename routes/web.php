@@ -22,6 +22,14 @@ Route::get('logout', '\App\Http\Controllers\Auth\LoginController@logout');
 
 #Admin Group
 Route::get('/home', [App\Http\Controllers\PagesController::class, 'index']);
+#Surat
+Route::get('/surat-masuk', [App\Http\Controllers\SuratController::class, 'indexin']);
+Route::get('/surat-keluar', [App\Http\Controllers\SuratController::class, 'indexout']);
+Route::get('/surat-add', [App\Http\Controllers\SuratController::class, 'create']);
+Route::post('/surat-save', [App\Http\Controllers\SuratController::class, 'store']);
+Route::get('/surat-edit/{id}', [App\Http\Controllers\SuratController::class, 'edit']);
+Route::post('/surat-update/{id}', [App\Http\Controllers\SuratController::class, 'update']);
+Route::get('/surat-delete/{id}', [App\Http\Controllers\SuratController::class, 'destroy']);
 #Tamu
 Route::get('/buku-tamu', [App\Http\Controllers\TamuController::class, 'index']);
 Route::get('/buku-tamu-add', [App\Http\Controllers\TamuController::class, 'create']);

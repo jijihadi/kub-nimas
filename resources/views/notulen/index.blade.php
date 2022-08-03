@@ -24,7 +24,7 @@
                                 <h6 class="card-title">Data {{ get_headname('1') }}</h6>
                             </div>
                             <div class="col-6 ">
-                                <a href="{{ url('hasil-produksi-add') }}">
+                                <a href="{{ url('notulen-add') }}">
                                     <button type="button" class="btn btn-sm btn-primary btn-icon-text float-end">
                                         <i class="btn-icon-prepend" data-feather="plus"></i>
                                         Add Data
@@ -38,11 +38,11 @@
                                 <thead>
                                     <tr class="text-center">
                                         <th>#</th>
-                                        <th>Tanggal Produksi</th>
-                                        <th>Nama Anggota</th>
-                                        <th>Jumlah</th>
-                                        <th>Nilai</th>
-                                        <th>Ket</th>
+                                        <th>Nama Kegiatan</th>
+                                        <th>Tanggal</th>
+                                        <th>Pembicara</th>
+                                        <th>Materi</th>
+                                        <th>Kesimpulan</th>
                                         <th>#</th>
                                     </tr>
                                 </thead>
@@ -51,22 +51,22 @@
                                         @foreach ($main as $row)
                                             <tr>
                                                 <td>{{ $loop->iteration }}</td>
-                                                <td><b>{{ tglindo($row->tanggal) }}</b></td>
-                                                <td>{{ ucwords($row->nama_anggota) }}</td>
-                                                <td>{{ $row->jumlah}}&nbsp;Buah</td>
-                                                <td>{{ rupiah($row->nilai) }}</td>
-                                                <td>{{ $row->keterangan }}</td>
+                                                <td>{{ $row->kegiatan }}</td>
+                                                <td>{{ tglindo($row->tanggal) }}</td>
+                                                <td>{{ $row->pembicara }} <b>({{$row->jabatan}})</b></td>
+                                                <td>{{ $row->materi }}</td>
+                                                <td>{{ $row->kesimpulan }}</td>
                                                 <td>
                                                     <!--Edit-->
-                                                    <a href="{{ url('hasil-produksi-edit') . '/' . $row->id }}">
+                                                    <a href="{{ url('notulen-edit') . '/' . $row->id }}">
                                                         <button type="button" class="btn btn-sm btn-success btn-icon-text">
                                                             <i class="btn-icon-prepend" data-feather="edit-3"></i>
                                                             Ubah
                                                         </button>
                                                     </a>
                                                     <!--Delete-->
-                                                    <a href="{{ url('hasil-produksi-delete') . '/' . $row->id }}">
-                                                        <button type="button" class="btn btn-sm btn-danger btn-icon-text" onclick="return confirm('Hapus data {{$row->nama_anggota}} pada tanggal {{$row->tanggal}}?');">
+                                                    <a href="{{ url('notulen-delete') . '/' . $row->id }}">
+                                                        <button type="button" class="btn btn-sm btn-danger btn-icon-text" onclick="return confirm('Hapus data {{$row->name}}?');">
                                                             <i class="btn-icon-prepend" data-feather="trash-2"></i>
                                                             Hapus
                                                         </button>
@@ -76,7 +76,7 @@
                                         @endforeach
                                     @endif
                                     @if (empty($main->toarray()))
-                                        <td colspan="8" class="text-center text-secondary">
+                                        <td colspan="12" class="text-center text-secondary">
                                             <i>Data masih kosong</i>
                                         </td>
                                     @endif
@@ -103,5 +103,5 @@
 
 	<!-- Custom js for this page -->
   <script src="{{ asset('assets/js/data-table.js') }}"></script>
-	<!-- End custom js for this page -->
+	<!-- End custom js for this page -->    
 @endsection

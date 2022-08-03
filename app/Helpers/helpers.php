@@ -106,3 +106,55 @@ if (!function_exists('bilanganbulat')) {
         return $teks;
     }
 }
+
+// Personal Helper
+if (!function_exists('getsaldokas')) {
+    /**
+     * @return string
+     */
+
+    function getsaldokas($tanggal)
+    {
+        $query = DB::table('kas')->select(DB::raw('(SUM(masuk)) - (SUM(keluar)) as saldo'))
+        ->where('tanggal','<=', $tanggal)
+        ->groupBy(DB::raw("month(created_at)"))
+        ->orderby('id')
+        ->get()->toArray();
+
+        return $query[0]->saldo;
+    }
+}
+
+if (!function_exists('getkasmasuk')) {
+    /**
+     * @return string
+     */
+
+    function getkasmasuk()
+    {
+        $query = DB::table('kas')->select(DB::raw('(SUM(masuk)) as saldo'))
+        // ->where('tanggal','<=', $tanggal)
+        ->groupBy(DB::raw("month(created_at)"))
+        ->orderby('id')
+        ->get()->toArray();
+
+        return $query[0]->saldo;
+    }
+}
+
+if (!function_exists('getkaskeluar')) {
+    /**
+     * @return string
+     */
+
+    function getkaskeluar()
+    {
+        $query = DB::table('kas')->select(DB::raw('(SUM(keluar)) as saldo'))
+        // ->where('tanggal','<=', $tanggal)
+        ->groupBy(DB::raw("month(created_at)"))
+        ->orderby('id')
+        ->get()->toArray();
+
+        return $query[0]->saldo;
+    }
+}
