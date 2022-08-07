@@ -24,12 +24,14 @@
                                 <h6 class="card-title">Data {{ get_headname('1') }}</h6>
                             </div>
                             <div class="col-6 ">
-                                <a href="{{ url('rencana-kegiatan-add') }}">
-                                    <button type="button" class="btn btn-sm btn-primary btn-icon-text float-end">
-                                        <i class="btn-icon-prepend" data-feather="plus"></i>
-                                        Add Data
-                                    </button>
-                                </a>
+                                @if (cek_admin() == 1)
+                                    <a href="{{ url('rencana-kegiatan-add') }}">
+                                        <button type="button" class="btn btn-sm btn-primary btn-icon-text float-end">
+                                            <i class="btn-icon-prepend" data-feather="plus"></i>
+                                            Add Data
+                                        </button>
+                                    </a>
+                                @endif
                             </div>
                         </div>
                         <div class="table-responsive">
@@ -53,26 +55,31 @@
                                                 <td>{{ ucwords($row->name) }}</td>
                                                 <td>
                                                     <b>{{ tglindo($row->waktu) }}</b>,&nbsp;
-                                                    Jam {{date('H:i', strtotime($row->waktu))}}
-                                                    <br> di {{$row->tempat}}
+                                                    Jam {{ date('H:i', strtotime($row->waktu)) }}
+                                                    <br> di {{ $row->tempat }}
                                                 </td>
-                                                <td>{{ $row->volume}}&nbsp;Orang</td>
+                                                <td>{{ $row->volume }}&nbsp;Orang</td>
                                                 <td>{{ $row->keterangan }}</td>
                                                 <td>
-                                                    <!--Edit-->
-                                                    <a href="{{ url('rencana-kegiatan-edit') . '/' . $row->id }}">
-                                                        <button type="button" class="btn btn-sm btn-success btn-icon-text">
-                                                            <i class="btn-icon-prepend" data-feather="edit-3"></i>
-                                                            Ubah
-                                                        </button>
-                                                    </a>
-                                                    <!--Delete-->
-                                                    <a href="{{ url('rencana-kegiatan-delete') . '/' . $row->id }}">
-                                                        <button type="button" class="btn btn-sm btn-danger btn-icon-text" onclick="return confirm('Hapus data {{$row->name}} pada tanggal {{$row->waktu}}?');">
-                                                            <i class="btn-icon-prepend" data-feather="trash-2"></i>
-                                                            Hapus
-                                                        </button>
-                                                    </a>
+                                                    @if (cek_admin() == 1)
+                                                        <!--Edit-->
+                                                        <a href="{{ url('rencana-kegiatan-edit') . '/' . $row->id }}">
+                                                            <button type="button"
+                                                                class="btn btn-sm btn-success btn-icon-text">
+                                                                <i class="btn-icon-prepend" data-feather="edit-3"></i>
+                                                                Ubah
+                                                            </button>
+                                                        </a>
+                                                        <!--Delete-->
+                                                        <a href="{{ url('rencana-kegiatan-delete') . '/' . $row->id }}">
+                                                            <button type="button"
+                                                                class="btn btn-sm btn-danger btn-icon-text"
+                                                                onclick="return confirm('Hapus data {{ $row->name }} pada tanggal {{ $row->waktu }}?');">
+                                                                <i class="btn-icon-prepend" data-feather="trash-2"></i>
+                                                                Hapus
+                                                            </button>
+                                                        </a>
+                                                    @endif
                                                 </td>
                                             </tr>
                                         @endforeach
@@ -99,11 +106,11 @@
     <script src="{{ asset('assets/vendors/datatables.net-bs5/dataTables.bootstrap5.js') }}"></script>
     <!-- End plugin js for this page -->
     <!-- inject:js -->
-	<script src="{{ asset('assets/vendors/feather-icons/feather.min.js') }}"></script>
-	<script src="{{ asset('assets/js/template.js') }}"></script>
-	<!-- endinject -->
+    <script src="{{ asset('assets/vendors/feather-icons/feather.min.js') }}"></script>
+    <script src="{{ asset('assets/js/template.js') }}"></script>
+    <!-- endinject -->
 
-	<!-- Custom js for this page -->
-  <script src="{{ asset('assets/js/data-table.js') }}"></script>
-	<!-- End custom js for this page -->
+    <!-- Custom js for this page -->
+    <script src="{{ asset('assets/js/data-table.js') }}"></script>
+    <!-- End custom js for this page -->
 @endsection

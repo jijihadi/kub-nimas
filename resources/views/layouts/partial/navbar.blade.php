@@ -11,15 +11,15 @@
     </div>
     <div class="sidebar-body">
         <ul class="nav">
-            <li class="nav-item {{cek_active('home')}}">
-                <a href="{{url('/')}}" class="nav-link">
+            <li class="nav-item {{ cek_active('home') }}">
+                <a href="{{ url('/') }}" class="nav-link">
                     <i class="link-icon" data-feather="box"></i>
                     <span class="link-title">Dashboard</span>
                 </a>
             </li>
             <li class="nav-item nav-category">data kub</li>
             <li class="nav-item">
-                <a href="{{url('buku-tamu')}}" class="nav-link">
+                <a href="{{ url('buku-tamu') }}" class="nav-link">
                     <i class="link-icon" data-feather="book-open"></i>
                     <span class="link-title">Buku Tamu</span>
                 </a>
@@ -34,60 +34,68 @@
                 <div class="collapse" id="emails">
                     <ul class="nav sub-menu">
                         <li class="nav-item">
-                            <a href="{{url('surat-masuk')}}" class="nav-link">Surat Masuk</a>
+                            <a href="{{ url('surat-masuk') }}" class="nav-link">Surat Masuk</a>
                         </li>
                         <li class="nav-item">
-                            <a href="{{url('surat-keluar')}}" class="nav-link">Surat Keluar</a>
+                            <a href="{{ url('surat-keluar') }}" class="nav-link">Surat Keluar</a>
                         </li>
                     </ul>
                 </div>
             </li>
             <li class="nav-item">
-                <a href="{{url('inventaris-barang')}}" class="nav-link">
+                <a href="{{ url('inventaris-barang') }}" class="nav-link">
                     <i class="link-icon" data-feather="layers"></i>
                     <span class="link-title">Inventaris Barang</span>
                 </a>
-            </li>   
+            </li>
             <li class="nav-item">
-                <a href="{{url('kas')}}" class="nav-link">
+                <a href="{{ url('kas') }}" class="nav-link">
                     <i class="link-icon" data-feather="book"></i>
                     <span class="link-title">Kas</span>
                 </a>
             </li>
             <li class="nav-item">
-                <a href="{{url('hasil-produksi')}}" class="nav-link">
+                <a href="{{ url('hasil-produksi') }}" class="nav-link">
                     <i class="link-icon" data-feather="package"></i>
                     <span class="link-title">Hasil Produksi</span>
                 </a>
             </li>
             <li class="nav-item nav-category">keanggotaan</li>
             <li class="nav-item">
-                <a href="{{url('list-anggota')}}" class="nav-link">
+                <a href="{{ url('list-anggota') }}" class="nav-link">
                     <i class="link-icon" data-feather="users"></i>
                     <span class="link-title">Daftar Anggota</span>
                 </a>
             </li>
+            @if (cek_admin() == 1)
+                <li class="nav-item">
+                    <a href="{{ url('list-user') }}" class="nav-link">
+                        <i class="link-icon" data-feather="user-check"></i>
+                        <span class="link-title">Daftar User</span>
+                    </a>
+                </li>
+            @endif
             <li class="nav-item nav-category">kegiatan</li>
             <li class="nav-item">
-                <a href="{{url('rencana-kegiatan')}}" class="nav-link">
+                <a href="{{ url('rencana-kegiatan') }}" class="nav-link">
                     <i class="link-icon" data-feather="trello"></i>
                     <span class="link-title">Rencana Kegiatan</span>
                 </a>
             </li>
             <li class="nav-item">
-                <a href="{{url('daftar-hadir')}}" class="nav-link">
+                <a href="{{ url('daftar-hadir') }}" class="nav-link">
                     <i class="link-icon" data-feather="clipboard"></i>
                     <span class="link-title">Daftar Kehadiran</span>
                 </a>
             </li>
             <li class="nav-item">
-                <a href="{{url('usaha')}}" class="nav-link">
+                <a href="{{ url('usaha') }}" class="nav-link">
                     <i class="link-icon" data-feather="truck"></i>
                     <span class="link-title">Kegiatan Usaha</span>
                 </a>
             </li>
             <li class="nav-item">
-                <a href="{{url('notulen')}}" class="nav-link">
+                <a href="{{ url('notulen') }}" class="nav-link">
                     <i class="link-icon" data-feather="paperclip"></i>
                     <span class="link-title">Notulen</span>
                 </a>

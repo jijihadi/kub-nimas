@@ -83,6 +83,18 @@ if (!function_exists('cek_active')) {
     }
 }
 
+if (!function_exists('cek_admin')) {
+    /**
+     * @return string
+     */
+
+    function cek_admin()
+    {
+        $status = auth()->user()->role == 1 ? true : false;
+        return $status;
+    }
+}
+
 if (!function_exists('rupiah')) {
     /**
      * @return string

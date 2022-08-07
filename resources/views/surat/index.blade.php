@@ -24,12 +24,14 @@
                                 <h6 class="card-title">Data {{ get_headname('1') }}</h6>
                             </div>
                             <div class="col-6 ">
-                                <a href="{{ url('surat-add') }}">
-                                    <button type="button" class="btn btn-sm btn-primary btn-icon-text float-end">
-                                        <i class="btn-icon-prepend" data-feather="plus"></i>
-                                        Add Data
-                                    </button>
-                                </a>
+                                @if (cek_admin() == 1)
+                                    <a href="{{ url('surat-add') }}">
+                                        <button type="button" class="btn btn-sm btn-primary btn-icon-text float-end">
+                                            <i class="btn-icon-prepend" data-feather="plus"></i>
+                                            Add Data
+                                        </button>
+                                    </a>
+                                @endif
                             </div>
                         </div>
                         <div class="table-responsive">
@@ -41,7 +43,7 @@
                                         <th>Nomor Surat</th>
                                         <th>Tanggal Surat</th>
                                         <th>Perihal</th>
-                                        <th>Tanggal {{$stat}}</th>
+                                        <th>Tanggal {{ $stat }}</th>
                                         <th>Tindak Lanjut</th>
                                         <th>Keterangan</th>
                                         <th>#</th>
@@ -63,21 +65,25 @@
                                                 <td>{{ $row->tindak_lanjut }} </td>
                                                 <td>{{ $row->keterangan }}</td>
                                                 <td>
-                                                    <!--Edit-->
-                                                    <a href="{{ url('surat-edit') . '/' . $row->id }}">
-                                                        <button type="button" class="btn btn-sm btn-success btn-icon-text">
-                                                            <i class="btn-icon-prepend" data-feather="edit-3"></i>
-                                                            Ubah
-                                                        </button>
-                                                    </a>
-                                                    <!--Delete-->
-                                                    <a href="{{ url('surat-delete') . '/' . $row->id }}">
-                                                        <button type="button" class="btn btn-sm btn-danger btn-icon-text"
-                                                            onclick="return confirm('Hapus data dengan nomor {{ $row->nomor  }}?');">
-                                                            <i class="btn-icon-prepend" data-feather="trash-2"></i>
-                                                            Hapus
-                                                        </button>
-                                                    </a>
+                                                    @if (cek_admin() == 1)
+                                                        <!--Edit-->
+                                                        <a href="{{ url('surat-edit') . '/' . $row->id }}">
+                                                            <button type="button"
+                                                                class="btn btn-sm btn-success btn-icon-text">
+                                                                <i class="btn-icon-prepend" data-feather="edit-3"></i>
+                                                                Ubah
+                                                            </button>
+                                                        </a>
+                                                        <!--Delete-->
+                                                        <a href="{{ url('surat-delete') . '/' . $row->id }}">
+                                                            <button type="button"
+                                                                class="btn btn-sm btn-danger btn-icon-text"
+                                                                onclick="return confirm('Hapus data dengan nomor {{ $row->nomor }}?');">
+                                                                <i class="btn-icon-prepend" data-feather="trash-2"></i>
+                                                                Hapus
+                                                            </button>
+                                                        </a>
+                                                    @endif
                                                 </td>
                                             </tr>
                                         @endforeach

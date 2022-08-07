@@ -25,7 +25,7 @@
                             </div>
                             <div class="col-6 ">
                                 @if (cek_admin() == 1)
-                                    <a href="{{ url('list-anggota-add') }}">
+                                    <a href="{{ url('list-user-add') }}">
                                         <button type="button" class="btn btn-sm btn-primary btn-icon-text float-end">
                                             <i class="btn-icon-prepend" data-feather="plus"></i>
                                             Add Data
@@ -39,20 +39,11 @@
                             <table id="dataTableExample" class="table table-bordered table-responsive table-hover">
                                 <thead>
                                     <tr class="text-center">
-                                        <th rowspan="2">#</th>
-                                        <th rowspan="2">Nama/Jabatan</th>
-                                        <th rowspan="2">Alamat</th>
-                                        <th rowspan="2">Pendidikan</th>
-                                        <th rowspan="2">Usia</th>
-                                        <th colspan="2">Usaha</th>
-                                        <th rowspan="2">Perahu</th>
-                                        <th rowspan="2">Alat</th>
-                                        <th rowspan="2">Keterangan</th>
-                                        <th rowspan="2">#</th>
-                                    </tr>
-                                    <tr class="text-center">
-                                        <th>Utama</th>
-                                        <th>Sampingan</th>
+                                        <th>#</th>
+                                        <th>Nama</th>
+                                        <th>Email</th>
+                                        <th>Role</th>
+                                        <th>#</th>
                                     </tr>
                                 </thead>
                                 <tbody>
@@ -60,19 +51,13 @@
                                         @foreach ($main as $row)
                                             <tr>
                                                 <td>{{ $loop->iteration }}</td>
-                                                <td>{{ $row->name }} <b>({{ $row->jabatan }})</b></td>
-                                                <td>{{ $row->alamat }}</td>
-                                                <td>{{ $row->pendidikan }}</td>
-                                                <td>{{ $row->usia }}&nbsp;Tahun</td>
-                                                <td>{{ $row->usaha_utama }}</td>
-                                                <td>{{ $row->usaha_sampingan }}</td>
-                                                <td>{{ $row->jumlah_perahu }}&nbsp;Buah</td>
-                                                <td>{{ $row->jenis_alat }}</td>
-                                                <td>{{ $row->keterangan }}</td>
+                                                <td>{{ $row->name }}</td>
+                                                <td>{{ $row->email }}</td>
+                                                <td>{!! ($row->role==1)? '<p class="text-success">Admin</p>':'<p class="text-secondary">Petugas</p>'!!}</td>
                                                 <td>
                                                     @if (cek_admin() == 1)
                                                         <!--Edit-->
-                                                        <a href="{{ url('list-anggota-edit') . '/' . $row->id }}">
+                                                        <a href="{{ url('list-user-edit') . '/' . $row->id }}">
                                                             <button type="button"
                                                                 class="btn btn-sm btn-success btn-icon-text">
                                                                 <i class="btn-icon-prepend" data-feather="edit-3"></i>
@@ -80,7 +65,7 @@
                                                             </button>
                                                         </a>
                                                         <!--Delete-->
-                                                        <a href="{{ url('list-anggota-delete') . '/' . $row->id }}">
+                                                        <a href="{{ url('list-user-delete') . '/' . $row->id }}">
                                                             <button type="button"
                                                                 class="btn btn-sm btn-danger btn-icon-text"
                                                                 onclick="return confirm('Hapus data {{ $row->name }}?');">
