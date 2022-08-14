@@ -133,6 +133,10 @@ if (!function_exists('getsaldokas')) {
         ->orderby('id')
         ->get()->toArray();
 
+        if (empty($query)) {
+            return 0;
+        }
+
         return $query[0]->saldo;
     }
 }
@@ -149,6 +153,10 @@ if (!function_exists('getkasmasuk')) {
         ->groupBy(DB::raw("month(created_at)"))
         ->orderby('id')
         ->get()->toArray();
+        
+        if (empty($query)) {
+            return 0;
+        }
 
         return $query[0]->saldo;
     }
@@ -166,6 +174,10 @@ if (!function_exists('getkaskeluar')) {
         ->groupBy(DB::raw("month(created_at)"))
         ->orderby('id')
         ->get()->toArray();
+
+        if (empty($query)) {
+            return 0;
+        }
 
         return $query[0]->saldo;
     }

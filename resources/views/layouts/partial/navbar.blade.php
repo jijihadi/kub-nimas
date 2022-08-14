@@ -61,17 +61,25 @@
                 </a>
             </li>
             <li class="nav-item nav-category">keanggotaan</li>
+            @if (cek_admin() == 0)
+                <li class="nav-item">
+                    <a href="{{ url('list-kub') }}" class="nav-link">
+                        <i class="link-icon" data-feather="user-check"></i>
+                        <span class="link-title">Data KUB</span>
+                    </a>
+                </li>
+            @endif
             <li class="nav-item">
                 <a href="{{ url('list-anggota') }}" class="nav-link">
                     <i class="link-icon" data-feather="users"></i>
-                    <span class="link-title">Daftar Anggota</span>
+                    <span class="link-title">Data Anggota</span>
                 </a>
             </li>
-            @if (cek_admin() == 1)
+            @if (cek_admin() == 0)
                 <li class="nav-item">
                     <a href="{{ url('list-user') }}" class="nav-link">
                         <i class="link-icon" data-feather="user-check"></i>
-                        <span class="link-title">Daftar User</span>
+                        <span class="link-title">Data User</span>
                     </a>
                 </li>
             @endif

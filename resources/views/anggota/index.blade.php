@@ -45,8 +45,8 @@
                                         <th rowspan="2">Pendidikan</th>
                                         <th rowspan="2">Usia</th>
                                         <th colspan="2">Usaha</th>
-                                        <th rowspan="2">Perahu</th>
-                                        <th rowspan="2">Alat</th>
+                                        <th rowspan="2">Jumlah Perahu</th>
+                                        <th rowspan="2">Jenis Alat Penangkap Ikan</th>
                                         <th rowspan="2">Keterangan</th>
                                         <th rowspan="2">#</th>
                                     </tr>

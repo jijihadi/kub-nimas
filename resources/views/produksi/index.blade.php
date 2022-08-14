@@ -40,10 +40,10 @@
                                 <thead>
                                     <tr class="text-center">
                                         <th>#</th>
-                                        <th>Tanggal Produksi</th>
                                         <th>Nama Anggota</th>
-                                        <th>Jumlah</th>
-                                        <th>Nilai</th>
+                                        <th>Tanggal Produksi</th>
+                                        <th>Jumlah (Kg)</th>
+                                        <th>Nilai (Rp)</th>
                                         <th>Ket</th>
                                         <th>#</th>
                                     </tr>
@@ -53,9 +53,9 @@
                                         @foreach ($main as $row)
                                             <tr>
                                                 <td>{{ $loop->iteration }}</td>
-                                                <td><b>{{ tglindo($row->tanggal) }}</b></td>
                                                 <td>{{ ucwords($row->nama_anggota) }}</td>
-                                                <td>{{ $row->jumlah }}&nbsp;Buah</td>
+                                                <td><b>{{ tglindo($row->tanggal) }}</b></td>
+                                                <td>{{ $row->jumlah }}&nbsp;Kg</td>
                                                 <td>{{ rupiah($row->nilai) }}</td>
                                                 <td>{{ $row->keterangan }}</td>
                                                 <td>

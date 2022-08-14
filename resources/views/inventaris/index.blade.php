@@ -40,12 +40,12 @@
                                 <thead>
                                     <tr class="text-center">
                                         <th>#</th>
-                                        <th>Kode</th>
                                         <th>Nama Barang</th>
-                                        <th>Tanggal</th>
-                                        <th>Perolehan</th>
                                         <th>Jumlah</th>
+                                        <th>Tanggal</th>
                                         <th>Kondisi</th>
+                                        <th>Perolehan</th>
+                                        <th>Kode</th>
                                         <th>#</th>
                                     </tr>
                                 </thead>
@@ -54,12 +54,12 @@
                                         @foreach ($main as $row)
                                             <tr>
                                                 <td>{{ $loop->iteration }}</td>
-                                                <td><b>{{ $row->kode }}</b></td>
                                                 <td>{{ $row->name }}</td>
-                                                <td>{{ tglindo($row->tanggal) }}</td>
-                                                <td>{{ $row->perolehan }}</td>
                                                 <td>{{ $row->jumlah }}&nbsp;Buah</td>
+                                                <td>{{ tglindo($row->tanggal) }}</td>
                                                 <td>{{ $row->kondisi }}</td>
+                                                <td>{{ $row->perolehan }}</td>
+                                                <td><b>{{ $row->kode }}</b></td>
                                                 <td>
                                                     @if (cek_admin() == 1)
                                                         <!--Edit-->

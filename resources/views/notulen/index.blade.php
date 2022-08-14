@@ -42,7 +42,7 @@
                                         <th>#</th>
                                         <th>Nama Kegiatan</th>
                                         <th>Tanggal</th>
-                                        <th>Pembicara</th>
+                                        <th>Nama Pembicara/Jabatan</th>
                                         <th>Materi</th>
                                         <th>Kesimpulan</th>
                                         <th>#</th>
