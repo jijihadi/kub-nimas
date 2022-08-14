@@ -25,7 +25,7 @@
                             </div>
                             <div class="col-6 ">
                                 @if (cek_admin() == 0)
-                                    <a href="{{ url('list-user-add') }}">
+                                    <a href="{{ url('list-kub-add') }}">
                                         <button type="button" class="btn btn-sm btn-primary btn-icon-text float-end">
                                             <i class="btn-icon-prepend" data-feather="plus"></i>
                                             Add Data
@@ -39,11 +39,18 @@
                             <table id="dataTableExample" class="table table-bordered table-responsive table-hover">
                                 <thead>
                                     <tr class="text-center">
-                                        <th>#</th>
-                                        <th>Nama</th>
-                                        <th>Email</th>
-                                        <th>Role</th>
-                                        <th>#</th>
+                                        <th rowspan="2">#</th>
+                                        <th rowspan="2">Nama KUB</th>
+                                        <th rowspan="2">Alamat</th>
+                                        <th rowspan="2">Jumlah Anggota</th>
+                                        <th rowspan="2">Kelas</th>
+                                        <th colspan="2">Nomor Registrasi</th>
+                                        <th rowspan="2">Ketua</th>
+                                        <th rowspan="2">#</th>
+                                    </tr>
+                                    <tr class="text-center">
+                                        <th>SKT</th>
+                                        <th>PUPI</th>
                                     </tr>
                                 </thead>
                                 <tbody>
@@ -52,12 +59,16 @@
                                             <tr>
                                                 <td>{{ $loop->iteration }}</td>
                                                 <td>{{ $row->name }}</td>
-                                                <td>{{ $row->email }}</td>
-                                                <td>{!! ($row->role==1)? '<p class="text-success">Admin</p>':'<p class="text-secondary">Petugas</p>'!!}</td>
+                                                <td>{{ $row->alamat }}</td>
+                                                <td>{{ $row->jumlah_anggota }} orang</td>
+                                                <td>{{ $row->kelas }}</td>
+                                                <td>{{ $row->noreg_skt }}</td>
+                                                <td>{{ $row->noreg_pupi	 }}</td>
+                                                <td>{{ getfieldbyid('users', 'name', $row->id_ketua) }}</td>
                                                 <td>
-                                                    @if (cek_admin() == 1)
+                                                    @if (cek_admin() == 0)
                                                         <!--Edit-->
-                                                        <a href="{{ url('list-user-edit') . '/' . $row->id }}">
+                                                        <a href="{{ url('list-kub-edit') . '/' . $row->id }}">
                                                             <button type="button"
                                                                 class="btn btn-sm btn-success btn-icon-text">
                                                                 <i class="btn-icon-prepend" data-feather="edit-3"></i>
@@ -65,7 +76,7 @@
                                                             </button>
                                                         </a>
                                                         <!--Delete-->
-                                                        <a href="{{ url('list-user-delete') . '/' . $row->id }}">
+                                                        <a href="{{ url('list-kub-delete') . '/' . $row->id }}">
                                                             <button type="button"
                                                                 class="btn btn-sm btn-danger btn-icon-text"
                                                                 onclick="return confirm('Hapus data {{ $row->name }}?');">

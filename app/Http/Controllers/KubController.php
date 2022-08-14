@@ -3,8 +3,13 @@
 namespace App\Http\Controllers;
 
 use App\Models\Kub;
+use App\Models\User;
 use App\Http\Requests\StoreKubRequest;
 use App\Http\Requests\UpdateKubRequest;
+use Illuminate\Support\Facades\Auth;
+use Illuminate\Http\Request;
+use Session;
+use DB;
 
 class KubController extends Controller
 {
@@ -15,7 +20,8 @@ class KubController extends Controller
      */
     public function index()
     {
-        //
+        $data['main'] = Kub::all();
+        return view('kub/index', $data);
     }
 
     /**
@@ -25,7 +31,8 @@ class KubController extends Controller
      */
     public function create()
     {
-        //
+        $data['main'] = User::all();
+        return view('kub/form-add', $data);
     }
 
     /**
@@ -36,7 +43,36 @@ class KubController extends Controller
      */
     public function store(StoreKubRequest $request)
     {
-        //
+        //validate post data
+        $this->validate($request, [
+            'name' => 'required',
+            'alamat' => 'required',
+            'jumlah_anggota' => 'required',
+            'kelas' => 'required',
+            'noreg_skt' => 'required',
+            'noreg_pupi' => 'required',
+            'id_ketua' => "numeric|between:0.001,99.99",
+        ]);
+        //get post data
+        $postData = $request->all();
+        try {
+            DB::beginTransaction();
+            DB::enableQueryLog();
+
+            //insert post data
+            Kub::create($postData);
+            DB::commit();
+
+            //store status message
+            Session::flash('success', 'Data berhasil ditambahkan!');
+        } catch (\Exception $e) {
+            DB::rollback();
+            // something went wrong
+            Session::flash('error', $e->getMessage());
+
+            dd( $e->getMessage() );
+        }
+        return redirect('list-kub');
     }
 
     /**
@@ -56,9 +92,11 @@ class KubController extends Controller
      * @param  \App\Models\Kub  $kub
      * @return \Illuminate\Http\Response
      */
-    public function edit(Kub $kub)
+    public function edit(Kub $kub, $id)
     {
-        //
+        $data['main'] = Kub::find($id)->toArray();
+        $data['side'] = User::all();
+        return view('kub/form-edit', $data);
     }
 
     /**
@@ -68,9 +106,38 @@ class KubController extends Controller
      * @param  \App\Models\Kub  $kub
      * @return \Illuminate\Http\Response
      */
-    public function update(UpdateKubRequest $request, Kub $kub)
+    public function update(UpdateKubRequest $request, Kub $kub, $id)
     {
-        //
+        //validate post data
+        $this->validate($request, [
+            'name' => 'required',
+            'alamat' => 'required',
+            'jumlah_anggota' => 'required',
+            'kelas' => 'required',
+            'noreg_skt' => 'required',
+            'noreg_pupi' => 'required',
+            'id_ketua' => "numeric|between:0.001,99.99",
+        ]);
+        //get post data
+        $postData = $request->all();
+        try {
+            DB::beginTransaction();
+            DB::enableQueryLog();
+
+            //insert post data
+            Kub::find($id)->update($postData);
+            DB::commit();
+
+            //store status message
+            Session::flash('success', 'Data berhasil diubah!');
+        } catch (\Exception $e) {
+            DB::rollback();
+            // something went wrong
+            Session::flash('error', $e->getMessage());
+
+            dd( $e->getMessage() );
+        }
+        return redirect('list-kub-edit/'.$id);
     }
 
     /**
@@ -79,8 +146,25 @@ class KubController extends Controller
      * @param  \App\Models\Kub  $kub
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Kub $kub)
+    public function destroy(Kub $kub, $id)
     {
-        //
+        try {
+            DB::beginTransaction();
+            DB::enableQueryLog();
+
+            //insert post data
+            Kub::find($id)->delete();
+            DB::commit();
+
+            //store status message
+            Session::flash('success', 'Data berhasil dihapus!');
+        } catch (\Exception $e) {
+            DB::rollback();
+            // something went wrong
+            Session::flash('error', $e->getMessage());
+
+            dd( $e->getMessage() );
+        }
+        return redirect('list-kub');
     }
 }

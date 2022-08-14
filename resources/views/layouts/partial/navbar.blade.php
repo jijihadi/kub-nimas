@@ -64,7 +64,7 @@
             @if (cek_admin() == 0)
                 <li class="nav-item">
                     <a href="{{ url('list-kub') }}" class="nav-link">
-                        <i class="link-icon" data-feather="user-check"></i>
+                        <i class="link-icon" data-feather="briefcase"></i>
                         <span class="link-title">Data KUB</span>
                     </a>
                 </li>

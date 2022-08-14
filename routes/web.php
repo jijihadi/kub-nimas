@@ -70,6 +70,15 @@ Route::middleware(['auth', 'role'])->group(function () {
     Route::post('/hasil-produksi-update/{id}', [App\Http\Controllers\ProduksiController::class, 'update']);
     Route::get('/hasil-produksi-delete/{id}', [App\Http\Controllers\ProduksiController::class, 'destroy']);
 });
+#Daftar Kub
+Route::get('/list-kub', [App\Http\Controllers\KubController::class, 'index'])->middleware(['auth']);
+Route::middleware(['auth'])->group(function () {
+    Route::get('/list-kub-add', [App\Http\Controllers\KubController::class, 'create']);
+    Route::post('/list-kub-save', [App\Http\Controllers\KubController::class, 'store']);
+    Route::get('/list-kub-edit/{id}', [App\Http\Controllers\KubController::class, 'edit']);
+    Route::post('/list-kub-update/{id}', [App\Http\Controllers\KubController::class, 'update']);
+    Route::get('/list-kub-delete/{id}', [App\Http\Controllers\KubController::class, 'destroy']);
+});
 #Daftar Anggota
 Route::get('/list-anggota', [App\Http\Controllers\AnggotaController::class, 'index'])->middleware(['auth']);
 Route::middleware(['auth', 'role'])->group(function () {
@@ -80,7 +89,7 @@ Route::middleware(['auth', 'role'])->group(function () {
     Route::get('/list-anggota-delete/{id}', [App\Http\Controllers\AnggotaController::class, 'destroy']);
 });
 #Daftar User
-Route::middleware(['auth', 'role'])->group(function () {
+Route::middleware(['auth'])->group(function () {
     Route::get('/list-user', [App\Http\Controllers\UserController::class, 'index']);
     Route::get('/list-user-add', [App\Http\Controllers\UserController::class, 'create']);
     Route::post('/list-user-save', [App\Http\Controllers\UserController::class, 'store']);

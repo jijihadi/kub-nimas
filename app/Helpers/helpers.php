@@ -120,6 +120,24 @@ if (!function_exists('bilanganbulat')) {
 }
 
 // Personal Helper
+if (!function_exists('getfieldbyid')) {
+    /**
+     * @return string
+     */
+
+    function getfieldbyid($table, $field, $id)
+    {
+        $query = DB::table($table)
+        ->where('id', $id)
+        ->get()->toArray();
+
+        if (empty($query)) {
+            return 0;
+        }
+
+        return $query[0]->$field;
+    }
+}
 if (!function_exists('getsaldokas')) {
     /**
      * @return string
