@@ -43,6 +43,7 @@
                                         <th>Nomor Surat</th>
                                         <th>Tanggal Surat</th>
                                         <th>Perihal</th>
+                                        <th>Tujuan</th>
                                         <th>Tanggal {{ $stat }}</th>
                                         <th>Tindak Lanjut</th>
                                         <th>Keterangan</th>
@@ -54,10 +55,13 @@
                                         @foreach ($main as $row)
                                             <tr>
                                                 <td>{{ $loop->iteration }}</td>
-                                                <td>{{ $row->nomor }}</td>
+                                                <td>{{ strtoupper($row->nomor) }}</td>
                                                 <td>{{ tglindo($row->tanggal) }}</td>
                                                 <td>
                                                     {{ $row->perihal_keluar == '' ? $row->perihal_masuk : $row->perihal_keluar }}
+                                                </td>
+                                                <td>
+                                                    {{ $row->tujuan_keluar == '' ? $row->tujuan_masuk : $row->tujuan_keluar }}
                                                 </td>
                                                 <td>
                                                     {{ $row->perihal_keluar == '' ? tglindo($row->tanggal_masuk) : tglindo($row->tanggal_keluar) }}

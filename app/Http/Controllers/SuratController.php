@@ -65,10 +65,12 @@ class SuratController extends Controller
         $postData['tindak_lanjut'] = $post['tindak_lanjut'];
         $postData['keterangan'] = $post['keterangan'];
         if ($post['jenis']==1) {
+            $postData['tujuan_masuk'] = $post['tujuan_masuk'];
             $postData['tanggal_masuk'] = $post['tanggal_masuk'];
             $postData['perihal_masuk'] = $post['perihal_masuk'];
         }
         if ($post['jenis']==2) {
+            $postData['tujuan_keluar'] = $post['tujuan_keluar'];
             $postData['tanggal_keluar'] = $post['tanggal_keluar'];
             $postData['perihal_keluar'] = $post['perihal_keluar'];
         }
@@ -145,10 +147,12 @@ class SuratController extends Controller
         $postData['tindak_lanjut'] = $post['tindak_lanjut'];
         $postData['keterangan'] = $post['keterangan'];
         if ($post['jenis']==1) {
+            $postData['tujuan_masuk'] = $post['tujuan_masuk'];
             $postData['tanggal_masuk'] = $post['tanggal_masuk'];
             $postData['perihal_masuk'] = $post['perihal_masuk'];
         }
         if ($post['jenis']==2) {
+            $postData['tujuan_keluar'] = $post['tujuan_keluar'];
             $postData['tanggal_keluar'] = $post['tanggal_keluar'];
             $postData['perihal_keluar'] = $post['perihal_keluar'];
         }

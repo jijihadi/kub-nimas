@@ -19,9 +19,10 @@ class AbsensiController extends Controller
      */
     public function index()
     {
-        $data['main'] = Absensi::all();
-        // $data['main'] = Absensi::select('kegiatan',DB::raw('GROUP_CONCAT(id) as ids'), DB::raw('GROUP_CONCAT(tanggal) as tanggal'), DB::raw('GROUP_CONCAT(peserta) as peserta'), DB::raw('GROUP_CONCAT(jabatan) as jabatan'), DB::raw('GROUP_CONCAT(alamat) as alamat'))->groupBy('kegiatan')->orderby('tanggal', 'desc')->get();
-        return view('absensi/index-basic', $data);
+        // $data['main'] = Absensi::all();
+        // return view('absensi/index-basic', $data);
+        $data['main'] = Absensi::select('kegiatan',DB::raw('GROUP_CONCAT(id) as ids'), DB::raw('GROUP_CONCAT(tanggal) as tanggal'), DB::raw('GROUP_CONCAT(peserta) as peserta'), DB::raw('GROUP_CONCAT(jabatan) as jabatan'), DB::raw('GROUP_CONCAT(alamat) as alamat'))->groupBy('kegiatan')->orderby('tanggal', 'desc')->get();
+        return view('absensi/index', $data);
         
     }
 

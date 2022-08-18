@@ -40,7 +40,7 @@
                                         <th>#</th>
                                         <th>Nama Kegiatan</th>
                                         <th>Tanggal</th>
-                                        <th>Peserta</th>
+                                        <th>Peserta/Jabatan</th>
                                         <th>Alamat</th>
                                     </tr>
                                 </thead>
@@ -63,11 +63,11 @@
                                                     <ol>
                                                         @for ($i = 0; $i < $max; $i++)
                                                             <li class="mb-2">
-                                                                {{ $peserta[$i] }} <b>{{ $jabatan[$i] }}</b>
+                                                                {{ $peserta[$i] }}/<b>{{ $jabatan[$i] }}</b>
 
                                                                 <a href="{{ url('daftar-hadir-edit') . '/' . $id[$i] }}">
                                                                     <button type="button"
-                                                                        class="btn btn-xs btn-success btn-icon-text">
+                                                                        class="btn btn-xs btn-outline-success btn-icon-text">
                                                                         <i class="btn-icon-prepend"
                                                                             data-feather="edit-3"></i>
                                                                         Ubah
@@ -75,7 +75,7 @@
                                                                 </a>
                                                                 <a href="{{ url('daftar-hadir-delete') . '/' . $id[$i] }}">
                                                                     <button type="button"
-                                                                        class="btn btn-xs btn-danger btn-icon-text"
+                                                                        class="btn btn-xs btn-outline-danger btn-icon-text"
                                                                         onclick="return confirm('Hapus data {{ $peserta[$i] }} di kegiatan {{ $row->kegiatan }}?');">
                                                                         <i class="btn-icon-prepend"
                                                                             data-feather="trash-2"></i>

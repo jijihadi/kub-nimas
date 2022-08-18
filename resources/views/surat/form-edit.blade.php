@@ -42,7 +42,7 @@
                                     <div class="mb-3 col-lg-6">
                                         <label for="name" class="form-label">Nomor Surat</label>
                                         <div class="input-group">
-                                            <input class="form-control" data-inputmask-alias="***/****/**/****" name="nomor" value="{{$main['nomor']}}" />
+                                            <input class="form-control" data-inputmask-alias="***/****/**/****" name="nomor" style="text-transform:uppercase" value="{{$main['nomor']}}" />
                                         </div>
                                     </div>
                                     <div class="mb-3 col-lg-12">
@@ -50,6 +50,18 @@
                                         <div class="input-group date datepicker" id="datePickerExample">
                                             <input type="text" class="form-control" name="tanggal" value="{{$main['tanggal']}}" >
                                             <span class="input-group-text input-group-addon"><i data-feather="calendar"></i></span>
+                                        </div>
+                                    </div>
+                                    <div class="mb-3 col-lg-12 tj-in {{ $main['tujuan_keluar'] != '' ? 'd-none' : '' }}">
+                                        <label for="name" class="form-label">Tujuan Surat Masuk</label>
+                                        <div class="input-group">
+                                            <input class="form-control" id="tujuan_masuk" name="tujuan_masuk" value="{{$main['tujuan_masuk']}}" />
+                                        </div>
+                                    </div>
+                                    <div class="mb-3 col-lg-12 tj-out {{ $main['tujuan_masuk'] != '' ? 'd-none' : '' }}">
+                                        <label for="name" class="form-label">Tujuan Surat Keluar</label>
+                                        <div class="input-group">
+                                            <input class="form-control" id="tujuan_keluar" name="tujuan_keluar" value="{{$main['tujuan_keluar']}}" />
                                         </div>
                                     </div>
                                     <div class="mb-3 col-lg-6 tg-in {{ $main['perihal_keluar'] != '' ? 'd-none' : '' }}">

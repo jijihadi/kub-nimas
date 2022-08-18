@@ -55,7 +55,7 @@
                                                 <td>{{ $loop->iteration }}</td>
                                                 <td>{{ $row->kegiatan }}</td>
                                                 <td>{{ tglindo($row->tanggal) }}</td>
-                                                <td>{{ $row->pembicara }} <b>({{ $row->jabatan }})</b></td>
+                                                <td>{{ $row->pembicara }} /<b>{{ $row->jabatan }}</b></td>
                                                 <td>{{ $row->materi }}</td>
                                                 <td>{{ $row->kesimpulan }}</td>
                                                 <td>

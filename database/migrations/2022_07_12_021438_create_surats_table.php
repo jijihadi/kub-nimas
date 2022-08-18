@@ -21,6 +21,8 @@ class CreateSuratsTable extends Migration
             $table->date('tanggal_keluar')->nullable();
             $table->string('perihal_masuk')->nullable();
             $table->string('perihal_keluar')->nullable();
+            $table->string('tujuan_masuk')->nullable();
+            $table->string('tujuan_keluar')->nullable();
             $table->string('tindak_lanjut');
             $table->text('keterangan')->nullable();
             $table->timestamps();

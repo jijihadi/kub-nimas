@@ -60,7 +60,7 @@
                                         @foreach ($main as $row)
                                             <tr>
                                                 <td>{{ $loop->iteration }}</td>
-                                                <td>{{ $row->name }} <b>({{ $row->jabatan }})</b></td>
+                                                <td>{{ $row->name }}/<b>{{ $row->jabatan }}</b></td>
                                                 <td>{{ $row->alamat }}</td>
                                                 <td>{{ $row->pendidikan }}</td>
                                                 <td>{{ $row->usia }}&nbsp;Tahun</td>

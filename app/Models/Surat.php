@@ -20,6 +20,8 @@ class Surat extends Model
         'tanggal_keluar',
         'perihal_masuk',
         'perihal_keluar',
+        'tujuan_masuk',
+        'tujuan_keluar',
         'tindak_lanjut',
         'keterangan'
     ];

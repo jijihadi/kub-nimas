@@ -33,14 +33,14 @@
                                 <select class="js-example-basic-single form-select" id="jenis" data-width="100%"
                                     name="jenis">
                                     <option value="0">Pilih Jenis Surat</option>
-                                    <option value="1">Masuk</option>
-                                    <option value="2">Keluar</option>
+                                    <option value="1">Surat Masuk</option>
+                                    <option value="2">Surat Keluar</option>
                                 </select>
                             </div>
                             <div class="mb-3 col-lg-6">
                                 <label for="name" class="form-label">Nomor Surat</label>
                                 <div class="input-group">
-                                    <input class="form-control" data-inputmask-alias="***/****/**/****" name="nomor" />
+                                    <input class="form-control" data-inputmask-alias="***/****/**/****" name="nomor" style="text-transform:uppercase" />
                                 </div>
                             </div>
                             <div class="mb-3 col-lg-12">
@@ -50,26 +50,38 @@
                                     <span class="input-group-text input-group-addon"><i data-feather="calendar"></i></span>
                                 </div>
                             </div>
+                            <div class="mb-3 col-lg-12 tj-in d-none">
+                                <label for="name" class="form-label">Tujuan Surat Masuk</label>
+                                <div class="input-group">
+                                    <input class="form-control" id="tujuan_masuk" name="tujuan_masuk" />
+                                </div>
+                            </div>
+                            <div class="mb-3 col-lg-12 tj-out d-none">
+                                <label for="name" class="form-label">Tujuan Surat Keluar</label>
+                                <div class="input-group">
+                                    <input class="form-control" id="tujuan_keluar" name="tujuan_keluar" />
+                                </div>
+                            </div>
                             <div class="mb-3 col-lg-6 tg-in d-none">
-                                <label for="name" class="form-label">Tanggal Masuk</label>
+                                <label for="name" class="form-label">Tanggal Surat Masuk</label>
                                 <div class="input-group date datepicker" id="datePickerExample2">
                                     <input type="text" class="form-control" name="tanggal_masuk">
                                     <span class="input-group-text input-group-addon"><i data-feather="calendar"></i></span>
                                 </div>
                             </div>
                             <div class="mb-3 col-lg-6 tg-out d-none">
-                                <label for="name" class="form-label">Tanggal Keluar</label>
+                                <label for="name" class="form-label">Tanggal Surat Keluar</label>
                                 <div class="input-group date datepicker" id="datePickerExample3">
                                     <input type="text" class="form-control" name="tanggal_keluar">
                                     <span class="input-group-text input-group-addon"><i data-feather="calendar"></i></span>
                                 </div>
                             </div>
                             <div class="mb-3 col-lg-6 pr-in d-none">
-                                <label for="exampleFormControlTextarea1" class="form-label">Perihal Masuk</label>
+                                <label for="exampleFormControlTextarea1" class="form-label">Perihal Surat Masuk</label>
                                 <textarea class="form-control" id="exampleFormControlTextarea1" name="perihal_masuk" rows="3"></textarea>
                             </div>
                             <div class="mb-3 col-lg-6 pr-out d-none">
-                                <label for="exampleFormControlTextarea1" class="form-label">Perihal Keluar</label>
+                                <label for="exampleFormControlTextarea1" class="form-label">Perihal Surat Keluar</label>
                                 <textarea class="form-control" id="exampleFormControlTextarea1" name="perihal_keluar" rows="3"></textarea>
                             </div>
                             <div class="mb-3 col-lg-6">
@@ -127,8 +139,10 @@
         $(function() {
             $('#jenis').change(function(e) {
                 // Start intiation
+                $('.tj-in').addClass('d-none');
                 $('.tg-in').addClass('d-none');
                 $('.pr-in').addClass('d-none');
+                $('.tj-out').addClass('d-none');
                 $('.tg-out').addClass('d-none');
                 $('.pr-out').addClass('d-none');
                 // End initiation
@@ -137,11 +151,13 @@
                 switch (id) {
                     case '1':
                         console.log();
+                        $('.tj-in').removeClass('d-none');
                         $('.tg-in').removeClass('d-none');
                         $('.pr-in').removeClass('d-none');
                         break;
                     case '2':
                         console.log();
+                        $('.tj-out').removeClass('d-none');
                         $('.tg-out').removeClass('d-none');
                         $('.pr-out').removeClass('d-none');
                         break;

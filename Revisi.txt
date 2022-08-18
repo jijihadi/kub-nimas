@@ -1,0 +1,41 @@
+Surat [?]
+=> Tujuan surat masuk & keluar 
+
+Daftar Hadir [?]
+=> tambah kolom nomor 
+=> Kolom Jabatan
+=> Nama dan alamat dtambah peserta
+
+Daftar Anggota //
+=> data Anggota
+=> perahu jadi jumlah perahu
+=> alat jadi jenis alat penangkap IDBKeyRange
+
+Hasil Produksi//
+=> susunan = nomor | nama | Tanggal Produksi
+=> jumlah jadi jumlah produksi (kg)
+=> nilai jadi nilai produksi (rp)
+
+Inventaris barang//
+=>susunan nama barang | jumlah | tanggal perolehan| kondisi | perolehan beli | kode 
+
+Kas//
+=> error kalau kosong
+
+Notulen//
+=> pembicara jadi nama pembicara
+=> Jabatan kelompok
+
+Role admin
+=> add data kub//
+=> user dimunculkan //
+
+Role Ketua
+=> hilangkan data user//
+
+DB 
+=> add id kub di semua table
+
+Proses Registrasi 
+=> only for Admin
+=> Semua data kub didaftarkan di admin atau via registrasi
