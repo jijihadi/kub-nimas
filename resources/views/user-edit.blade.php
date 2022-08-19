@@ -25,36 +25,38 @@
             <div class="col-md-12 grid-margin stretch-card">
                 <div class="card">
                     <div class="card-body">
-                        <form id="signupForm" class="row" method="post" action="{{ url('list-user-save') }}">
-                            @csrf
-                            @include('layouts.partial.alert')
-                            <div class="mb-3 col-lg-6">
-                                <label for="name" class="form-label">Nama</label>
-                                <input id="name" class="form-control" name="name" type="text">
-                            </div>
-                            <div class="mb-3 col-lg-6">
-                                <label for="name" class="form-label">Email</label>
-                                <input class="form-control" name="email" data-inputmask="'alias': 'email'"/>
-                            </div>
-                            <div class="mb-3 col-lg-6">
-                                <label for="name" class="form-label">Password</label>
-                                <input id="password" class="form-control" name="password" type="password">
-                            </div>
-                            <div class="mb-3 col-lg-6">
-                                <label for="confirm_password" class="form-label">Confirm password</label>
-                                <input id="confirm_password" class="form-control" name="confirm_password" type="password">
-                            </div>
-                            <div class="mb-3 col-lg-12">
-                                <label class="form-label">Role User</label>
-                                <select class="js-example-basic-single form-select" id="Role" data-width="100%"
-                                    name="role">
-                                    <option value="0">Pilih Jenis Role</option>
-                                    <option value="2">Admin</option>
-                                    <option value="1">Perangkat KUB</option>
-                                </select>
-                            </div>
-                            <input class="btn btn-primary" type="submit" value="Submit">
-                        </form>
+                        @if (!empty($main))
+                            <form id="signupForm" class="row" method="post"
+                                action="{{ url('update-user') . '/' . $main['id'] }}">
+                                @csrf
+                                @include('layouts.partial.alert')
+                                <div class="mb-3 col-lg-12">
+                                    <label for="name" class="form-label">Nama</label>
+                                    <input id="name" class="form-control" name="name" type="text"
+                                        value="{{ $main['name'] }}">
+                                </div>
+                                <div class="mb-3 col-lg-12">
+                                    <label for="name" class="form-label">Email</label>
+                                    <input class="form-control" name="email" data-inputmask="'alias': 'email'"
+                                        value="{{ $main['email'] }}" />
+                                </div>
+                                <div class="mb-3 col-lg-12">
+                                    <label for="name" class="form-label">Password</label>
+                                    <span class="text-secondary fst-italic"><small>*Kosongi jika tidak ingin merubah
+                                            password</small></span>
+                                    <input id="password" class="form-control" name="password" type="password">
+                                    <input type="hidden" name="oldpassword" value="{{ $main['password'] }}">
+                                </div>
+                                <div class="mb-3 col-lg-12">
+                                    <label for="confirm_password" class="form-label">Confirm password</label>
+                                    <span class="text-secondary fst-italic"><small>*Kosongi jika tidak ingin merubah
+                                            password</small></span>
+                                    <input id="confirm_password" class="form-control" name="confirm_password"
+                                        type="password">
+                                </div>
+                                <input class="btn btn-primary" type="submit" value="Submit">
+                            </form>
+                        @endif
                     </div>
                 </div>
             </div>
@@ -92,4 +94,12 @@
     <script src="{{ asset('assets/js/datepicker.js') }}"></script>
     <script src="{{ asset('assets/js/timepicker.js') }}"></script>
     <!-- End custom js for this page -->
+    <script>
+        $("#signupForm").validate({
+            rules: {
+                password: {},
+                confirm_password: {},
+            },
+        })
+    </script>
 @endsection

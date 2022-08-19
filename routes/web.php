@@ -22,6 +22,8 @@ Route::get('logout', '\App\Http\Controllers\Auth\LoginController@logout');
 
 #Admin Group
 Route::get('/home', [App\Http\Controllers\PagesController::class, 'index'])->middleware(['auth']);
+Route::get('/edit-user/{id}', [App\Http\Controllers\PagesController::class, 'edit'])->middleware(['auth']);
+Route::POST('/update-user/{id}', [App\Http\Controllers\PagesController::class, 'update'])->middleware(['auth']);
 #Surat
 Route::middleware(['auth'])->group(function () {
     Route::get('/surat-masuk', [App\Http\Controllers\SuratController::class, 'indexin']);

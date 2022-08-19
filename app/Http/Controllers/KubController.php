@@ -2,8 +2,8 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Kub;
 use App\Models\User;
+use App\Models\Kub;
 use App\Http\Requests\StoreKubRequest;
 use App\Http\Requests\UpdateKubRequest;
 use Illuminate\Support\Facades\Auth;

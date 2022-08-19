@@ -59,8 +59,8 @@
                                     <select class="js-example-basic-single form-select" id="Role" data-width="100%"
                                         name="role">
                                         <option value="0">Pilih Jenis Role</option>
-                                        <option value="1" {{ $main['role'] == 1 ? 'selected' : '' }}>Admin</option>
-                                        <option value="2" {{ $main['role'] == 2 ? 'selected' : '' }}>Petugas</option>
+                                        <option value="1" {{ $main['role'] == 2 ? 'selected' : '' }}>Admin</option>
+                                        <option value="2" {{ $main['role'] == 1 ? 'selected' : '' }}>Perangkat KUB</option>
                                     </select>
                                 </div>
                                 <input class="btn btn-primary" type="submit" value="Submit">

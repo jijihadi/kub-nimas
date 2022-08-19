@@ -14,7 +14,9 @@
             <li class="nav-item {{ cek_active('home') }}">
                 <a href="{{ url('/') }}" class="nav-link">
                     <i class="link-icon" data-feather="box"></i>
-                    <span class="link-title">Dashboard</span>
+                    <span class="link-title">Dashboard 
+                    {!! (Auth::user()->role==2 ? "Admin" : "Perangkat KUB")!!}
+                    </span>
                 </a>
             </li>
             <li class="nav-item nav-category">data kub</li>

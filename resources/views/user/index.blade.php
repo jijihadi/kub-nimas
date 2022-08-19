@@ -53,7 +53,7 @@
                                                 <td>{{ $loop->iteration }}</td>
                                                 <td>{{ $row->name }}</td>
                                                 <td>{{ $row->email }}</td>
-                                                <td>{!! ($row->role==1)? '<p class="text-success">Admin</p>':'<p class="text-secondary">Petugas</p>'!!}</td>
+                                                <td>{!! ($row->role==2)? '<p class="text-success">Admin</p>':'<p class="text-secondary">Petugas</p>'!!}</td>
                                                 <td>
                                                     @if (cek_admin() == 1)
                                                         <!--Edit-->
