@@ -77,7 +77,7 @@ class KasController extends Controller
             // something went wrong
             Session::flash('error', $e->getMessage());
 
-            dd($e->getMessage());
+            //dd($e->getMessage());
         }
         return redirect('kas');
     }
@@ -148,7 +148,7 @@ class KasController extends Controller
             // something went wrong
             Session::flash('error', $e->getMessage());
 
-            dd($e->getMessage());
+            //dd($e->getMessage());
         }
         return redirect('kas-edit/' . $id);
     }
@@ -176,7 +176,7 @@ class KasController extends Controller
             // something went wrong
             Session::flash('error', $e->getMessage());
 
-            dd($e->getMessage());
+            //dd($e->getMessage());
         }
         return redirect('kas');
     }

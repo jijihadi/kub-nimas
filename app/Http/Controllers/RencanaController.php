@@ -66,7 +66,7 @@ class RencanaController extends Controller
             // something went wrong
             Session::flash('error', $e->getMessage());
 
-            dd($e->getMessage());
+            //dd($e->getMessage());
         }
         return redirect('rencana-kegiatan');
     }
@@ -128,7 +128,7 @@ class RencanaController extends Controller
             // something went wrong
             Session::flash('error', $e->getMessage());
 
-            dd($e->getMessage());
+            //dd($e->getMessage());
         }
         return redirect('rencana-kegiatan-edit/' . $id);
     }
@@ -156,7 +156,7 @@ class RencanaController extends Controller
             // something went wrong
             Session::flash('error', $e->getMessage());
 
-            dd($e->getMessage());
+            //dd($e->getMessage());
         }
         return redirect('rencana-kegiatan');
     }

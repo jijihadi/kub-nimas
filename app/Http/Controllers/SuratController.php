@@ -57,7 +57,7 @@ class SuratController extends Controller
             'keterangan' => 'required',
         ]);
         //get post data
-        $post = $request->all();
+        // $post = $request->all();
 
         $postData = array();
         $postData['nomor'] = $post['nomor'];
@@ -90,7 +90,7 @@ class SuratController extends Controller
             // something went wrong
             Session::flash('error', $e->getMessage());
 
-            dd($e->getMessage());
+            //dd($e->getMessage());
         }
         if ($post['jenis']==1) {
             return redirect('surat-masuk');
@@ -172,7 +172,7 @@ class SuratController extends Controller
             // something went wrong
             Session::flash('error', $e->getMessage());
 
-            dd($e->getMessage());
+            // //dd($e->getMessage());
         }
         return redirect('surat-edit/' . $id);
     }
@@ -200,7 +200,7 @@ class SuratController extends Controller
             // something went wrong
             Session::flash('error', $e->getMessage());
 
-            dd($e->getMessage());
+            // //dd($e->getMessage());
         }
         return redirect('surat-masuk');
     }

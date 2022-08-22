@@ -67,7 +67,7 @@ class NotulenController extends Controller
             // something went wrong
             Session::flash('error', $e->getMessage());
 
-            dd($e->getMessage());
+            //dd($e->getMessage());
         }
         return redirect('notulen');
     }
@@ -130,7 +130,7 @@ class NotulenController extends Controller
             // something went wrong
             Session::flash('error', $e->getMessage());
 
-            dd($e->getMessage());
+            //dd($e->getMessage());
         }
         return redirect('notulen-edit/' . $id);
     }
@@ -158,7 +158,7 @@ class NotulenController extends Controller
             // something went wrong
             Session::flash('error', $e->getMessage());
 
-            dd($e->getMessage());
+            //dd($e->getMessage());
         }
         return redirect('notulen');
     }

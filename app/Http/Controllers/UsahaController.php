@@ -68,7 +68,7 @@ class UsahaController extends Controller
             // something went wrong
             Session::flash('error', $e->getMessage());
 
-            dd($e->getMessage());
+            //dd($e->getMessage());
         }
         return redirect('usaha');
     }
@@ -132,7 +132,7 @@ class UsahaController extends Controller
             // something went wrong
             Session::flash('error', $e->getMessage());
 
-            dd($e->getMessage());
+            //dd($e->getMessage());
         }
         return redirect('usaha-edit/' . $id);
     }
@@ -160,7 +160,7 @@ class UsahaController extends Controller
             // something went wrong
             Session::flash('error', $e->getMessage());
 
-            dd($e->getMessage());
+            //dd($e->getMessage());
         }
         return redirect('usaha');
     }

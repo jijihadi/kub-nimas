@@ -70,7 +70,7 @@ class AbsensiController extends Controller
             // something went wrong
             Session::flash('error', $e->getMessage());
 
-            dd($e->getMessage());
+            //dd($e->getMessage());
         }
         return redirect('daftar-hadir');
     }
@@ -132,7 +132,7 @@ class AbsensiController extends Controller
             // something went wrong
             Session::flash('error', $e->getMessage());
 
-            dd($e->getMessage());
+            //dd($e->getMessage());
         }
         return redirect('daftar-hadir-edit/' . $id);
     }
@@ -160,7 +160,7 @@ class AbsensiController extends Controller
             // something went wrong
             Session::flash('error', $e->getMessage());
 
-            dd($e->getMessage());
+            //dd($e->getMessage());
         }
         return redirect('daftar-hadir');
     }
