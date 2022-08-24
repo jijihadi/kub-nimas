@@ -57,7 +57,7 @@ class SuratController extends Controller
             'keterangan' => 'required',
         ]);
         //get post data
-        // $post = $request->all();
+        $post = $request->all();
 
         $postData = array();
         $postData['nomor'] = $post['nomor'];
