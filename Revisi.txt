@@ -2,9 +2,9 @@ DB
 => add id kub di semua table//
 
 ALL CONTROLLER
-=> add id_kub in load data
-=> add id_kub in data input
+=> add id_kub in load data//
+=> add id_kub in data input//
 
 All View
-=> add dynamic field [KUB]
+=> add dynamic field [KUB]//
 
