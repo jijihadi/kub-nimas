@@ -20,7 +20,11 @@ class AnggotaController extends Controller
      */
     public function index()
     {
-        $data['main'] = Anggota::all();
+        $q = Anggota::select('*');
+
+        $idkub = getidkub(Auth::user()->id);
+        if ($idkub !=0) { $q->where('id_kub', $idkub); }
+        $data['main'] = $q->get();
         return view('anggota/index', $data);
     }
 
@@ -56,6 +60,7 @@ class AnggotaController extends Controller
         ]);
         //get post data
         $postData = $request->all();
+        $postData['id_kub'] = getidkub(Auth::user()->id);
         try {
             DB::beginTransaction();
             DB::enableQueryLog();

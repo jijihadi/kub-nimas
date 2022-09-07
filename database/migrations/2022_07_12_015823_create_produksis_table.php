@@ -20,6 +20,7 @@ class CreateProduksisTable extends Migration
             $table->integer('jumlah');
             $table->string('nilai');
             $table->text('keterangan')->nullable();
+            $table->integer('id_kub');
             $table->timestamps();
         });
     }

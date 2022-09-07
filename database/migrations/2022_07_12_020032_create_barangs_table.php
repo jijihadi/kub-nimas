@@ -21,6 +21,7 @@ class CreateBarangsTable extends Migration
             $table->integer('jumlah');
             $table->string('kondisi');
             $table->string('perolehan');
+            $table->integer('id_kub');
             $table->timestamps();
         });
     }

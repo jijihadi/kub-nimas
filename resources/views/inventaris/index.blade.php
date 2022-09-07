@@ -45,6 +45,7 @@
                                         <th>Tanggal</th>
                                         <th>Kondisi</th>
                                         <th>Perolehan</th>
+                                        {!!(Auth::user()->role == 1)? "":"<th>KUB</th>"!!}
                                         <th>Kode</th>
                                         <th>#</th>
                                     </tr>
@@ -59,6 +60,7 @@
                                                 <td>{{ tglindo($row->tanggal) }}</td>
                                                 <td>{{ $row->kondisi }}</td>
                                                 <td>{{ $row->perolehan }}</td>
+                                                {!!(Auth::user()->role == 1)? "":"<td>".getfieldbyid('kubs', 'name', $row->id_kub)."</td>"!!}
                                                 <td><b>{{ $row->kode }}</b></td>
                                                 <td>
                                                     @if (cek_admin() == 1)

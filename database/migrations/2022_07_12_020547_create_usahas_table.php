@@ -22,6 +22,7 @@ class CreateUsahasTable extends Migration
             $table->string('tempat');
             $table->string('hasil');
             $table->text('keterangan')->nullable();
+            $table->integer('id_kub');
             $table->timestamps();
         });
     }

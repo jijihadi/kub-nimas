@@ -2,11 +2,11 @@
 
 namespace App\Http\Controllers;
 
-use App\Http\Requests\StoreRencanaRequest;
 use App\Http\Requests\UpdateRencanaRequest;
-use App\Models\Rencana;
+use App\Http\Requests\StoreRencanaRequest;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Http\Request;
+use App\Models\Rencana;
 use Session;
 use DB;
 
@@ -19,7 +19,12 @@ class RencanaController extends Controller
      */
     public function index()
     {
-        $data['main'] = Rencana::all();
+        $q = Rencana::select('*');
+        // cek apakah ketua kub
+        $idkub = getidkub(Auth::user()->id);
+        if ($idkub !=0) { $q->where('id_kub', $idkub); }
+        // run query
+        $data['main'] = $q->get();
         return view('rencana/index', $data);
     }
 
@@ -51,6 +56,7 @@ class RencanaController extends Controller
         ]);
         //get post data
         $postData = $request->all();
+        $postData['id_kub'] = getidkub(Auth::user()->id);
         try {
             DB::beginTransaction();
             DB::enableQueryLog();

@@ -23,6 +23,7 @@ class Surat extends Model
         'tujuan_masuk',
         'tujuan_keluar',
         'tindak_lanjut',
+        'id_kub',
         'keterangan'
     ];
 }

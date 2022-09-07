@@ -20,6 +20,7 @@ class CreateAbsensisTable extends Migration
             $table->string('jabatan');
             $table->text('alamat');
             $table->date('tanggal');
+            $table->integer('id_kub');
             $table->timestamps();
         });
     }

@@ -25,6 +25,7 @@ class CreateAnggotasTable extends Migration
             $table->integer('jumlah_perahu');
             $table->string('jenis_alat');
             $table->text('keterangan')->nullable();
+            $table->integer('id_kub');
             $table->timestamps();
         });
     }

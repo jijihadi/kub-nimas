@@ -39,6 +39,7 @@
                                     <tr class="text-center">
                                         <th>#</th>
                                         <th>Nama Kegiatan</th>
+                                        {!!(Auth::user()->role == 1)? "":"<th>KUB</th>"!!}
                                         <th>Tanggal</th>
                                         <th>Peserta/Jabatan</th>
                                         <th>Alamat</th>
@@ -58,6 +59,7 @@
                                             <tr>
                                                 <td>{{ $loop->iteration }}</td>
                                                 <td>{{ $row->kegiatan }}</td>
+                                                {!!(Auth::user()->role == 1)? "":"<td>".getfieldbyid('kubs', 'name', $row->id_kub)."</td>"!!}
                                                 <td>{{ tglindo($tanggal[0]) }}</td>
                                                 <td>
                                                     <ol>

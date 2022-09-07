@@ -21,6 +21,7 @@ class CreateKasTable extends Migration
             $table->integer('harga_satuan')->nullable();
             $table->integer('masuk')->nullable();
             $table->integer('keluar')->nullable();
+            $table->integer('id_kub');
             $table->timestamps();
         });
     }

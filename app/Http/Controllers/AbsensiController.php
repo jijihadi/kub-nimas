@@ -2,11 +2,11 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Absensi;
-use App\Http\Requests\StoreAbsensiRequest;
 use App\Http\Requests\UpdateAbsensiRequest;
+use App\Http\Requests\StoreAbsensiRequest;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Http\Request;
+use App\Models\Absensi;
 use Session;
 use DB;
 
@@ -21,9 +21,22 @@ class AbsensiController extends Controller
     {
         // $data['main'] = Absensi::all();
         // return view('absensi/index-basic', $data);
-        $data['main'] = Absensi::select('kegiatan',DB::raw('GROUP_CONCAT(id) as ids'), DB::raw('GROUP_CONCAT(tanggal) as tanggal'), DB::raw('GROUP_CONCAT(peserta) as peserta'), DB::raw('GROUP_CONCAT(jabatan) as jabatan'), DB::raw('GROUP_CONCAT(alamat) as alamat'))->groupBy('kegiatan')->orderby('tanggal', 'desc')->get();
+        $q = Absensi::select(
+            'kegiatan',
+            DB::raw('GROUP_CONCAT(id) as ids'),
+            DB::raw('GROUP_CONCAT(tanggal) as tanggal'),
+            DB::raw('GROUP_CONCAT(peserta) as peserta'),
+            DB::raw('GROUP_CONCAT(jabatan) as jabatan'),
+            DB::raw('GROUP_CONCAT(alamat) as alamat'),
+            DB::raw('GROUP_CONCAT(id_kub) as id_kub'))
+            ->groupBy('kegiatan')
+            ->orderby('tanggal', 'desc');
+            // add if petugas kub
+        $idkub = getidkub(Auth::user()->id);
+        if ($idkub !=0) { $q->where('id_kub', $idkub); }
+        $data['main'] = $q->get();
         return view('absensi/index', $data);
-        
+
     }
 
     /**
@@ -55,6 +68,7 @@ class AbsensiController extends Controller
         ]);
         //get post data
         $postData = $request->all();
+        $postData['id_kub'] = getidkub(Auth::user()->id);
         try {
             DB::beginTransaction();
             DB::enableQueryLog();
@@ -83,7 +97,7 @@ class AbsensiController extends Controller
      */
     public function show(Absensi $absensi)
     {
-       //
+        //
     }
 
     /**

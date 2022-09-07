@@ -99,6 +99,7 @@
                                             <tr class="text-center">
                                                 <th>#</th>
                                                 <th>Tanggal</th>
+                                                {!!(Auth::user()->role == 1)? "":"<th>KUB</th>"!!}
                                                 <th>Jenis</th>
                                                 <th>Uraian</th>
                                                 <th>Jumlah</th>
@@ -113,6 +114,7 @@
                                                     <tr>
                                                         <td>{{ $loop->iteration }}</td>
                                                         <td>{{ tglindo($row->tanggal) }}</td>
+                                                        {!!(Auth::user()->role == 1)? "":"<td>".getfieldbyid('kubs', 'name', $row->id_kub)."</td>"!!}
                                                         <td>{{ $row->keluar == 0 ? 'Kas Masuk' : 'Kas Keluar' }}</td>
                                                         <td>{{ $row->uraian }}</td>
                                                         <td>{{ rupiah($row->banyaknya) }}</td>
@@ -159,6 +161,7 @@
                                             <tr class="text-center">
                                                 <th>#</th>
                                                 <th>Tanggal</th>
+                                                {!!(Auth::user()->role == 1)? "":"<th>KUB</th>"!!}
                                                 <th>Uraian</th>
                                                 <th>Jumlah</th>
                                                 <th>Harga Satuan</th>
@@ -172,6 +175,7 @@
                                                     <tr>
                                                         <td>{{ $loop->iteration }}</td>
                                                         <td>{{ tglindo($row->tanggal) }}</td>
+                                                        {!!(Auth::user()->role == 1)? "":"<td>".getfieldbyid('kubs', 'name', $row->id_kub)."</td>"!!}
                                                         <td>{{ $row->uraian }}</td>
                                                         <td>{{ rupiah($row->banyaknya) }}</td>
                                                         <td>{{ rupiah($row->harga_satuan) }}</td>
@@ -217,6 +221,7 @@
                                             <tr class="text-center">
                                                 <th>#</th>
                                                 <th>Tanggal</th>
+                                                {!!(Auth::user()->role == 1)? "":"<th>KUB</th>"!!}
                                                 <th>Uraian</th>
                                                 <th>Jumlah</th>
                                                 <th>Harga Satuan</th>
@@ -230,6 +235,7 @@
                                                     <tr>
                                                         <td>{{ $loop->iteration }}</td>
                                                         <td>{{ tglindo($row->tanggal) }}</td>
+                                                        {!!(Auth::user()->role == 1)? "":"<td>".getfieldbyid('kubs', 'name', $row->id_kub)."</td>"!!}
                                                         <td>{{ $row->uraian }}</td>
                                                         <td>{{ rupiah($row->banyaknya) }}</td>
                                                         <td>{{ rupiah($row->harga_satuan) }}</td>

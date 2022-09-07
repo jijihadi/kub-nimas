@@ -20,7 +20,12 @@ class ProduksiController extends Controller
      */
     public function index()
     {
-        $data['main'] = Produksi::all();
+        $q = Produksi::select('*');
+        // cek apakah ketua kub
+        $idkub = getidkub(Auth::user()->id);
+        if ($idkub !=0) { $q->where('id_kub', $idkub); }
+        // run query
+        $data['main'] = $q->get();
         return view('produksi/index', $data);
     }
 
@@ -53,6 +58,7 @@ class ProduksiController extends Controller
         ]);
         //get post data
         $postData = $request->all();
+        $postData['id_kub'] = getidkub(Auth::user()->id);
         $postData['nilai'] = bilanganbulat($postData['nilai']);
         try {
             DB::beginTransaction();

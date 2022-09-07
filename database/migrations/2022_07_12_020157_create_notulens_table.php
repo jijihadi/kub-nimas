@@ -21,6 +21,7 @@ class CreateNotulensTable extends Migration
             $table->string('jabatan');
             $table->string('materi');
             $table->text('kesimpulan');
+            $table->integer('id_kub');
             $table->timestamps();
         });
     }

@@ -42,6 +42,7 @@
                                         <th>#</th>
                                         <th>Nama Kegiatan</th>
                                         <th>Tempat/Waktu</th>
+                                        {!!(Auth::user()->role == 1)? "":"<th>KUB</th>"!!}
                                         <th>Volume</th>
                                         <th>Ket</th>
                                         <th>#</th>
@@ -58,6 +59,7 @@
                                                     Jam {{ date('H:i', strtotime($row->waktu)) }}
                                                     <br> di {{ $row->tempat }}
                                                 </td>
+                                                {!!(Auth::user()->role == 1)? "":"<td>".getfieldbyid('kubs', 'name', $row->id_kub)."</td>"!!}
                                                 <td>{{ $row->volume }}&nbsp;Orang</td>
                                                 <td>{{ $row->keterangan }}</td>
                                                 <td>

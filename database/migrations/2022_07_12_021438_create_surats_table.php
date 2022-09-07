@@ -25,6 +25,7 @@ class CreateSuratsTable extends Migration
             $table->string('tujuan_keluar')->nullable();
             $table->string('tindak_lanjut');
             $table->text('keterangan')->nullable();
+            $table->integer('id_kub');
             $table->timestamps();
         });
     }

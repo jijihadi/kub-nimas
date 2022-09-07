@@ -20,6 +20,7 @@ class CreateRencanasTable extends Migration
             $table->datetime('waktu');
             $table->string('tempat');
             $table->text('keterangan')->nullable();
+            $table->integer('id_kub');
             $table->timestamps();
         });
     }

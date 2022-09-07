@@ -18,6 +18,7 @@ class Rencana extends Model
         'volume',
         'waktu',
         'tempat',
+        'id_kub',
         'keterangan'
     ];
 }

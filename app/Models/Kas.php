@@ -21,6 +21,7 @@ class Kas extends Model
         'harga_satuan',
         'masuk',
         'keluar',
+        'id_kub',
         'saldo'
     ];
 }

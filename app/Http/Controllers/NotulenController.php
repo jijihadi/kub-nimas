@@ -19,7 +19,13 @@ class NotulenController extends Controller
      */
     public function index()
     {
-        $data['main'] = Notulen::all();
+        $q = Notulen::select('*');
+        // cek apakah ketua kub
+        $idkub = getidkub(Auth::user()->id);
+        if ($idkub !=0) { $q->where('id_kub', $idkub); }
+        // run query
+        $data['main'] = $q->get();
+
         return view('notulen/index', $data);
     }
 
@@ -52,6 +58,7 @@ class NotulenController extends Controller
         ]);
         //get post data
         $postData = $request->all();
+        $postData['id_kub'] = getidkub(Auth::user()->id);
         try {
             DB::beginTransaction();
             DB::enableQueryLog();

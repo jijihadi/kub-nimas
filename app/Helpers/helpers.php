@@ -138,6 +138,25 @@ if (!function_exists('getfieldbyid')) {
         return $query[0]->$field;
     }
 }
+// Personal Helper
+if (!function_exists('getidkub')) {
+    /**
+     * @return string
+     */
+
+    function getidkub($id)
+    {
+        $query = DB::table('kubs')
+        ->where('id_ketua', $id)
+        ->get()->toArray();
+
+        if (empty($query)) {
+            return 0;
+        }
+
+        return $query[0]->id;
+    }
+}
 if (!function_exists('getsaldokas')) {
     /**
      * @return string

@@ -21,6 +21,7 @@ class Barang extends Model
         'jumlah',
         'tanggal',
         'kondisi',
+        'id_kub',
         'perolehan'
     ];
 }

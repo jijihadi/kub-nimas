@@ -42,6 +42,7 @@
                                         <th>#</th>
                                         <th>Nama Anggota</th>
                                         <th>Tanggal Produksi</th>
+                                        {!!(Auth::user()->role == 1)? "":"<th>KUB</th>"!!}
                                         <th>Jumlah (Kg)</th>
                                         <th>Nilai (Rp)</th>
                                         <th>Ket</th>
@@ -55,6 +56,7 @@
                                                 <td>{{ $loop->iteration }}</td>
                                                 <td>{{ ucwords($row->nama_anggota) }}</td>
                                                 <td><b>{{ tglindo($row->tanggal) }}</b></td>
+                                                {!!(Auth::user()->role == 1)? "":"<td>".getfieldbyid('kubs', 'name', $row->id_kub)."</td>"!!}
                                                 <td>{{ $row->jumlah }}&nbsp;Kg</td>
                                                 <td>{{ rupiah($row->nilai) }}</td>
                                                 <td>{{ $row->keterangan }}</td>

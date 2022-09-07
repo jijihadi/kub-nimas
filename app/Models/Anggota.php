@@ -24,6 +24,7 @@ class Anggota extends Model
         'usaha_sampingan',
         'jumlah_perahu',
         'jenis_alat',
+        'id_kub',
         'keterangan'
     ];
 }

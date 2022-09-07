@@ -19,7 +19,10 @@ class BarangController extends Controller
      */
     public function index()
     {
-        $data['main'] = Barang::all();
+        $q = Barang::select('*');
+        $idkub = getidkub(Auth::user()->id);
+        if ($idkub !=0) { $q->where('id_kub', $idkub); }
+        $data['main'] = $q->get();
         return view('inventaris/index', $data);
     }
 
@@ -52,6 +55,7 @@ class BarangController extends Controller
         ]);
         //get post data
         $postData = $request->all();
+        $postData['id_kub'] = getidkub(Auth::user()->id);
         try {
             DB::beginTransaction();
             DB::enableQueryLog();

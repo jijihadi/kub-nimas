@@ -23,6 +23,7 @@ class CreateTamusTable extends Migration
             $table->string('keperluan');
             $table->text('kesan')->nullable();
             $table->text('pesan')->nullable();
+            $table->integer('id_kub');
             $table->timestamps();
         });
     }

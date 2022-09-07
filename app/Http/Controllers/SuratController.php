@@ -2,13 +2,14 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Surat;
-use App\Http\Requests\StoreSuratRequest;
 use App\Http\Requests\UpdateSuratRequest;
-use App\Models\Kas;
-use DB;
+use App\Http\Requests\StoreSuratRequest;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Http\Request;
+use App\Models\Surat;
+use App\Models\Kas;
 use Session;
+use DB;
 
 class SuratController extends Controller
 {
@@ -19,13 +20,23 @@ class SuratController extends Controller
      */
     public function indexin()
     {
-        $data['main'] = Surat::where('tanggal_masuk', 'not like', '0000-00-00')->get();
+        $q = Surat::where('tanggal_masuk', 'not like', '0000-00-00');
+        // cek apakah ketua kub
+        $idkub = getidkub(Auth::user()->id);
+        if ($idkub !=0) { $q->where('id_kub', $idkub); }
+        // run query
+        $data['main'] = $q->get();
         $data['stat'] = "Masuk";
         return view('surat/index', $data);
     }
     public function indexout()
     {
-        $data['main'] = Surat::where('tanggal_keluar', 'not like', '0000-00-00')->get();
+        $q = Surat::where('tanggal_keluar', 'not like', '0000-00-00');
+        // cek apakah ketua kub
+        $idkub = getidkub(Auth::user()->id);
+        if ($idkub !=0) { $q->where('id_kub', $idkub); }
+        // run query
+        $data['main'] = $q->get();
         $data['stat'] = "Keluar";
         return view('surat/index', $data);
     }
@@ -60,6 +71,7 @@ class SuratController extends Controller
         $post = $request->all();
 
         $postData = array();
+        $postData['id_kub'] = getidkub(Auth::user()->id);
         $postData['nomor'] = $post['nomor'];
         $postData['tanggal'] = $post['tanggal'];
         $postData['tindak_lanjut'] = $post['tindak_lanjut'];

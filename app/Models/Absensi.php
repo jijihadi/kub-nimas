@@ -19,6 +19,7 @@ class Absensi extends Model
         'peserta',
         'jabatan',
         'tanggal',
+        'id_kub',
         'alamat'
     ];
 }

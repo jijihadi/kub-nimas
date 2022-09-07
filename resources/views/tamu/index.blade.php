@@ -41,6 +41,7 @@
                                     <tr class="text-center">
                                         <th>#</th>
                                         <th>Nama/Jabatan</th>
+                                        {!!(Auth::user()->role == 1)? "":"<th>KUB</th>"!!}
                                         <th>Kontak</th>
                                         <th>Tanggal Datang</th>
                                         <th>Tanggal Pulang</th>
@@ -54,7 +55,8 @@
                                         @foreach ($main as $row)
                                             <tr>
                                                 <td>{{ $loop->iteration }}</td>
-                                                <td>{{ $row->nama }}&nbsp;<b>({{ $row->jabatan }})</b></td>
+                                                <td>{{ $row->nama }}<b>/{{ $row->jabatan }}</b></td>
+                                                {!!(Auth::user()->role == 1)? "":"<td>".getfieldbyid('kubs', 'name', $row->id_kub)."</td>"!!}
                                                 <td>{{ $row->telp }}</td>
                                                 <td>{{ tglindo($row->tanggal_datang) }}</td>
                                                 <td>{{ tglindo($row->tanggal_pulang) }}</td>

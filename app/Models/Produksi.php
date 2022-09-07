@@ -18,6 +18,7 @@ class Produksi extends Model
         'nama_anggota',
         'jumlah',
         'nilai',
+        'id_kub',
         'keterangan'
     ];
 }

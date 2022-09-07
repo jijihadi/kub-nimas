@@ -2,13 +2,13 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Tamu;
-use App\Http\Requests\StoreTamuRequest;
 use App\Http\Requests\UpdateTamuRequest;
+use App\Http\Requests\StoreTamuRequest;
 use Illuminate\Support\Facades\Auth;
-use DB;
 use Illuminate\Http\Request;
+use App\Models\Tamu;
 use Session;
+use DB;
 
 class TamuController extends Controller
 {
@@ -19,7 +19,12 @@ class TamuController extends Controller
      */
     public function index()
     {
-        $data['main'] = Tamu::all();
+        $q = Tamu::select('*');
+        // cek apakah ketua kub
+        $idkub = getidkub(Auth::user()->id);
+        if ($idkub !=0) { $q->where('id_kub', $idkub); }
+        // run query
+        $data['main'] = $q->get();
         return view('tamu/index', $data);
     }
 
@@ -54,6 +59,7 @@ class TamuController extends Controller
         ]);
         //get post data
         $postData = $request->all();
+        $postData['id_kub'] = getidkub(Auth::user()->id);
         try {
             DB::beginTransaction();
             DB::enableQueryLog();

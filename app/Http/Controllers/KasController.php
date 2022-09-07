@@ -2,12 +2,13 @@
 
 namespace App\Http\Controllers;
 
-use App\Http\Requests\StoreKasRequest;
 use App\Http\Requests\UpdateKasRequest;
-use App\Models\Kas;
-use DB;
+use App\Http\Requests\StoreKasRequest;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Http\Request;
+use App\Models\Kas;
 use Session;
+use DB;
 
 class KasController extends Controller
 {
@@ -18,9 +19,20 @@ class KasController extends Controller
      */
     public function index()
     {
-        $data['main'] = Kas::all();
-        $data['first'] = Kas::where('masuk', 'not like', 0)->get();
-        $data['second'] = Kas::where('keluar', 'not like', 0)->get();
+        // main
+        $q1 = Kas::select('*');
+        $idkub = getidkub(Auth::user()->id);
+        if ($idkub !=0) { $q1->where('id_kub', $idkub); }
+        $data['main'] = $q1->get();
+        // first
+        $q2 = Kas::where('masuk', 'not like', 0);
+        if ($idkub !=0) { $q2->where('id_kub', $idkub); }
+        $data['first'] = $q2->get();
+        // second
+        $q3 = Kas::where('keluar', 'not like', 0);
+        if ($idkub !=0) { $q3->where('id_kub', $idkub); }
+        $data['second'] = $q3->get();
+        // view
         return view('kas/index', $data);
     }
 
@@ -54,6 +66,7 @@ class KasController extends Controller
         $post = $request->all();
 
         $postData = array();
+        $postData['id_kub'] = getidkub(Auth::user()->id);
         $postData['uraian'] = $post['uraian'];
         $postData['tanggal'] = $post['tanggal'];
         $postData['banyaknya'] = bilanganbulat($post['banyaknya']);

@@ -20,6 +20,7 @@ class Usaha extends Model
         'pelaksana',
         'tempat',
         'keterangan',
+        'id_kub',
         'hasil'
     ];
 }

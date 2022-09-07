@@ -21,6 +21,7 @@ class Tamu extends Model
         'tanggal_pulang',
         'keperluan',
         'kesan',
+        'id_kub',
         'pesan'
     ];
 }

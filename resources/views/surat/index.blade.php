@@ -42,6 +42,7 @@
                                         <th>#</th>
                                         <th>Nomor Surat</th>
                                         <th>Tanggal Surat</th>
+                                        {!!(Auth::user()->role == 1)? "":"<th>KUB</th>"!!}
                                         <th>Perihal</th>
                                         <th>Tujuan</th>
                                         <th>Tanggal {{ $stat }}</th>
@@ -57,6 +58,7 @@
                                                 <td>{{ $loop->iteration }}</td>
                                                 <td>{{ strtoupper($row->nomor) }}</td>
                                                 <td>{{ tglindo($row->tanggal) }}</td>
+                                                {!!(Auth::user()->role == 1)? "":"<td>".getfieldbyid('kubs', 'name', $row->id_kub)."</td>"!!}
                                                 <td>
                                                     {{ $row->perihal_keluar == '' ? $row->perihal_masuk : $row->perihal_keluar }}
                                                 </td>

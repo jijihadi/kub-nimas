@@ -19,7 +19,12 @@ class UsahaController extends Controller
      */
     public function index()
     {
-        $data['main'] = Usaha::all();
+        $q = Usaha::select('*');
+        // cek apakah ketua kub
+        $idkub = getidkub(Auth::user()->id);
+        if ($idkub !=0) { $q->where('id_kub', $idkub); }
+        // run query
+        $data['main'] = $q->get();
         return view('kegiatan/index', $data);
     }
 
@@ -53,6 +58,7 @@ class UsahaController extends Controller
         ]);
         //get post data
         $postData = $request->all();
+        $postData['id_kub'] = getidkub(Auth::user()->id);
         try {
             DB::beginTransaction();
             DB::enableQueryLog();

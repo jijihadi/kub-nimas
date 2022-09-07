@@ -41,6 +41,7 @@
                                     <tr class="text-center">
                                         <th rowspan="2">#</th>
                                         <th rowspan="2">Nama/Jabatan</th>
+                                        {!!(Auth::user()->role == 1)? "":"<td rowspan='2'>KUB</td>"!!}
                                         <th rowspan="2">Alamat</th>
                                         <th rowspan="2">Pendidikan</th>
                                         <th rowspan="2">Usia</th>
@@ -61,6 +62,7 @@
                                             <tr>
                                                 <td>{{ $loop->iteration }}</td>
                                                 <td>{{ $row->name }}/<b>{{ $row->jabatan }}</b></td>
+                                                {!!(Auth::user()->role == 1)? "":"<td>".getfieldbyid('kubs', 'name', $row->id_kub)."</td>"!!}
                                                 <td>{{ $row->alamat }}</td>
                                                 <td>{{ $row->pendidikan }}</td>
                                                 <td>{{ $row->usia }}&nbsp;Tahun</td>

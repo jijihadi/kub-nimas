@@ -19,6 +19,7 @@ class Notulen extends Model
         'pembicara',
         'jabatan',
         'materi',
+        'id_kub',
         'kesimpulan'
     ];
 }
