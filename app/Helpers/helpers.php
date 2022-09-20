@@ -119,6 +119,29 @@ if (!function_exists('bilanganbulat')) {
     }
 }
 
+if (!function_exists('maketitle')) {
+    /**
+     * @return string
+     */
+
+    function maketitle($teks)
+    {
+        $teks = ucwords(strtolower($teks));
+        return $teks;
+    }
+}
+if (!function_exists('makeclass')) {
+    /**
+     * @return string
+     */
+
+    function makeclass($teks)
+    {
+        $teks = strtolower(str_replace(" ","_",$teks));
+        return $teks;
+    }
+}
+
 // Personal Helper
 if (!function_exists('getfieldbyid')) {
     /**
@@ -139,6 +162,42 @@ if (!function_exists('getfieldbyid')) {
     }
 }
 // Personal Helper
+if (!function_exists('gettable')) {
+    /**
+     * @return string
+     */
+
+    function gettable($table, $where, $id)
+    {
+        $query = DB::table($table)
+        ->where($where, $id)
+        ->get()->toArray();
+
+        if (empty($query)) {
+            return 0;
+        }
+
+        return $query;
+    }
+}
+if (!function_exists('gettablefield')) {
+    /**
+     * @return string
+     */
+
+    function gettablefield($table, $where, $id,$field)
+    {
+        $query = DB::table($table)
+        ->where($where, $id)
+        ->get()->toArray();
+
+        if (empty($query)) {
+            return 0;
+        }
+
+        return $query[0]->$field;
+    }
+}
 if (!function_exists('getidkub')) {
     /**
      * @return string
@@ -166,6 +225,7 @@ if (!function_exists('getsaldokas')) {
     {
         $query = DB::table('kas')->select(DB::raw('(SUM(masuk)) - (SUM(keluar)) as saldo'))
         ->where('tanggal','<=', $tanggal)
+        ->where('id_kub', getidkub(Auth::user()->id))
         ->groupBy(DB::raw("month(created_at)"))
         ->orderby('id')
         ->get()->toArray();
@@ -187,6 +247,7 @@ if (!function_exists('getkasmasuk')) {
     {
         $query = DB::table('kas')->select(DB::raw('(SUM(masuk)) as saldo'))
         // ->where('tanggal','<=', $tanggal)
+        ->where('id_kub','<=', getidkub(Auth::user()->id))
         ->groupBy(DB::raw("month(created_at)"))
         ->orderby('id')
         ->get()->toArray();
@@ -208,6 +269,7 @@ if (!function_exists('getkaskeluar')) {
     {
         $query = DB::table('kas')->select(DB::raw('(SUM(keluar)) as saldo'))
         // ->where('tanggal','<=', $tanggal)
+        ->where('id_kub','<=', getidkub(Auth::user()->id))
         ->groupBy(DB::raw("month(created_at)"))
         ->orderby('id')
         ->get()->toArray();

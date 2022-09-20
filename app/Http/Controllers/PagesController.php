@@ -29,16 +29,11 @@ class PagesController extends Controller
     public function index()
     {
         $data['main'] = Kub::all();
-        $q1 = Surat::where('tanggal_masuk', 'not like', '0000-00-00');
-        // cek apakah ketua kub
-        $idkub = getidkub(Auth::user()->id);
-        if ($idkub !=0) { $q1->where('id_kub', $idkub); }
-        $data['second'] = $q1->get();
         // run query
         $q2 = Produksi::select('*');
         // cek apakah ketua kub
         $idkub = getidkub(Auth::user()->id);
-        if ($idkub !=0) { $q2->where('id_kub', $idkub); }
+        if ($idkub >0) { $q2->where('id_kub', $idkub); }
         $data['third'] = $q2->get();
         // run query
         return view('index', $data);

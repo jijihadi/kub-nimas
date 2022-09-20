@@ -1,10 +1,33 @@
-DB 
-=> add id kub di semua table//
+Di bagian ADMIN :
 
-ALL CONTROLLER
-=> add id_kub in load data//
-=> add id_kub in data input//
+1. Pecah laporan di Admin menjadi per KUB  {di semua view}
+    => Menggunakan Tabs -> khusus di kas, pindah card yang atas jadi didalam tabs
+    => Menggunakan Datatable Sorting
+    => Menggunakan Select dan Php Get
+    => Menggunakan Button dan Php Get
 
-All View
-=> add dynamic field [KUB]//
+//2. Halaman dashboard admin perlu ada card untuk rekapan semua data kub,
+    => hanya total saja.
+    => semua tabel.
+
+2a. Tambahkan 3 kegiatan terakhir, entah tamu, ada produksi, atau pun rapat
+
+3. Edit Data ketua KUB
+
+DI BAGIAN KETUA KUB :
+
+1. Buat view baru, [Buat Rapat], Button ada di Dashboard dan sidebar
+    =>Didalamnya include
+    ==>Tabel Rapat
+    ==>Tabel kehadiran
+    ==>Tabel Rencana kegiatan
+    ==>Tabel Notulen
+    ==>Tabel Kegiatan Usaha
+    =>menggunakan JavaScript Bertingkat
+    ->Pastikan Field yang bernama sama dijadikan satu saja.
+
+    =>Menggunakan PHP Biasa
+
+1a. Ubah semua VIew tabel menggunakan JavaScript
+1b. Ubah semua View tabel menggunakan php dengan reload get
 
