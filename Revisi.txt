@@ -1,6 +1,6 @@
-Di bagian ADMIN :
+Di bagian admin :
 
-1. Pecah laporan di Admin menjadi per KUB  {di semua view}
+//1. Pecah laporan di Admin menjadi per KUB  {di semua view}
     => Menggunakan Tabs -> khusus di kas, pindah card yang atas jadi didalam tabs
     => Menggunakan Datatable Sorting
     => Menggunakan Select dan Php Get
@@ -10,9 +10,10 @@ Di bagian ADMIN :
     => hanya total saja.
     => semua tabel.
 
-2a. Tambahkan 3 kegiatan terakhir, entah tamu, ada produksi, atau pun rapat
+2a. Tambahkan 3 kegiatan terakhir, 
+    =>entah tamu, ada produksi, atau pun rapat
 
-3. Edit Data ketua KUB
+//3. Cek Fitur Edit Data ketua KUB
 
 DI BAGIAN KETUA KUB :
 

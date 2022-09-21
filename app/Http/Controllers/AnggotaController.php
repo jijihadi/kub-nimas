@@ -7,6 +7,7 @@ use App\Http\Requests\StoreAnggotaRequest;
 use App\Http\Requests\UpdateAnggotaRequest;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Http\Request;
+use App\Models\Kub;
 use Session;
 use DB;
 
@@ -20,6 +21,7 @@ class AnggotaController extends Controller
      */
     public function index()
     {
+        $data['primary'] = Kub::all();
         $q = Anggota::select('*');
 
         $idkub = getidkub(Auth::user()->id);

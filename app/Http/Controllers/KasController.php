@@ -6,6 +6,7 @@ use App\Http\Requests\UpdateKasRequest;
 use App\Http\Requests\StoreKasRequest;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Http\Request;
+use App\Models\Kub;
 use App\Models\Kas;
 use Session;
 use DB;
@@ -19,19 +20,36 @@ class KasController extends Controller
      */
     public function index()
     {
+        if (getidkub(Auth::user()->id) != 0):
+            $q1 = Kas::select('*');
+            $idkub = getidkub(Auth::user()->id);
+            if ($idkub != 0) {
+                $q1->where('id_kub', $idkub);
+            }
+            $data['main'] = $q1->get();
+        endif;
         // main
-        $q1 = Kas::select('*');
-        $idkub = getidkub(Auth::user()->id);
-        if ($idkub !=0) { $q1->where('id_kub', $idkub); }
-        $data['main'] = $q1->get();
-        // first
-        $q2 = Kas::where('masuk', 'not like', 0);
-        if ($idkub !=0) { $q2->where('id_kub', $idkub); }
-        $data['first'] = $q2->get();
-        // second
-        $q3 = Kas::where('keluar', 'not like', 0);
-        if ($idkub !=0) { $q3->where('id_kub', $idkub); }
-        $data['second'] = $q3->get();
+        $data['primary'] = Kub::all();
+        if (getidkub(Auth::user()->id) == 0):
+            $q1 = Kas::select('*');
+            $idkub = getidkub(Auth::user()->id);
+            if ($idkub != 0) {
+                $q1->where('id_kub', $idkub);
+            }
+            $data['main'] = $q1->get();
+            // first
+            $q2 = Kas::where('masuk', 'not like', 0);
+            if ($idkub != 0) {
+                $q2->where('id_kub', $idkub);
+            }
+            $data['first'] = $q2->get();
+            // second
+            $q3 = Kas::where('keluar', 'not like', 0);
+            if ($idkub != 0) {
+                $q3->where('id_kub', $idkub);
+            }
+            $data['second'] = $q3->get();
+        endif;
         // view
         return view('kas/index', $data);
     }
@@ -56,7 +74,7 @@ class KasController extends Controller
     {
         //validate post data
         $this->validate($request, [
-            'jenis' => "numeric|between:0.001,99.99",
+            'jenis' => 'numeric|between:0.001,99.99',
             'uraian' => 'required',
             'tanggal' => 'required',
             'banyaknya' => 'required',
@@ -65,7 +83,7 @@ class KasController extends Controller
         //get post data
         $post = $request->all();
 
-        $postData = array();
+        $postData = [];
         $postData['id_kub'] = getidkub(Auth::user()->id);
         $postData['uraian'] = $post['uraian'];
         $postData['tanggal'] = $post['tanggal'];
@@ -73,7 +91,7 @@ class KasController extends Controller
         $postData['harga_satuan'] = bilanganbulat($post['harga_satuan']);
         $postData['masuk'] = 0;
         $postData['keluar'] = 0;
-        ($post['jenis'] == 1 ? $postData['masuk'] = $postData['banyaknya'] : $postData['keluar'] = $postData['banyaknya']);
+        $post['jenis'] == 1 ? ($postData['masuk'] = $postData['banyaknya']) : ($postData['keluar'] = $postData['banyaknya']);
         // dd($postData);
         try {
             DB::beginTransaction();
@@ -129,7 +147,7 @@ class KasController extends Controller
     {
         //validate post data
         $this->validate($request, [
-            'jenis' => "numeric|between:0.001,99.99",
+            'jenis' => 'numeric|between:0.001,99.99',
             'uraian' => 'required',
             'tanggal' => 'required',
             'banyaknya' => 'required',
@@ -138,14 +156,14 @@ class KasController extends Controller
         //get post data
         $post = $request->all();
 
-        $postData = array();
+        $postData = [];
         $postData['uraian'] = $post['uraian'];
         $postData['tanggal'] = $post['tanggal'];
         $postData['banyaknya'] = bilanganbulat($post['banyaknya']);
         $postData['harga_satuan'] = bilanganbulat($post['harga_satuan']);
         $postData['masuk'] = 0;
         $postData['keluar'] = 0;
-        ($post['jenis'] == 1 ? $postData['masuk'] = $postData['banyaknya'] : $postData['keluar'] = $postData['banyaknya']);
+        $post['jenis'] == 1 ? ($postData['masuk'] = $postData['banyaknya']) : ($postData['keluar'] = $postData['banyaknya']);
         try {
             DB::beginTransaction();
             DB::enableQueryLog();

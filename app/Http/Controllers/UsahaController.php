@@ -7,6 +7,7 @@ use App\Http\Requests\StoreUsahaRequest;
 use App\Http\Requests\UpdateUsahaRequest;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Http\Request;
+use App\Models\Kub;
 use Session;
 use DB;
 
@@ -19,6 +20,7 @@ class UsahaController extends Controller
      */
     public function index()
     {
+        $data['primary'] = Kub::all();
         $q = Usaha::select('*');
         // cek apakah ketua kub
         $idkub = getidkub(Auth::user()->id);

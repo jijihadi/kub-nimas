@@ -7,6 +7,7 @@ use App\Http\Requests\StoreSuratRequest;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Http\Request;
 use App\Models\Surat;
+use App\Models\Kub;
 use App\Models\Kas;
 use Session;
 use DB;
@@ -20,24 +21,30 @@ class SuratController extends Controller
      */
     public function indexin()
     {
+        $data['primary'] = Kub::all();
         $q = Surat::where('tanggal_masuk', 'not like', '0000-00-00');
         // cek apakah ketua kub
         $idkub = getidkub(Auth::user()->id);
-        if ($idkub !=0) { $q->where('id_kub', $idkub); }
+        if ($idkub != 0) {
+            $q->where('id_kub', $idkub);
+        }
         // run query
         $data['main'] = $q->get();
-        $data['stat'] = "Masuk";
+        $data['stat'] = 'Masuk';
         return view('surat/index', $data);
     }
     public function indexout()
     {
+        $data['primary'] = Kub::all();
         $q = Surat::where('tanggal_keluar', 'not like', '0000-00-00');
         // cek apakah ketua kub
         $idkub = getidkub(Auth::user()->id);
-        if ($idkub !=0) { $q->where('id_kub', $idkub); }
+        if ($idkub != 0) {
+            $q->where('id_kub', $idkub);
+        }
         // run query
         $data['main'] = $q->get();
-        $data['stat'] = "Keluar";
+        $data['stat'] = 'Keluar';
         return view('surat/index', $data);
     }
 
@@ -61,7 +68,7 @@ class SuratController extends Controller
     {
         //validate post data
         $this->validate($request, [
-            'jenis' => "numeric|between:0.001,99.99",
+            'jenis' => 'numeric|between:0.001,99.99',
             'nomor' => 'required',
             'tanggal' => 'required',
             'tindak_lanjut' => 'required',
@@ -70,18 +77,18 @@ class SuratController extends Controller
         //get post data
         $post = $request->all();
 
-        $postData = array();
+        $postData = [];
         $postData['id_kub'] = getidkub(Auth::user()->id);
         $postData['nomor'] = $post['nomor'];
         $postData['tanggal'] = $post['tanggal'];
         $postData['tindak_lanjut'] = $post['tindak_lanjut'];
         $postData['keterangan'] = $post['keterangan'];
-        if ($post['jenis']==1) {
+        if ($post['jenis'] == 1) {
             $postData['tujuan_masuk'] = $post['tujuan_masuk'];
             $postData['tanggal_masuk'] = $post['tanggal_masuk'];
             $postData['perihal_masuk'] = $post['perihal_masuk'];
         }
-        if ($post['jenis']==2) {
+        if ($post['jenis'] == 2) {
             $postData['tujuan_keluar'] = $post['tujuan_keluar'];
             $postData['tanggal_keluar'] = $post['tanggal_keluar'];
             $postData['perihal_keluar'] = $post['perihal_keluar'];
@@ -104,7 +111,7 @@ class SuratController extends Controller
 
             //dd($e->getMessage());
         }
-        if ($post['jenis']==1) {
+        if ($post['jenis'] == 1) {
             return redirect('surat-masuk');
         }
         return redirect('surat-keluar');
@@ -144,7 +151,7 @@ class SuratController extends Controller
     {
         //validate post data
         $this->validate($request, [
-            'jenis' => "numeric|between:0.001,99.99",
+            'jenis' => 'numeric|between:0.001,99.99',
             'nomor' => 'required',
             'tanggal' => 'required',
             'tindak_lanjut' => 'required',
@@ -153,17 +160,17 @@ class SuratController extends Controller
         //get post data
         $post = $request->all();
 
-        $postData = array();
+        $postData = [];
         $postData['nomor'] = $post['nomor'];
         $postData['tanggal'] = $post['tanggal'];
         $postData['tindak_lanjut'] = $post['tindak_lanjut'];
         $postData['keterangan'] = $post['keterangan'];
-        if ($post['jenis']==1) {
+        if ($post['jenis'] == 1) {
             $postData['tujuan_masuk'] = $post['tujuan_masuk'];
             $postData['tanggal_masuk'] = $post['tanggal_masuk'];
             $postData['perihal_masuk'] = $post['perihal_masuk'];
         }
-        if ($post['jenis']==2) {
+        if ($post['jenis'] == 2) {
             $postData['tujuan_keluar'] = $post['tujuan_keluar'];
             $postData['tanggal_keluar'] = $post['tanggal_keluar'];
             $postData['perihal_keluar'] = $post['perihal_keluar'];

@@ -7,6 +7,7 @@ use App\Http\Requests\StoreTamuRequest;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Http\Request;
 use App\Models\Tamu;
+use App\Models\Kub;
 use Session;
 use DB;
 
@@ -19,6 +20,7 @@ class TamuController extends Controller
      */
     public function index()
     {
+        $data['primary'] = Kub::all();
         $q = Tamu::select('*');
         // cek apakah ketua kub
         $idkub = getidkub(Auth::user()->id);

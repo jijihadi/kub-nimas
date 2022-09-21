@@ -7,6 +7,7 @@ use App\Http\Requests\StoreBarangRequest;
 use App\Http\Requests\UpdateBarangRequest;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Http\Request;
+use App\Models\Kub;
 use Session;
 use DB;
 
@@ -19,6 +20,7 @@ class BarangController extends Controller
      */
     public function index()
     {
+        $data['primary'] = Kub::all();
         $q = Barang::select('*');
         $idkub = getidkub(Auth::user()->id);
         if ($idkub !=0) { $q->where('id_kub', $idkub); }

@@ -7,6 +7,7 @@ use App\Http\Requests\StoreAbsensiRequest;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Http\Request;
 use App\Models\Absensi;
+use App\Models\Kub;
 use Session;
 use DB;
 
@@ -19,6 +20,7 @@ class AbsensiController extends Controller
      */
     public function index()
     {
+        $data['primary'] = Kub::all();
         // $data['main'] = Absensi::all();
         // return view('absensi/index-basic', $data);
         $q = Absensi::select(

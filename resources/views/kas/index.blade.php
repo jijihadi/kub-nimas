@@ -16,47 +16,6 @@
         </nav>
 
         <div class="row">
-            <div class="col-md-4 grid-margin stretch-card">
-                <div class="card text-white bg-secondary bg-gradient">
-                    <div class="row mb-2 p-3">
-                        <img src="{{ asset('assets/images/others/header-kas.png') }}" class="card-img" alt="...">
-                        <div class="card-img-overlay">
-                            <h3> Total Saldo Kas </h3>
-                            <h5 class="mt-2 fw-lighter fst-italic">
-                                {{ rupiah(getsaldokas(date('Y-m-d'))) }}
-                            </h5>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="col-md-4 grid-margin stretch-card">
-                <div class="card text-white bg-success bg-gradient">
-                    <div class="row mb-2 p-3">
-                        <img src="{{ asset('assets/images/others/header-income.png') }}" class="card-img" alt="...">
-                        <div class="card-img-overlay">
-                            <h3> Total Kas Masuk</h3>
-                            <h5 class="mt-2 fw-lighter fst-italic">
-                                {{ rupiah(getkasmasuk()) }}
-                            </h5>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="col-md-4 grid-margin stretch-card">
-                <div class="card text-white bg-danger bg-gradient">
-                    <div class="row mb-2 p-3">
-                        <img src="{{ asset('assets/images/others/header-outcome.png') }}" class="card-img" alt="...">
-                        <div class="card-img-overlay">
-                            <h3> Total Kas keluar</h3>
-                            <h5 class="mt-2 fw-lighter fst-italic">
-                                {{ rupiah(getkaskeluar()) }}
-                            </h5>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <div class="row">
             <div class="col-md-12 grid-margin stretch-card">
                 <div class="card">
                     <div class="card-body">
@@ -75,31 +34,89 @@
                                 @endif
                             </div>
                         </div>
-                        <div class="table-responsive">
-                            @include('layouts.partial.alert')
-                            <ul class="nav nav-tabs" id="myTab" role="tablist">
+                        @include('layouts.partial.alert')
+                        <ul class="nav nav-tabs" id="myTab" role="tablist">
+                            @if (getidkub(Auth::user()->id) == 0)
                                 <li class="nav-item">
-                                    <a class="nav-link active" id="home-tab" data-bs-toggle="tab" href="#all"
-                                        role="tab" aria-controls="all" aria-selected="true">Semua</a>
+                                    <a class="nav-link active" id="all-tab" data-bs-toggle="tab" href="#all"
+                                        role="tab" aria-controls="all"
+                                        aria-selected="true">{{ getidkub(Auth::user()->id) > 0 ? 'KUB Saya' : 'Semua KUB' }}</a>
                                 </li>
-                                <li class="nav-item">
-                                    <a class="nav-link" id="profile-tab" data-bs-toggle="tab" href="#first" role="tab"
-                                        aria-controls="first" aria-selected="false">Masuk</a>
-                                </li>
-                                <li class="nav-item">
-                                    <a class="nav-link" id="contact-tab" data-bs-toggle="tab" href="#second" role="tab"
-                                        aria-controls="second" aria-selected="false">Keluar</a>
-                                </li>
-                            </ul>
-                            <div class="tab-content border border-top-0 p-3" id="myTabContent">
-                                <div class="tab-pane fade show active" id="all" role="tabpanel"
-                                    aria-labelledby="home-tab">
-                                    <table id="dataTableExample" class="table table-bordered table-responsive table-hover">
+                                @foreach ($primary as $row)
+                                    <li class="nav-item">
+                                        <a class="nav-link" id="{{ makeclass($row->name) }}-tab" data-bs-toggle="tab"
+                                            href="#{{ makeclass($row->name) }}" role="tab"
+                                            aria-controls="{{ makeclass($row->name) }}"
+                                            aria-selected="true">{{ maketitle($row->name) }}</a>
+                                    </li>
+                                @endforeach
+                            @endif
+                        </ul>
+                        <div class="tab-content border border-top-0 p-3" id="myTabContent">
+                            <div class="tab-pane fade show active" id="all" role="tabpanel" aria-labelledby="all-tab">
+                                <div class="row">
+                                    <div class="col-md-4 grid-margin stretch-card">
+                                        <div class="card text-white bg-secondary bg-gradient">
+                                            <div class="row mb-2 p-3">
+                                                <img src="{{ asset('assets/images/others/header-kas.png') }}"
+                                                    class="card-img" alt="...">
+                                                <div class="card-img-overlay">
+                                                    <h3> Total Saldo Kas </h3>
+                                                    <h5 class="mt-2 fw-lighter fst-italic">
+                                                        @if (getidkub(Auth::user()->id) == 0)
+                                                            {{ rupiah(getsaldokas(date('Y-m-d'))) }}
+                                                        @else
+                                                            {{ rupiah(getsaldokasid(date('Y-m-d'), getidkub(Auth::user()->id))) }}
+                                                        @endif
+                                                    </h5>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-4 grid-margin stretch-card">
+                                        <div class="card text-white bg-success bg-gradient">
+                                            <div class="row mb-2 p-3">
+                                                <img src="{{ asset('assets/images/others/header-income.png') }}"
+                                                    class="card-img" alt="...">
+                                                <div class="card-img-overlay">
+                                                    <h3> Total Kas Masuk</h3>
+                                                    <h5 class="mt-2 fw-lighter fst-italic">
+                                                        @if (getidkub(Auth::user()->id) == 0)
+                                                            {{ rupiah(getkasmasuk()) }}
+                                                        @else
+                                                            {{ rupiah(getkasmasukid(getidkub(Auth::user()->id))) }}
+                                                        @endif
+                                                    </h5>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-4 grid-margin stretch-card">
+                                        <div class="card text-white bg-danger bg-gradient">
+                                            <div class="row mb-2 p-3">
+                                                <img src="{{ asset('assets/images/others/header-outcome.png') }}"
+                                                    class="card-img" alt="...">
+                                                <div class="card-img-overlay">
+                                                    <h3> Total Kas keluar</h3>
+                                                    <h5 class="mt-2 fw-lighter fst-italic">
+                                                        @if (getidkub(Auth::user()->id) == 0)
+                                                            {{ rupiah(getkaskeluar()) }}
+                                                        @else
+                                                            {{ rupiah(getkaskeluarid(getidkub(Auth::user()->id))) }}
+                                                        @endif
+                                                    </h5>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="table-responsive">
+                                    <table id="dataTableExample" class="table table-hover mb-0">
                                         <thead>
                                             <tr class="text-center">
                                                 <th>#</th>
                                                 <th>Tanggal</th>
-                                                {!!(Auth::user()->role == 1)? "":"<th>KUB</th>"!!}
+                                                {!! Auth::user()->role == 1 ? '' : '<th>KUB</th>' !!}
                                                 <th>Jenis</th>
                                                 <th>Uraian</th>
                                                 <th>Jumlah</th>
@@ -114,8 +131,8 @@
                                                     <tr>
                                                         <td>{{ $loop->iteration }}</td>
                                                         <td>{{ tglindo($row->tanggal) }}</td>
-                                                        {!!(Auth::user()->role == 1)? "":"<td>".getfieldbyid('kubs', 'name', $row->id_kub)."</td>"!!}
-                                                        <td>{{ $row->keluar == 0 ? 'Kas Masuk' : 'Kas Keluar' }}</td>
+                                                        {!! Auth::user()->role == 1 ? '' : '<td>' . getfieldbyid('kubs', 'name', $row->id_kub) . '</td>' !!}
+                                                        <td>{!! $row->keluar == 0 ? '<p class="text-success">Kas Masuk</p>' : '<p class="text-danger">Kas Keluar</p>' !!}</td>
                                                         <td>{{ $row->uraian }}</td>
                                                         <td>{{ rupiah($row->banyaknya) }}</td>
                                                         <td>{{ rupiah($row->harga_satuan) }}</td>
@@ -147,127 +164,7 @@
                                                 @endforeach
                                             @endif
                                             @if (empty($main->toarray()))
-                                                <td colspan="12" class="text-center text-secondary">
-                                                    <i>Data masih kosong</i>
-                                                </td>
-                                            @endif
-                                        </tbody>
-                                    </table>
-                                </div>
-                                <div class="tab-pane fade" id="first" role="tabpanel" aria-labelledby="profile-tab">
-                                    <table id="dataTableExample2"
-                                        class="table table-bordered table-responsive table-hover">
-                                        <thead>
-                                            <tr class="text-center">
-                                                <th>#</th>
-                                                <th>Tanggal</th>
-                                                {!!(Auth::user()->role == 1)? "":"<th>KUB</th>"!!}
-                                                <th>Uraian</th>
-                                                <th>Jumlah</th>
-                                                <th>Harga Satuan</th>
-                                                <th>Saldo</th>
-                                                <th>#</th>
-                                            </tr>
-                                        </thead>
-                                        <tbody>
-                                            @if (!empty($first->toarray()))
-                                                @foreach ($first as $row)
-                                                    <tr>
-                                                        <td>{{ $loop->iteration }}</td>
-                                                        <td>{{ tglindo($row->tanggal) }}</td>
-                                                        {!!(Auth::user()->role == 1)? "":"<td>".getfieldbyid('kubs', 'name', $row->id_kub)."</td>"!!}
-                                                        <td>{{ $row->uraian }}</td>
-                                                        <td>{{ rupiah($row->banyaknya) }}</td>
-                                                        <td>{{ rupiah($row->harga_satuan) }}</td>
-                                                        <td>{{ rupiah(getsaldokas($row->tanggal)) }}</td>
-                                                        <td>
-                                                            @if (cek_admin() == 1)
-                                                                <!--Edit-->
-                                                                <a href="{{ url('kas-edit') . '/' . $row->id }}">
-                                                                    <button type="button"
-                                                                        class="btn btn-sm btn-success btn-icon-text">
-                                                                        <i class="btn-icon-prepend"
-                                                                            data-feather="edit-3"></i>
-                                                                        Ubah
-                                                                    </button>
-                                                                </a>
-                                                                <!--Delete-->
-                                                                <a href="{{ url('kas-delete') . '/' . $row->id }}">
-                                                                    <button type="button"
-                                                                        class="btn btn-sm btn-danger btn-icon-text"
-                                                                        onclick="return confirm('Hapus data {{ $row->name }}?');">
-                                                                        <i class="btn-icon-prepend"
-                                                                            data-feather="trash-2"></i>
-                                                                        Hapus
-                                                                    </button>
-                                                                </a>
-                                                            @endif
-                                                        </td>
-                                                    </tr>
-                                                @endforeach
-                                            @endif
-                                            @if (empty($first->toarray()))
-                                                <td colspan="12" class="text-center text-secondary">
-                                                    <i>Data masih kosong</i>
-                                                </td>
-                                            @endif
-                                        </tbody>
-                                    </table>
-                                </div>
-                                <div class="tab-pane fade" id="second" role="tabpanel" aria-labelledby="contact-tab">
-                                    <table id="dataTableExample3"
-                                        class="table table-bordered table-responsive table-hover">
-                                        <thead>
-                                            <tr class="text-center">
-                                                <th>#</th>
-                                                <th>Tanggal</th>
-                                                {!!(Auth::user()->role == 1)? "":"<th>KUB</th>"!!}
-                                                <th>Uraian</th>
-                                                <th>Jumlah</th>
-                                                <th>Harga Satuan</th>
-                                                <th>Total</th>
-                                                <th>#</th>
-                                            </tr>
-                                        </thead>
-                                        <tbody>
-                                            @if (!empty($second->toarray()))
-                                                @foreach ($second as $row)
-                                                    <tr>
-                                                        <td>{{ $loop->iteration }}</td>
-                                                        <td>{{ tglindo($row->tanggal) }}</td>
-                                                        {!!(Auth::user()->role == 1)? "":"<td>".getfieldbyid('kubs', 'name', $row->id_kub)."</td>"!!}
-                                                        <td>{{ $row->uraian }}</td>
-                                                        <td>{{ rupiah($row->banyaknya) }}</td>
-                                                        <td>{{ rupiah($row->harga_satuan) }}</td>
-                                                        <td>{{ rupiah(getsaldokas($row->tanggal)) }}</td>
-                                                        <td>
-                                                            @if (cek_admin() == 1)
-                                                                <!--Edit-->
-                                                                <a href="{{ url('kas-edit') . '/' . $row->id }}">
-                                                                    <button type="button"
-                                                                        class="btn btn-sm btn-success btn-icon-text">
-                                                                        <i class="btn-icon-prepend"
-                                                                            data-feather="edit-3"></i>
-                                                                        Ubah
-                                                                    </button>
-                                                                </a>
-                                                                <!--Delete-->
-                                                                <a href="{{ url('kas-delete') . '/' . $row->id }}">
-                                                                    <button type="button"
-                                                                        class="btn btn-sm btn-danger btn-icon-text"
-                                                                        onclick="return confirm('Hapus data {{ $row->name }}?');">
-                                                                        <i class="btn-icon-prepend"
-                                                                            data-feather="trash-2"></i>
-                                                                        Hapus
-                                                                    </button>
-                                                                </a>
-                                                            @endif
-                                                        </td>
-                                                    </tr>
-                                                @endforeach
-                                            @endif
-                                            @if (empty($second->toarray()))
-                                                <td colspan="12" class="text-center text-secondary">
+                                                <td colspan="8" class="text-center text-secondary">
                                                     <i>Data masih kosong</i>
                                                 </td>
                                             @endif
@@ -275,7 +172,113 @@
                                     </table>
                                 </div>
                             </div>
-
+                            @php($i = 1)
+                            @foreach ($primary as $rows)
+                                <div class="tab-pane fade" id="{{ makeclass($rows->name) }}" role="tabpanel"
+                                    aria-labelledby="{{ makeclass($rows->name) }}-tab">
+                                    <div class="row">
+                                        <div class="col-md-4 grid-margin stretch-card">
+                                            <div class="card text-white bg-secondary bg-gradient">
+                                                <div class="row mb-2 p-3">
+                                                    <img src="{{ asset('assets/images/others/header-kas.png') }}"
+                                                        class="card-img" alt="...">
+                                                    <div class="card-img-overlay">
+                                                        <h3> Total Saldo Kas </h3>
+                                                        <h5 class="mt-2 fw-lighter fst-italic">
+                                                            {{ rupiah(getsaldokasid(date('Y-m-d'), $rows->id)) }}
+                                                        </h5>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="col-md-4 grid-margin stretch-card">
+                                            <div class="card text-white bg-success bg-gradient">
+                                                <div class="row mb-2 p-3">
+                                                    <img src="{{ asset('assets/images/others/header-income.png') }}"
+                                                        class="card-img" alt="...">
+                                                    <div class="card-img-overlay">
+                                                        <h3> Total Kas Masuk</h3>
+                                                        <h5 class="mt-2 fw-lighter fst-italic">
+                                                            {{ rupiah(getkasmasukid($rows->id)) }}
+                                                        </h5>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="col-md-4 grid-margin stretch-card">
+                                            <div class="card text-white bg-danger bg-gradient">
+                                                <div class="row mb-2 p-3">
+                                                    <img src="{{ asset('assets/images/others/header-outcome.png') }}"
+                                                        class="card-img" alt="...">
+                                                    <div class="card-img-overlay">
+                                                        <h3> Total Kas keluar</h3>
+                                                        <h5 class="mt-2 fw-lighter fst-italic">
+                                                            {{ rupiah(getkaskeluarid($rows->id)) }}
+                                                        </h5>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="table-responsive">
+                                        <table id="dataTableExample{{ $i }}" class="table table-hover mb-0">
+                                            <thead>
+                                                <tr class="text-center">
+                                                    <th>#</th>
+                                                    <th>Tanggal</th>
+                                                    {!! Auth::user()->role == 1 ? '' : '<th>KUB</th>' !!}
+                                                    <th>Jenis</th>
+                                                    <th>Uraian</th>
+                                                    <th>Jumlah</th>
+                                                    <th>Harga Satuan</th>
+                                                    <th>Saldo</th>
+                                                    <th>#</th>
+                                                </tr>
+                                            </thead>
+                                            <tbody>
+                                                @if (gettable('kas', 'id_kub', $rows->id) > 0)
+                                                    @foreach (gettable('kas', 'id_kub', $rows->id) as $row)
+                                                        <tr>
+                                                            <td>{{ $loop->iteration }}</td>
+                                                            <td>{{ tglindo($row->tanggal) }}</td>
+                                                            {!! Auth::user()->role == 1 ? '' : '<td>' . getfieldbyid('kubs', 'name', $row->id_kub) . '</td>' !!}
+                                                            <td>{!! $row->keluar == 0 ? '<p class="text-success">Kas Masuk</p>' : '<p class="text-danger">Kas Keluar</p>' !!}</td>
+                                                            <td>{{ $row->uraian }}</td>
+                                                            <td>{{ rupiah($row->banyaknya) }}</td>
+                                                            <td>{{ rupiah($row->harga_satuan) }}</td>
+                                                            <td>{{ rupiah(getsaldokasid($row->tanggal, $rows->id)) }}</td>
+                                                            <td>
+                                                                @if (cek_admin() == 1)
+                                                                    <!--Edit-->
+                                                                    <a href="{{ url('kas-edit') . '/' . $row->id }}">
+                                                                        <button type="button"
+                                                                            class="btn btn-sm btn-success btn-icon-text">
+                                                                            <i class="btn-icon-prepend"
+                                                                                data-feather="edit-3"></i>
+                                                                            Ubah
+                                                                        </button>
+                                                                    </a>
+                                                                    <!--Delete-->
+                                                                    <a href="{{ url('kas-delete') . '/' . $row->id }}">
+                                                                        <button type="button"
+                                                                            class="btn btn-sm btn-danger btn-icon-text"
+                                                                            onclick="return confirm('Hapus data kas tanggal {{ tglindo($row->tanggal) }}?');">
+                                                                            <i class="btn-icon-prepend"
+                                                                                data-feather="trash-2"></i>
+                                                                            Hapus
+                                                                        </button>
+                                                                    </a>
+                                                                @endif
+                                                            </td>
+                                                        </tr>
+                                                        @php($i++)
+                                                    @endforeach
+                                                @endif
+                                            </tbody>
+                                        </table>
+                                    </div>
+                                </div>
+                            @endforeach
                         </div>
                     </div>
                 </div>

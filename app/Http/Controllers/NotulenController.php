@@ -7,6 +7,7 @@ use App\Http\Requests\StoreNotulenRequest;
 use App\Http\Requests\UpdateNotulenRequest;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Http\Request;
+use App\Models\Kub;
 use Session;
 use DB;
 
@@ -19,6 +20,7 @@ class NotulenController extends Controller
      */
     public function index()
     {
+        $data['primary'] = Kub::all();
         $q = Notulen::select('*');
         // cek apakah ketua kub
         $idkub = getidkub(Auth::user()->id);

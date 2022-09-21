@@ -7,6 +7,7 @@ use App\Http\Requests\StoreRencanaRequest;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Http\Request;
 use App\Models\Rencana;
+use App\Models\Kub;
 use Session;
 use DB;
 
@@ -19,6 +20,7 @@ class RencanaController extends Controller
      */
     public function index()
     {
+        $data['primary'] = Kub::all();
         $q = Rencana::select('*');
         // cek apakah ketua kub
         $idkub = getidkub(Auth::user()->id);
