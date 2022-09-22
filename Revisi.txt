@@ -17,15 +17,14 @@ Di bagian admin :
 
 DI BAGIAN KETUA KUB :
 
-1. Buat view baru, [Buat Rapat], Button ada di Dashboard dan sidebar
+//1. Buat view baru, [Buat Rapat], Button ada di Dashboard dan sidebar
     =>Didalamnya include
-    ==>Tabel Rapat
-    ==>Tabel kehadiran
-    ==>Tabel Rencana kegiatan
-    ==>Tabel Notulen
-    ==>Tabel Kegiatan Usaha
-    =>menggunakan JavaScript Bertingkat
-    ->Pastikan Field yang bernama sama dijadikan satu saja.
+    //==>Tabel Rapat
+    //==>Tabel kehadiran
+    //==>Tabel Rencana kegiatan
+    //==>Tabel Notulen
+    =>Fungsi Insert menggunakan JavaScript Bertingkat
+    //->Pastikan Field yang bernama sama dijadikan satu saja.
 
     =>Menggunakan PHP Biasa
 
