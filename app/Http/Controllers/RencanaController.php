@@ -30,6 +30,16 @@ class RencanaController extends Controller
         return view('rencana/index', $data);
     }
 
+    public function getajax(){
+        // DB::enableQueryLog(); // to enable query log
+        $q = Rencana::select('*')
+            ->where('id_kub', getidkub(Auth::user()->id));
+        $data = $q->get();
+        // $query = DB::getQueryLog(); // get query logs from cache
+        // dd($query);
+        echo json_encode($data);
+    }
+
     /**
      * Show the form for creating a new resource.
      *

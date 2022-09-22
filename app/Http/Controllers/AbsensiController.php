@@ -41,6 +41,18 @@ class AbsensiController extends Controller
 
     }
 
+    public function getajax($id){
+        // DB::enableQueryLog(); // to enable query log
+        $id = str_replace('_', ' ', $id);
+        $q = Absensi::select('*')
+            ->where('kegiatan',$id)
+            ->where('tanggal',date('Y-m-d'));
+        $data = $q->get();
+        // $query = DB::getQueryLog(); // get query logs from cache
+        // dd($query);
+        echo json_encode($data);
+    }
+
     /**
      * Show the form for creating a new resource.
      *
@@ -60,6 +72,7 @@ class AbsensiController extends Controller
      */
     public function store(StoreAbsensiRequest $request)
     {
+        // dd($request->all());
         //validate post data
         $this->validate($request, [
             'kegiatan' => 'required',

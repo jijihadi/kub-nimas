@@ -24,6 +24,8 @@ Route::get('logout', '\App\Http\Controllers\Auth\LoginController@logout');
 Route::get('/home', [App\Http\Controllers\PagesController::class, 'index'])->middleware(['auth']);
 Route::get('/edit-user/{id}', [App\Http\Controllers\PagesController::class, 'edit'])->middleware(['auth']);
 Route::POST('/update-user/{id}', [App\Http\Controllers\PagesController::class, 'update'])->middleware(['auth']);
+Route::get('/rapat-add', [App\Http\Controllers\PagesController::class, 'rapat_create'])->middleware(['auth']);
+Route::POST('/rapat-save', [App\Http\Controllers\PagesController::class, 'rapat_store'])->middleware(['auth']);
 #Surat
 Route::middleware(['auth'])->group(function () {
     Route::get('/surat-masuk', [App\Http\Controllers\SuratController::class, 'indexin']);
@@ -107,6 +109,7 @@ Route::middleware(['auth', 'role'])->group(function () {
     Route::get('/rencana-kegiatan-edit/{id}', [App\Http\Controllers\RencanaController::class, 'edit']);
     Route::post('/rencana-kegiatan-update/{id}', [App\Http\Controllers\RencanaController::class, 'update']);
     Route::get('/rencana-kegiatan-delete/{id}', [App\Http\Controllers\RencanaController::class, 'destroy']);
+    Route::get('/rencana-kegiatan-ajax', [App\Http\Controllers\RencanaController::class, 'getajax']);
 });
 #Daftar Kehadiran
 Route::get('/daftar-hadir', [App\Http\Controllers\AbsensiController::class, 'index'])->middleware(['auth']);
@@ -116,6 +119,7 @@ Route::middleware(['auth', 'role'])->group(function () {
     Route::get('/daftar-hadir-edit/{id}', [App\Http\Controllers\AbsensiController::class, 'edit']);
     Route::post('/daftar-hadir-update/{id}', [App\Http\Controllers\AbsensiController::class, 'update']);
     Route::get('/daftar-hadir-delete/{id}', [App\Http\Controllers\AbsensiController::class, 'destroy']);
+    Route::get('/daftar-hadir-ajax/{id}', [App\Http\Controllers\AbsensiController::class, 'getajax']);
 });
 #Kegiatan Usaha
 Route::get('/usaha', [App\Http\Controllers\UsahaController::class, 'index'])->middleware(['auth']);
@@ -134,4 +138,5 @@ Route::middleware(['auth', 'role'])->group(function () {
     Route::get('/notulen-edit/{id}', [App\Http\Controllers\NotulenController::class, 'edit']);
     Route::post('/notulen-update/{id}', [App\Http\Controllers\NotulenController::class, 'update']);
     Route::get('/notulen-delete/{id}', [App\Http\Controllers\NotulenController::class, 'destroy']);
+    Route::get('/notulen-ajax/{id}', [App\Http\Controllers\NotulenController::class, 'getajax']);
 });

@@ -31,6 +31,18 @@ class NotulenController extends Controller
         return view('notulen/index', $data);
     }
 
+    public function getajax($id){
+        // DB::enableQueryLog(); // to enable query log
+        $id = str_replace('_', ' ', $id);
+        $q = Notulen::select('*')
+            ->where('kegiatan',$id)
+            ->where('tanggal',date('Y-m-d'));
+        $data = $q->get();
+        // $query = DB::getQueryLog(); // get query logs from cache
+        // dd($query);
+        echo json_encode($data);
+    }
+
     /**
      * Show the form for creating a new resource.
      *

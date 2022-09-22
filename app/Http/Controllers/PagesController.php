@@ -3,6 +3,9 @@
 namespace App\Http\Controllers;
 
 use App\Models\Produksi;
+use App\Models\Rencana;
+use App\Models\Absensi;
+use App\Models\Usaha;
 use App\Models\Surat;
 use App\Models\User;
 use App\Models\Kub;
@@ -10,13 +13,11 @@ use App\Models\Kub;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Http\Request;
-
 use Session;
 use DB;
 
 class PagesController extends Controller
 {
-
     public function __construct()
     {
         $this->middleware('auth');
@@ -33,7 +34,9 @@ class PagesController extends Controller
         $q2 = Produksi::select('*');
         // cek apakah ketua kub
         $idkub = getidkub(Auth::user()->id);
-        if ($idkub >0) { $q2->where('id_kub', $idkub); }
+        if ($idkub > 0) {
+            $q2->where('id_kub', $idkub);
+        }
         $data['third'] = $q2->get();
         // run query
         return view('index', $data);
@@ -67,7 +70,7 @@ class PagesController extends Controller
         ]);
         //get post data
         $postData = $request->all();
-        if ($postData['password']=='') {
+        if ($postData['password'] == '') {
             $postData['password'] = $postData['oldpassword'];
         }
         // dd($postData);
@@ -86,9 +89,60 @@ class PagesController extends Controller
             // something went wrong
             Session::flash('error', $e->getMessage());
 
-            dd( $e->getMessage() );
+            dd($e->getMessage());
         }
-        return redirect('edit-user/'.$id);
+        return redirect('edit-user/' . $id);
     }
 
+    /**
+     * Show the form for creating a new resource.
+     *
+     * @return \Illuminate\Http\Response
+     */
+    public function rapat_create()
+    {
+        // $data['anggota'] = Anggota::all()->toArray();
+        return view('rapat-form');
+        // return view('rapat-form', $data);
+    }
+
+    /**
+     * Store a newly created resource in storage.
+     *
+     * @param  \App\Http\Requests\Request  $request
+     * @return \Illuminate\Http\Response
+     */
+    // public function rapat_store(Request $request)
+    // {
+    //     //validate post data
+    //     $this->validate($request, [
+    //         'tanggal' => 'required',
+    //         'nama_anggota' => 'required',
+    //         'jumlah' => 'required',
+    //         'nilai' => 'required',
+    //         'keterangan' => 'required',
+    //     ]);
+    //     //get post data
+    //     $postData = $request->all();
+    //     $postData['id_kub'] = getidkub(Auth::user()->id);
+    //     $postData['nilai'] = bilanganbulat($postData['nilai']);
+    //     try {
+    //         DB::beginTransaction();
+    //         DB::enableQueryLog();
+
+    //         //insert post data
+    //         Produksi::create($postData);
+    //         DB::commit();
+
+    //         //store status message
+    //         Session::flash('success', 'Data berhasil ditambahkan!');
+    //     } catch (\Exception $e) {
+    //         DB::rollback();
+    //         // something went wrong
+    //         Session::flash('error', $e->getMessage());
+
+    //         dd($e->getMessage());
+    //     }
+    //     return redirect('hasil-produksi');
+    // }
 }

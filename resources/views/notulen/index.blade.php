@@ -158,7 +158,7 @@
                                                                     <a href="{{ url('notulen-delete') . '/' . $row->id }}">
                                                                         <button type="button"
                                                                             class="btn btn-sm btn-danger btn-icon-text"
-                                                                            onclick="return confirm('Hapus data {{ $row->name }}?');">
+                                                                            onclick="return confirm('Hapus data?');">
                                                                             <i class="btn-icon-prepend"
                                                                                 data-feather="trash-2"></i>
                                                                             Hapus

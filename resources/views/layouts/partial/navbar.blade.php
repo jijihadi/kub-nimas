@@ -19,6 +19,15 @@
                     </span>
                 </a>
             </li>
+            @if (cek_admin() != 0)
+            <li class="nav-item {{ cek_active('rapat-add') }}">
+                <a href="{{ url('/rapat-add') }}" class="nav-link">
+                    <i class="link-icon" data-feather="file-plus"></i>
+                    <span class="link-title">Buat Rapat
+                    </span>
+                </a>
+            </li>
+            @endif
             <li class="nav-item nav-category">data kub</li>
             <li class="nav-item">
                 <a href="{{ url('buku-tamu') }}" class="nav-link">
