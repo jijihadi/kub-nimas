@@ -22,6 +22,7 @@ class ProduksiSeeder extends Seeder
                 'jumlah' => 100,
                 'nilai' => '50000000',
                 'keterangan' => 'Aman',
+                'created_at' => \Carbon\Carbon::now()->toDateTimeString(),
                 'id_kub' => 1,
             ],
             [
@@ -30,6 +31,7 @@ class ProduksiSeeder extends Seeder
                 'jumlah' => 1000,
                 'nilai' => '4000000',
                 'keterangan' => 'Aman',
+                'created_at' => \Carbon\Carbon::now()->toDateTimeString(),
                 'id_kub' => 1,
             ],
             [
@@ -38,6 +40,7 @@ class ProduksiSeeder extends Seeder
                 'jumlah' => 700,
                 'nilai' => '60000000',
                 'keterangan' => 'OK',
+                'created_at' => \Carbon\Carbon::now()->toDateTimeString(),
                 'id_kub' => 2,
             ],
             [
@@ -46,6 +49,7 @@ class ProduksiSeeder extends Seeder
                 'jumlah' => 100,
                 'nilai' => '90000000',
                 'keterangan' => 'OK',
+                'created_at' => \Carbon\Carbon::now()->toDateTimeString(),
                 'id_kub' => 2,
             ],
             [
@@ -54,6 +58,7 @@ class ProduksiSeeder extends Seeder
                 'jumlah' => 600,
                 'nilai' => '80000000',
                 'keterangan' => 'Sip',
+                'created_at' => \Carbon\Carbon::now()->toDateTimeString(),
                 'id_kub' => 3,
             ],
             [
@@ -62,6 +67,7 @@ class ProduksiSeeder extends Seeder
                 'jumlah' => 1000,
                 'nilai' => '1000000000',
                 'keterangan' => 'Sip',
+                'created_at' => \Carbon\Carbon::now()->toDateTimeString(),
                 'id_kub' => 3,
             ],
             [
@@ -70,6 +76,7 @@ class ProduksiSeeder extends Seeder
                 'jumlah' => 100,
                 'nilai' => '1000000',
                 'keterangan' => 'Fix',
+                'created_at' => \Carbon\Carbon::now()->toDateTimeString(),
                 'id_kub' => 4,
             ],
             [
@@ -78,6 +85,7 @@ class ProduksiSeeder extends Seeder
                 'jumlah' => 400,
                 'nilai' => '4000000',
                 'keterangan' => 'Fix',
+                'created_at' => \Carbon\Carbon::now()->toDateTimeString(),
                 'id_kub' => 4,
             ],
         ]);

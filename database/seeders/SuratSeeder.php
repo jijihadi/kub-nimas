@@ -26,6 +26,7 @@ class SuratSeeder extends Seeder
                 'tujuan_keluar' => '',
                 'tindak_lanjut' => 'Forwarded',
                 'keterangan' => 'Aman',
+                'created_at' => \Carbon\Carbon::now()->toDateTimeString(),
                 'id_kub' => 1,
             ],
             [
@@ -39,6 +40,7 @@ class SuratSeeder extends Seeder
                 'tujuan_keluar' => 'KABAG MJS',
                 'tindak_lanjut' => 'Dikirim',
                 'keterangan' => 'Aman',
+                'created_at' => \Carbon\Carbon::now()->toDateTimeString(),
                 'id_kub' => 1,
             ],
             [
@@ -52,6 +54,7 @@ class SuratSeeder extends Seeder
                 'tujuan_keluar' => '',
                 'tindak_lanjut' => 'Diarsip',
                 'keterangan' => 'Aman',
+                'created_at' => \Carbon\Carbon::now()->toDateTimeString(),
                 'id_kub' => 2,
             ],
             [
@@ -65,6 +68,7 @@ class SuratSeeder extends Seeder
                 'tujuan_keluar' => 'KAUR DDI',
                 'tindak_lanjut' => 'Dikirim',
                 'keterangan' => 'Aman',
+                'created_at' => \Carbon\Carbon::now()->toDateTimeString(),
                 'id_kub' => 2,
             ],
             [
@@ -78,6 +82,7 @@ class SuratSeeder extends Seeder
                 'tujuan_keluar' => '',
                 'tindak_lanjut' => 'Forwarded',
                 'keterangan' => 'Aman',
+                'created_at' => \Carbon\Carbon::now()->toDateTimeString(),
                 'id_kub' => 3,
             ],
             [
@@ -91,6 +96,7 @@ class SuratSeeder extends Seeder
                 'tujuan_keluar' => 'BANK MANTAP',
                 'tindak_lanjut' => 'Dikirim',
                 'keterangan' => 'Aman',
+                'created_at' => \Carbon\Carbon::now()->toDateTimeString(),
                 'id_kub' => 3,
             ],
             [
@@ -104,6 +110,7 @@ class SuratSeeder extends Seeder
                 'tujuan_keluar' => '',
                 'tindak_lanjut' => 'Forwarded',
                 'keterangan' => 'Aman',
+                'created_at' => \Carbon\Carbon::now()->toDateTimeString(),
                 'id_kub' => 4,
             ],
             [
@@ -117,6 +124,7 @@ class SuratSeeder extends Seeder
                 'tujuan_keluar' => 'KABAG BGJK',
                 'tindak_lanjut' => 'Dikirim',
                 'keterangan' => 'Aman',
+                'created_at' => \Carbon\Carbon::now()->toDateTimeString(),
                 'id_kub' => 4,
             ],
         ]);

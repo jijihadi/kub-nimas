@@ -22,6 +22,7 @@ class NotulenSeeder extends Seeder
                 'jabatan' => 'KABAG BOIP',
                 'materi' => 'Materi tentang ikan laut asin',
                 'kesimpulan' => 'Bahwa ikan itu asin',
+                'created_at' => \Carbon\Carbon::now()->toDateTimeString(),
                 'id_kub' => 1
             ],
             [
@@ -31,6 +32,7 @@ class NotulenSeeder extends Seeder
                 'jabatan' => 'KABID UDKO',
                 'materi' => 'Materi tentang mana jemen makan temen',
                 'kesimpulan' => 'Bahwa temen demen jemen',
+                'created_at' => \Carbon\Carbon::now()->toDateTimeString(),
                 'id_kub' => 1
             ],
             [
@@ -40,6 +42,7 @@ class NotulenSeeder extends Seeder
                 'jabatan' => 'KAUR BBKP',
                 'materi' => 'Materi tentang pelatihan penjaringan ikan',
                 'kesimpulan' => 'Bahwa ikan bisa dijaring',
+                'created_at' => \Carbon\Carbon::now()->toDateTimeString(),
                 'id_kub' => 2
             ],
             [
@@ -49,6 +52,7 @@ class NotulenSeeder extends Seeder
                 'jabatan' => 'Anggota IME',
                 'materi' => 'Materi tentang membangun bangsa',
                 'kesimpulan' => 'Bahwa bangsa bisa dibangun',
+                'created_at' => \Carbon\Carbon::now()->toDateTimeString(),
                 'id_kub' => 2
             ],
             [
@@ -58,6 +62,7 @@ class NotulenSeeder extends Seeder
                 'jabatan' => 'Ketua DKTU',
                 'materi' => 'Materi tentang mempertahankan diri',
                 'kesimpulan' => 'Bahwa diri bisa dipertahankan',
+                'created_at' => \Carbon\Carbon::now()->toDateTimeString(),
                 'id_kub' => 3
             ],
             [
@@ -67,6 +72,7 @@ class NotulenSeeder extends Seeder
                 'jabatan' => 'KAUR JKKIS',
                 'materi' => 'Materi tentang ikan kaleng',
                 'kesimpulan' => 'Bahwa ikan bisa dikaleng',
+                'created_at' => \Carbon\Carbon::now()->toDateTimeString(),
                 'id_kub' => 3
             ],
             [
@@ -76,6 +82,7 @@ class NotulenSeeder extends Seeder
                 'jabatan' => 'KABAG SIRPO',
                 'materi' => 'Materi tentang manajemen manusia',
                 'kesimpulan' => 'Bahwa manusia mana jemen',
+                'created_at' => \Carbon\Carbon::now()->toDateTimeString(),
                 'id_kub' => 4
             ],
             [
@@ -85,6 +92,7 @@ class NotulenSeeder extends Seeder
                 'jabatan' => 'Ketua KUB Internasional',
                 'materi' => 'Materi tentang mengurus KUB',
                 'kesimpulan' => 'Bahwa KUB bisa kurus',
+                'created_at' => \Carbon\Carbon::now()->toDateTimeString(),
                 'id_kub' => 4
             ],
         ]);

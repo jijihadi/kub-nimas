@@ -21,6 +21,7 @@ class RencanaSeeder extends Seeder
                 'waktu' => '2022-10-23 11:20:00',
                 'tempat' => 'Gudang A',
                 'keterangan' => 'Peserta: Nelayan',
+                'created_at' => \Carbon\Carbon::now()->toDateTimeString(),
                 'id_kub' => 1,
             ],
             [
@@ -29,6 +30,7 @@ class RencanaSeeder extends Seeder
                 'waktu' => '2022-11-23 11:20:00',
                 'tempat' => 'Kantor KUB',
                 'keterangan' => 'Peserta: semua anggota',
+                'created_at' => \Carbon\Carbon::now()->toDateTimeString(),
                 'id_kub' => 1,
             ],
             [
@@ -37,6 +39,7 @@ class RencanaSeeder extends Seeder
                 'waktu' => '2022-12-23 11:20:00',
                 'tempat' => 'Pasar lelang',
                 'keterangan' => 'Peserta: pedagang',
+                'created_at' => \Carbon\Carbon::now()->toDateTimeString(),
                 'id_kub' => 2,
             ],
             [
@@ -45,6 +48,7 @@ class RencanaSeeder extends Seeder
                 'waktu' => '2022-10-23 11:20:00',
                 'tempat' => 'Pondasi depan kantor',
                 'keterangan' => 'Peserta: semua anggota',
+                'created_at' => \Carbon\Carbon::now()->toDateTimeString(),
                 'id_kub' => 2,
             ],
             [
@@ -53,6 +57,7 @@ class RencanaSeeder extends Seeder
                 'waktu' => '2022-12-23 11:20:00',
                 'tempat' => 'Pasar Barat',
                 'keterangan' => 'Peserta: Pengusaha',
+                'created_at' => \Carbon\Carbon::now()->toDateTimeString(),
                 'id_kub' => 3,
             ],
             [
@@ -61,6 +66,7 @@ class RencanaSeeder extends Seeder
                 'waktu' => '2022-12-29 11:20:00',
                 'tempat' => 'Kantor',
                 'keterangan' => 'Peserta: semua anggota',
+                'created_at' => \Carbon\Carbon::now()->toDateTimeString(),
                 'id_kub' => 3,
             ],
             [
@@ -69,6 +75,7 @@ class RencanaSeeder extends Seeder
                 'waktu' => '2022-10-22 11:20:00',
                 'tempat' => 'Kantor KUB',
                 'keterangan' => 'Peserta: semua anggota',
+                'created_at' => \Carbon\Carbon::now()->toDateTimeString(),
                 'id_kub' => 4,
             ],
             [
@@ -77,6 +84,7 @@ class RencanaSeeder extends Seeder
                 'waktu' => '2022-10-12 11:20:00',
                 'tempat' => 'Pabrik Baru',
                 'keterangan' => 'Peserta: semua anggota',
+                'created_at' => \Carbon\Carbon::now()->toDateTimeString(),
                 'id_kub' => 4,
             ],
             [
@@ -85,6 +93,7 @@ class RencanaSeeder extends Seeder
                 'waktu' => '2022-11-11 11:20:00',
                 'tempat' => 'Pantai Timur',
                 'keterangan' => 'Peserta: petinggi kub',
+                'created_at' => \Carbon\Carbon::now()->toDateTimeString(),
                 'id_kub' => 4,
             ],
         ]);

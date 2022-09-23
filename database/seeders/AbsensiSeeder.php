@@ -22,6 +22,7 @@ class AbsensiSeeder extends Seeder
                 'jabatan' => 'Anggota',
                 'alamat' => 'Srono',
                 'tanggal' => '2022-08-08',
+                'created_at' => \Carbon\Carbon::now()->toDateTimeString(),
                 'id_kub' => 1,
             ],
             [
@@ -30,6 +31,7 @@ class AbsensiSeeder extends Seeder
                 'jabatan' => 'Anggota',
                 'alamat' => 'Srono',
                 'tanggal' => '2022-08-08',
+                'created_at' => \Carbon\Carbon::now()->toDateTimeString(),
                 'id_kub' => 1,
             ],
             [
@@ -38,6 +40,7 @@ class AbsensiSeeder extends Seeder
                 'jabatan' => 'Anggota',
                 'alamat' => 'Srono',
                 'tanggal' => '2022-08-30',
+                'created_at' => \Carbon\Carbon::now()->toDateTimeString(),
                 'id_kub' => 1,
             ],
             [
@@ -46,6 +49,7 @@ class AbsensiSeeder extends Seeder
                 'jabatan' => 'Anggota',
                 'alamat' => 'Srono',
                 'tanggal' => '2022-08-30',
+                'created_at' => \Carbon\Carbon::now()->toDateTimeString(),
                 'id_kub' => 1,
             ],
             [
@@ -54,6 +58,7 @@ class AbsensiSeeder extends Seeder
                 'jabatan' => 'Anggota',
                 'alamat' => 'Srono',
                 'tanggal' => '2022-08-11',
+                'created_at' => \Carbon\Carbon::now()->toDateTimeString(),
                 'id_kub' => 2,
             ],
             [
@@ -62,6 +67,7 @@ class AbsensiSeeder extends Seeder
                 'jabatan' => 'Anggota',
                 'alamat' => 'Srono',
                 'tanggal' => '2022-08-11',
+                'created_at' => \Carbon\Carbon::now()->toDateTimeString(),
                 'id_kub' => 2,
             ],
 
@@ -71,6 +77,7 @@ class AbsensiSeeder extends Seeder
                 'jabatan' => 'Anggota',
                 'alamat' => 'Srono',
                 'tanggal' => '2022-08-11',
+                'created_at' => \Carbon\Carbon::now()->toDateTimeString(),
                 'id_kub' => 2,
             ],
             [
@@ -79,6 +86,7 @@ class AbsensiSeeder extends Seeder
                 'jabatan' => 'Anggota',
                 'alamat' => 'Srono',
                 'tanggal' => '2022-08-11',
+                'created_at' => \Carbon\Carbon::now()->toDateTimeString(),
                 'id_kub' => 2,
             ],
             [
@@ -87,6 +95,7 @@ class AbsensiSeeder extends Seeder
                 'jabatan' => 'Anggota',
                 'alamat' => 'Srono',
                 'tanggal' => '2022-08-28',
+                'created_at' => \Carbon\Carbon::now()->toDateTimeString(),
                 'id_kub' => 3,
             ],
             [
@@ -95,6 +104,7 @@ class AbsensiSeeder extends Seeder
                 'jabatan' => 'Anggota',
                 'alamat' => 'Srono',
                 'tanggal' => '2022-08-28',
+                'created_at' => \Carbon\Carbon::now()->toDateTimeString(),
                 'id_kub' => 3,
             ],
             [
@@ -103,6 +113,7 @@ class AbsensiSeeder extends Seeder
                 'jabatan' => 'Anggota',
                 'alamat' => 'Srono',
                 'tanggal' => '2022-08-08',
+                'created_at' => \Carbon\Carbon::now()->toDateTimeString(),
                 'id_kub' => 3,
             ],
             [
@@ -111,6 +122,7 @@ class AbsensiSeeder extends Seeder
                 'jabatan' => 'Anggota',
                 'alamat' => 'Srono',
                 'tanggal' => '2022-08-08',
+                'created_at' => \Carbon\Carbon::now()->toDateTimeString(),
                 'id_kub' => 3,
             ],
             [
@@ -119,6 +131,7 @@ class AbsensiSeeder extends Seeder
                 'jabatan' => 'Anggota',
                 'alamat' => 'Srono',
                 'tanggal' => '2022-01-08',
+                'created_at' => \Carbon\Carbon::now()->toDateTimeString(),
                 'id_kub' => 4,
             ],
             [
@@ -127,6 +140,7 @@ class AbsensiSeeder extends Seeder
                 'jabatan' => 'Anggota',
                 'alamat' => 'Srono',
                 'tanggal' => '2022-01-08',
+                'created_at' => \Carbon\Carbon::now()->toDateTimeString(),
                 'id_kub' => 4,
             ],
             [
@@ -135,6 +149,7 @@ class AbsensiSeeder extends Seeder
                 'jabatan' => 'Anggota',
                 'alamat' => 'Srono',
                 'tanggal' => '2022-08-19',
+                'created_at' => \Carbon\Carbon::now()->toDateTimeString(),
                 'id_kub' => 4,
             ],
             [
@@ -143,6 +158,7 @@ class AbsensiSeeder extends Seeder
                 'jabatan' => 'Anggota',
                 'alamat' => 'Srono',
                 'tanggal' => '2022-08-19',
+                'created_at' => \Carbon\Carbon::now()->toDateTimeString(),
                 'id_kub' => 4,
             ],
         ]);

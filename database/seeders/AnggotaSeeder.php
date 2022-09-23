@@ -26,6 +26,7 @@ class AnggotaSeeder extends Seeder
                 'jumlah_perahu' => '1',
                 'jenis_alat' => 'pancing',
                 'keterangan' => '',
+                'created_at' => \Carbon\Carbon::now()->toDateTimeString(),
                 'id_kub' => 1,
             ],
             [
@@ -39,6 +40,7 @@ class AnggotaSeeder extends Seeder
                 'jumlah_perahu' => '12',
                 'jenis_alat' => 'Pukat',
                 'keterangan' => '',
+                'created_at' => \Carbon\Carbon::now()->toDateTimeString(),
                 'id_kub' => 1,
             ],
             [
@@ -52,6 +54,7 @@ class AnggotaSeeder extends Seeder
                 'jumlah_perahu' => '32',
                 'jenis_alat' => 'Pukat',
                 'keterangan' => '',
+                'created_at' => \Carbon\Carbon::now()->toDateTimeString(),
                 'id_kub' => 2,
             ],
             [
@@ -65,6 +68,7 @@ class AnggotaSeeder extends Seeder
                 'jumlah_perahu' => '12',
                 'jenis_alat' => 'Jaring',
                 'keterangan' => '',
+                'created_at' => \Carbon\Carbon::now()->toDateTimeString(),
                 'id_kub' => 2,
             ],
             [
@@ -78,6 +82,7 @@ class AnggotaSeeder extends Seeder
                 'jumlah_perahu' => '10',
                 'jenis_alat' => 'Pukat',
                 'keterangan' => '',
+                'created_at' => \Carbon\Carbon::now()->toDateTimeString(),
                 'id_kub' => 3,
             ],
             [
@@ -91,6 +96,7 @@ class AnggotaSeeder extends Seeder
                 'jumlah_perahu' => '1',
                 'jenis_alat' => 'Pancing',
                 'keterangan' => '',
+                'created_at' => \Carbon\Carbon::now()->toDateTimeString(),
                 'id_kub' => 3,
             ],
             [
@@ -104,6 +110,7 @@ class AnggotaSeeder extends Seeder
                 'jumlah_perahu' => '8',
                 'jenis_alat' => 'Jaring',
                 'keterangan' => '',
+                'created_at' => \Carbon\Carbon::now()->toDateTimeString(),
                 'id_kub' => 3,
             ],
             [
@@ -117,6 +124,7 @@ class AnggotaSeeder extends Seeder
                 'jumlah_perahu' => '33',
                 'jenis_alat' => 'Jaring Harimau',
                 'keterangan' => '',
+                'created_at' => \Carbon\Carbon::now()->toDateTimeString(),
                 'id_kub' => 4,
             ],
         ]);

@@ -24,6 +24,7 @@ class TamuSeeder extends Seeder
                 'keperluan' => 'Mampir',
                 'kesan' => 'Ok',
                 'pesan' => 'Tidak',
+                'created_at' => \Carbon\Carbon::now()->toDateTimeString(),
                 'id_kub' => 1,
             ],
             [
@@ -35,6 +36,7 @@ class TamuSeeder extends Seeder
                 'keperluan' => 'Cross-Check',
                 'kesan' => 'Ok',
                 'pesan' => 'Tidak',
+                'created_at' => \Carbon\Carbon::now()->toDateTimeString(),
                 'id_kub' => 1,
             ],
             [
@@ -46,6 +48,7 @@ class TamuSeeder extends Seeder
                 'keperluan' => 'Cek Peralatan',
                 'kesan' => 'Ok',
                 'pesan' => 'Tidak',
+                'created_at' => \Carbon\Carbon::now()->toDateTimeString(),
                 'id_kub' => 2,
             ],
             [
@@ -57,6 +60,7 @@ class TamuSeeder extends Seeder
                 'keperluan' => 'Cek Alat',
                 'kesan' => 'Ok',
                 'pesan' => 'Tidak',
+                'created_at' => \Carbon\Carbon::now()->toDateTimeString(),
                 'id_kub' => 2,
             ],
             [
@@ -68,6 +72,7 @@ class TamuSeeder extends Seeder
                 'keperluan' => 'Sidak',
                 'kesan' => 'Ok',
                 'pesan' => 'Tidak',
+                'created_at' => \Carbon\Carbon::now()->toDateTimeString(),
                 'id_kub' => 3,
             ],
             [
@@ -79,6 +84,7 @@ class TamuSeeder extends Seeder
                 'keperluan' => 'Sidak',
                 'kesan' => 'Ok',
                 'pesan' => 'Tidak',
+                'created_at' => \Carbon\Carbon::now()->toDateTimeString(),
                 'id_kub' => 3,
             ],
             [
@@ -90,6 +96,7 @@ class TamuSeeder extends Seeder
                 'keperluan' => 'Silaturahmi',
                 'kesan' => 'Ok',
                 'pesan' => 'Tidak',
+                'created_at' => \Carbon\Carbon::now()->toDateTimeString(),
                 'id_kub' => 4,
             ],
             [
@@ -101,6 +108,7 @@ class TamuSeeder extends Seeder
                 'keperluan' => 'Sidak',
                 'kesan' => 'Ok',
                 'pesan' => 'Tidak',
+                'created_at' => \Carbon\Carbon::now()->toDateTimeString(),
                 'id_kub' => 4,
             ],
         ]);

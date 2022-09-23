@@ -23,6 +23,7 @@ class UsahaSeeder extends Seeder
                 'tempat' => 'Gudang 11',
                 'hasil' => 'Produk Ikan kering',
                 'keterangan' => 'Ok',
+                'created_at' => \Carbon\Carbon::now()->toDateTimeString(),
                 'id_kub' => 1
             ],
             [
@@ -33,6 +34,7 @@ class UsahaSeeder extends Seeder
                 'tempat' => 'Kantor KUB',
                 'hasil' => 'Produk jaring pukat',
                 'keterangan' => 'Ok',
+                'created_at' => \Carbon\Carbon::now()->toDateTimeString(),
                 'id_kub' => 1
             ],
             [
@@ -43,6 +45,7 @@ class UsahaSeeder extends Seeder
                 'tempat' => 'Tambak Pengemis Selatan',
                 'hasil' => 'Produk kepemilikan tambak',
                 'keterangan' => 'Ok',
+                'created_at' => \Carbon\Carbon::now()->toDateTimeString(),
                 'id_kub' => 2
             ],
             [
@@ -53,6 +56,7 @@ class UsahaSeeder extends Seeder
                 'tempat' => 'Laut timur',
                 'hasil' => 'Produk peta perikanan',
                 'keterangan' => 'Ok',
+                'created_at' => \Carbon\Carbon::now()->toDateTimeString(),
                 'id_kub' => 2
             ],
             [
@@ -63,6 +67,7 @@ class UsahaSeeder extends Seeder
                 'tempat' => 'Muncar',
                 'hasil' => 'Produk cabang KUB baru',
                 'keterangan' => 'Ok',
+                'created_at' => \Carbon\Carbon::now()->toDateTimeString(),
                 'id_kub' => 3
             ],
             [
@@ -73,6 +78,7 @@ class UsahaSeeder extends Seeder
                 'tempat' => 'pabrik pembeku',
                 'hasil' => 'Produk ikan beku',
                 'keterangan' => 'Ok',
+                'created_at' => \Carbon\Carbon::now()->toDateTimeString(),
                 'id_kub' => 3
             ],
             [
@@ -83,6 +89,7 @@ class UsahaSeeder extends Seeder
                 'tempat' => 'Gudang depan',
                 'hasil' => 'Produk bibit ikan',
                 'keterangan' => 'Ok',
+                'created_at' => \Carbon\Carbon::now()->toDateTimeString(),
                 'id_kub' => 4
             ],
             [
@@ -93,6 +100,7 @@ class UsahaSeeder extends Seeder
                 'tempat' => 'Gudang Samping',
                 'hasil' => 'Produk Terumbu karang',
                 'keterangan' => 'Ok',
+                'created_at' => \Carbon\Carbon::now()->toDateTimeString(),
                 'id_kub' => 4
             ],
         ]);

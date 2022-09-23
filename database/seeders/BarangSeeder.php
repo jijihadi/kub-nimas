@@ -22,6 +22,7 @@ class BarangSeeder extends Seeder
                 'jumlah' => 12,
                 'kondisi' => 'Baik',
                 'perolehan' => 'Beli',
+                'created_at' => \Carbon\Carbon::now()->toDateTimeString(),
                 'id_kub' => 1,
             ],
             [
@@ -31,6 +32,7 @@ class BarangSeeder extends Seeder
                 'jumlah' => 2,
                 'kondisi' => 'Baik',
                 'perolehan' => 'Hibah',
+                'created_at' => \Carbon\Carbon::now()->toDateTimeString(),
                 'id_kub' => 1,
             ],
             [
@@ -40,6 +42,7 @@ class BarangSeeder extends Seeder
                 'jumlah' => 11,
                 'kondisi' => 'Rusak',
                 'perolehan' => 'Hibah',
+                'created_at' => \Carbon\Carbon::now()->toDateTimeString(),
                 'id_kub' => 2,
             ],
             [
@@ -49,6 +52,7 @@ class BarangSeeder extends Seeder
                 'jumlah' => 7,
                 'kondisi' => 'Baik',
                 'perolehan' => 'Hibah',
+                'created_at' => \Carbon\Carbon::now()->toDateTimeString(),
                 'id_kub' => 2,
             ],
             [
@@ -58,6 +62,7 @@ class BarangSeeder extends Seeder
                 'jumlah' => 5,
                 'kondisi' => 'Baik',
                 'perolehan' => 'Beli',
+                'created_at' => \Carbon\Carbon::now()->toDateTimeString(),
                 'id_kub' => 3,
             ],
             [
@@ -67,6 +72,7 @@ class BarangSeeder extends Seeder
                 'jumlah' => 4,
                 'kondisi' => 'Baik',
                 'perolehan' => 'Hibah',
+                'created_at' => \Carbon\Carbon::now()->toDateTimeString(),
                 'id_kub' => 3,
             ],
             [
@@ -76,6 +82,7 @@ class BarangSeeder extends Seeder
                 'jumlah' => 1,
                 'kondisi' => 'Baik',
                 'perolehan' => 'Beli',
+                'created_at' => \Carbon\Carbon::now()->toDateTimeString(),
                 'id_kub' => 4,
             ],
             [
@@ -85,6 +92,7 @@ class BarangSeeder extends Seeder
                 'jumlah' => 15,
                 'kondisi' => 'Baik Sebagian',
                 'perolehan' => 'Hibah',
+                'created_at' => \Carbon\Carbon::now()->toDateTimeString(),
                 'id_kub' => 1,
             ],
         ]);
