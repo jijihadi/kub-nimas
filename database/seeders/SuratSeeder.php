@@ -21,9 +21,9 @@ class SuratSeeder extends Seeder
                 'tanggal_masuk' => '2022-08-03',
 
                 'perihal_masuk' => 'Pemberitahuan',
-                'perihal_keluar' => '',
+                
                 'tujuan_masuk' => 'Ketua KUB',
-                'tujuan_keluar' => '',
+                
                 'tindak_lanjut' => 'Forwarded',
                 'keterangan' => 'Aman',
                 'created_at' => \Carbon\Carbon::now()->toDateTimeString(),
@@ -34,9 +34,9 @@ class SuratSeeder extends Seeder
                 'tanggal' => '2022-08-04',
 
                 'tanggal_keluar' => '2022-08-04',
-                'perihal_masuk' => '',
+                
                 'perihal_keluar' => 'Pengajuan Kerja Sama',
-                'tujuan_masuk' => '',
+                
                 'tujuan_keluar' => 'KABAG MJS',
                 'tindak_lanjut' => 'Dikirim',
                 'keterangan' => 'Aman',
@@ -49,9 +49,9 @@ class SuratSeeder extends Seeder
                 'tanggal_masuk' => '2022-08-02',
 
                 'perihal_masuk' => 'Informasi',
-                'perihal_keluar' => '',
+                
                 'tujuan_masuk' => 'Ketua KUB',
-                'tujuan_keluar' => '',
+                
                 'tindak_lanjut' => 'Diarsip',
                 'keterangan' => 'Aman',
                 'created_at' => \Carbon\Carbon::now()->toDateTimeString(),
@@ -62,9 +62,9 @@ class SuratSeeder extends Seeder
                 'tanggal' => '2022-08-04',
 
                 'tanggal_keluar' => '2022-08-04',
-                'perihal_masuk' => '',
+                
                 'perihal_keluar' => 'Pengajuan Pelelangan',
-                'tujuan_masuk' => '',
+                
                 'tujuan_keluar' => 'KAUR DDI',
                 'tindak_lanjut' => 'Dikirim',
                 'keterangan' => 'Aman',
@@ -77,9 +77,9 @@ class SuratSeeder extends Seeder
                 'tanggal_masuk' => '2022-02-03',
 
                 'perihal_masuk' => 'Permohonan penangguhan',
-                'perihal_keluar' => '',
+                
                 'tujuan_masuk' => 'Ketua KUB',
-                'tujuan_keluar' => '',
+                
                 'tindak_lanjut' => 'Forwarded',
                 'keterangan' => 'Aman',
                 'created_at' => \Carbon\Carbon::now()->toDateTimeString(),
@@ -90,9 +90,9 @@ class SuratSeeder extends Seeder
                 'tanggal' => '2022-09-04',
 
                 'tanggal_keluar' => '2022-09-04',
-                'perihal_masuk' => '',
+                
                 'perihal_keluar' => 'Pengajuan Kredit',
-                'tujuan_masuk' => '',
+                
                 'tujuan_keluar' => 'BANK MANTAP',
                 'tindak_lanjut' => 'Dikirim',
                 'keterangan' => 'Aman',
@@ -105,9 +105,9 @@ class SuratSeeder extends Seeder
                 'tanggal_masuk' => '2022-07-03',
 
                 'perihal_masuk' => 'Penarikan Karyawan',
-                'perihal_keluar' => '',
+                
                 'tujuan_masuk' => 'Ketua KUB',
-                'tujuan_keluar' => '',
+                
                 'tindak_lanjut' => 'Forwarded',
                 'keterangan' => 'Aman',
                 'created_at' => \Carbon\Carbon::now()->toDateTimeString(),
@@ -118,9 +118,9 @@ class SuratSeeder extends Seeder
                 'tanggal' => '2022-10-04',
 
                 'tanggal_keluar' => '2022-10-04',
-                'perihal_masuk' => '',
+                
                 'perihal_keluar' => 'Pengajuan Magang',
-                'tujuan_masuk' => '',
+                
                 'tujuan_keluar' => 'KABAG BGJK',
                 'tindak_lanjut' => 'Dikirim',
                 'keterangan' => 'Aman',
