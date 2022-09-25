@@ -21,7 +21,7 @@ class KasSeeder extends Seeder
                 'banyaknya' => 9000000,
                 'harga_satuan' => 900000,
                 'masuk' => 9000000,
-                'keluar' => 0,
+                
                 'created_at' => \Carbon\Carbon::now()->toDateTimeString(),
                 'id_kub' => 1
             ],
@@ -30,7 +30,7 @@ class KasSeeder extends Seeder
                 'tanggal' => '2022-09-15',
                 'banyaknya' => 1000000,
                 'harga_satuan' => 100000,
-                'masuk' => 0,
+                
                 'keluar' => 1000000,
                 'created_at' => \Carbon\Carbon::now()->toDateTimeString(),
                 'id_kub' => 1
@@ -41,7 +41,7 @@ class KasSeeder extends Seeder
                 'banyaknya' => 12000000,
                 'harga_satuan' => 120000,
                 'masuk' => 12000000,
-                'keluar' => 0,
+                
                 'created_at' => \Carbon\Carbon::now()->toDateTimeString(),
                 'id_kub' => 2
             ],
@@ -50,7 +50,7 @@ class KasSeeder extends Seeder
                 'tanggal' => '2022-09-11',
                 'banyaknya' => 8000000,
                 'harga_satuan' => 8000000,
-                'masuk' => 0,
+                
                 'keluar' => 8000000,
                 'created_at' => \Carbon\Carbon::now()->toDateTimeString(),
                 'id_kub' => 2
@@ -61,7 +61,7 @@ class KasSeeder extends Seeder
                 'banyaknya' => 19000000,
                 'harga_satuan' => 19000000,
                 'masuk' => 19000000,
-                'keluar' => 0,
+                
                 'created_at' => \Carbon\Carbon::now()->toDateTimeString(),
                 'id_kub' => 3
             ],
@@ -70,7 +70,7 @@ class KasSeeder extends Seeder
                 'tanggal' => '2022-09-14',
                 'banyaknya' => 1000000,
                 'harga_satuan' => 100000,
-                'masuk' => 0,
+                
                 'keluar' => 1000000,
                 'created_at' => \Carbon\Carbon::now()->toDateTimeString(),
                 'id_kub' => 3
@@ -81,7 +81,7 @@ class KasSeeder extends Seeder
                 'banyaknya' => 180000000,
                 'harga_satuan' => 1800000,
                 'masuk' => 180000000,
-                'keluar' => 0,
+                
                 'created_at' => \Carbon\Carbon::now()->toDateTimeString(),
                 'id_kub' => 4
             ],
@@ -90,7 +90,7 @@ class KasSeeder extends Seeder
                 'tanggal' => '2022-09-25',
                 'banyaknya' => 10000000,
                 'harga_satuan' => 100000,
-                'masuk' => 0,
+                
                 'keluar' => 10000000,
                 'created_at' => \Carbon\Carbon::now()->toDateTimeString(),
                 'id_kub' => 4
