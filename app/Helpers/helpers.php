@@ -296,7 +296,7 @@ if (!function_exists('getkasmasuk')) {
     {
         $query = DB::table('kas')
             ->select(DB::raw('(SUM(masuk)) as saldo'))
-            // ->where('tanggal','<=', $tanggal)
+        // ->where('tanggal','<=', $tanggal)
             ->groupBy(DB::raw('month(created_at)'))
             ->orderby('id')
             ->get()
@@ -319,7 +319,7 @@ if (!function_exists('getkasmasukid')) {
     {
         $query = DB::table('kas')
             ->select(DB::raw('(SUM(masuk)) as saldo'))
-            // ->where('tanggal','<=', $tanggal)
+        // ->where('tanggal','<=', $tanggal)
             ->where('id_kub', $id)
             ->groupBy(DB::raw('month(created_at)'))
             ->orderby('id')
@@ -343,7 +343,7 @@ if (!function_exists('getkaskeluar')) {
     {
         $query = DB::table('kas')
             ->select(DB::raw('(SUM(keluar)) as saldo'))
-            // ->where('tanggal','<=', $tanggal)
+        // ->where('tanggal','<=', $tanggal)
             ->groupBy(DB::raw('month(created_at)'))
             ->orderby('id')
             ->get()
@@ -366,7 +366,7 @@ if (!function_exists('getkaskeluarid')) {
     {
         $query = DB::table('kas')
             ->select(DB::raw('(SUM(keluar)) as saldo'))
-            // ->where('tanggal','<=', $tanggal)
+        // ->where('tanggal','<=', $tanggal)
             ->where('id_kub', $id)
             ->groupBy(DB::raw('month(created_at)'))
             ->orderby('id')

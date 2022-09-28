@@ -128,8 +128,8 @@
                                                             <tr>
                                                                 <th class="text-black" colspan="3">Produksi</th>
                                                                 @php($jumlahprod = gettable('produksis', 'id_kub', $row->id))
-                                                                @php($kg = array_sum(array_column($jumlahprod, 'jumlah')))
-                                                                @php($rp = array_sum(array_column($jumlahprod, 'nilai')))
+                                                                @php($kg = ($jumlahprod==0)?0:array_sum(array_column($jumlahprod, 'jumlah')))
+                                                                @php($rp = ($jumlahprod==0)?0:array_sum(array_column($jumlahprod, 'nilai')))
                                                             </tr>
                                                             <tr>
                                                                 <th width="15%">Total Produksi (Kg)</th>
@@ -146,8 +146,8 @@
                                                             <tr>
                                                                 <th class="text-black" colspan="3">Kas KUB</th>
                                                                 @php($jumlahkas = gettable('kas', 'id_kub', $row->id))
-                                                                @php($masuk = array_sum(array_column($jumlahkas, 'masuk')))
-                                                                @php($keluar = array_sum(array_column($jumlahkas, 'keluar')))
+                                                                @php($masuk = ($jumlahkas==0)?0:array_sum(array_column($jumlahkas, 'masuk')))
+                                                                @php($keluar = ($jumlahkas==0)?0:array_sum(array_column($jumlahkas, 'keluar')))
                                                             </tr>
                                                             <tr>
                                                                 <th>Uang Kas Masuk</th>
@@ -244,8 +244,8 @@
                                                             <tr>
                                                                 <th class="text-black" colspan="3">Produksi</th>
                                                                 @php($jumlahprod = gettable('produksis', 'id_kub', $row->id))
-                                                                @php($kg = array_sum(array_column($jumlahprod, 'jumlah')))
-                                                                @php($rp = array_sum(array_column($jumlahprod, 'nilai')))
+                                                                @php($kg = ($jumlahprod==0)?0:array_sum(array_column($jumlahprod, 'jumlah')))
+                                                                @php($rp = ($jumlahprod==0)?0:array_sum(array_column($jumlahprod, 'nilai')))
                                                             </tr>
                                                             <tr>
                                                                 <th width="15%">Total Produksi (Kg)</th>
@@ -262,8 +262,8 @@
                                                             <tr>
                                                                 <th class="text-black" colspan="3">Kas KUB</th>
                                                                 @php($jumlahkas = gettable('kas', 'id_kub', $row->id))
-                                                                @php($masuk = array_sum(array_column($jumlahkas, 'masuk')))
-                                                                @php($keluar = array_sum(array_column($jumlahkas, 'keluar')))
+                                                                @php($masuk = ($jumlahkas==0)?0:array_sum(array_column($jumlahkas, 'masuk')))
+                                                                @php($keluar = ($jumlahkas==0)?0:array_sum(array_column($jumlahkas, 'keluar')))
                                                             </tr>
                                                             <tr>
                                                                 <th>Uang Kas Masuk</th>

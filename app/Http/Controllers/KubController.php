@@ -31,7 +31,7 @@ class KubController extends Controller
      */
     public function create()
     {
-        $data['main'] = User::all();
+        $data['main'] = User::where('role', 'not like', '2')->get();
         return view('kub/form-add', $data);
     }
 
@@ -95,7 +95,7 @@ class KubController extends Controller
     public function edit(Kub $kub, $id)
     {
         $data['main'] = Kub::find($id)->toArray();
-        $data['side'] = User::all();
+        $data['side'] = User::where('role', 'not like', '2')->get();
         return view('kub/form-edit', $data);
     }
 

@@ -32,28 +32,33 @@
                                 @include('layouts.partial.alert')
                                 <div class="mb-3 col-lg-12">
                                     <label for="name" class="form-label">Nama KUB</label>
-                                    <input id="name" class="form-control" name="name" type="text" value="{{$main['name']}}">
+                                    <input id="name" class="form-control" name="name" type="text"
+                                        value="{{ $main['name'] }}">
                                 </div>
 
                                 <div class="mb-3 col-lg-12">
                                     <label for="exampleFormControlTextarea1" class="form-label">Alamat</label>
-                                    <textarea class="form-control" id="exampleFormControlTextarea1" name="alamat" rows="3">{{$main['alamat']}}</textarea>
+                                    <textarea class="form-control" id="exampleFormControlTextarea1" name="alamat" rows="3">{{ $main['alamat'] }}</textarea>
                                 </div>
                                 <div class="mb-3 col-lg-6">
                                     <label for="name" class="form-label">Jumlah Anggota</label>
-                                    <input id="name" class="form-control" name="jumlah_anggota" type="number" value="{{$main['jumlah_anggota']}}">
+                                    <input id="name" class="form-control" name="jumlah_anggota" type="number"
+                                        value="{{ $main['jumlah_anggota'] }}">
                                 </div>
                                 <div class="mb-3 col-lg-6">
                                     <label for="name" class="form-label">Kelas</label>
-                                    <input id="name" class="form-control" name="kelas" type="text" value="{{$main['kelas']}}">
+                                    <input id="name" class="form-control" name="kelas" type="text"
+                                        value="{{ $main['kelas'] }}">
                                 </div>
                                 <div class="mb-3 col-lg-6">
                                     <label for="name" class="form-label">Nomor Registrasi <b>SKT</b></label>
-                                    <input id="name" class="form-control" name="noreg_skt" type="text" value="{{$main['noreg_skt']}}">
+                                    <input id="name" class="form-control" name="noreg_skt" type="text"
+                                        value="{{ $main['noreg_skt'] }}">
                                 </div>
                                 <div class="mb-3 col-lg-6">
                                     <label for="name" class="form-label">Nomor Registrasi <b>PUPI</b></label>
-                                    <input id="name" class="form-control" name="noreg_pupi" type="text" value="{{$main['noreg_pupi']}}">
+                                    <input id="name" class="form-control" name="noreg_pupi" type="text"
+                                        value="{{ $main['noreg_pupi'] }}">
                                 </div>
                                 <div class="mb-3 col-lg-12">
                                     <label class="form-label">Ketua</label>
@@ -61,7 +66,9 @@
                                         name="id_ketua">
                                         <option value="0">Pilih Ketua KUB</option>
                                         @foreach ($side as $row)
-                                            <option value="{{ $row->id }}" {{ $main['id_ketua'] == $row->id ? 'selected' : '' }}>{{ $row->name }}</option>
+                                            <option value="{{ $row->id }}"
+                                                {{ $main['id_ketua'] == $row->id ? 'selected' : '' }}
+                                                {{ getidkub($row->id) == 0 ? '' : 'disabled' }}>{{ $row->name }}</option>
                                         @endforeach
                                     </select>
                                 </div>

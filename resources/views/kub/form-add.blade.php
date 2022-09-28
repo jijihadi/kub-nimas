@@ -59,7 +59,8 @@
                                     name="id_ketua">
                                     <option value="0">Pilih Ketua KUB</option>
                                     @foreach ($main as $row)
-                                        <option value="{{ $row->id }}">{{ $row->name }}</option>
+                                        <option value="{{ $row->id }}" {{ getidkub($row->id) == 0 ? '' : 'disabled' }}>
+                                            {{ $row->name }}</option>
                                     @endforeach
                                 </select>
                             </div>
