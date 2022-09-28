@@ -22,7 +22,7 @@ class KubSeeder extends Seeder
                 'kelas' => 'Pusat',
                 'noreg_skt' => 'KTJY-00192-9800',
                 'noreg_pupi' => 'PP-889923-HGJ-01',
-                'id_ketua' => 1,
+                'id_ketua' => 2,
                 'created_at' => \Carbon\Carbon::now()->toDateTimeString(),
             ],
             [
@@ -32,7 +32,7 @@ class KubSeeder extends Seeder
                 'kelas' => 'Cabang',
                 'noreg_skt' => 'RGLW-09231-7329',
                 'noreg_pupi' => 'PP-099231-IKA-01',
-                'id_ketua' => 2,
+                'id_ketua' => 3,
                 'created_at' => \Carbon\Carbon::now()->toDateTimeString(),
             ],
             [
@@ -42,7 +42,7 @@ class KubSeeder extends Seeder
                 'kelas' => 'Cabang',
                 'noreg_skt' => 'BMNS-99123-9012',
                 'noreg_pupi' => 'PP-682371-DDT-95',
-                'id_ketua' => 3,
+                'id_ketua' => 4,
                 'created_at' => \Carbon\Carbon::now()->toDateTimeString(),
             ],
             [
@@ -52,7 +52,7 @@ class KubSeeder extends Seeder
                 'kelas' => 'Pusat',
                 'noreg_skt' => 'SRGL-72188-8872',
                 'noreg_pupi' => 'PP-612380-FCX-88',
-                'id_ketua' => 4,
+                'id_ketua' => 5,
                 'created_at' => \Carbon\Carbon::now()->toDateTimeString(),
             ],
         ]);
